@@ -11,6 +11,8 @@ import {
   BarChart3,
   Lightbulb,
   Network,
+  Database,
+  Zap,
 } from "lucide-react";
 
 export default function InnovazionePage() {
@@ -108,53 +110,98 @@ export default function InnovazionePage() {
         </div>
       </section>
 
-      {/* Technology Pillars */}
-      <section className="py-20 px-4 bg-background">
+      {/* Traction Section */}
+      <section className="py-12 px-4 bg-background border-y border-primary/10">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">1.000+</div>
+              <div className="text-muted-foreground">eventi mappati</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">77+</div>
+              <div className="text-muted-foreground">fonti monitorate</div>
+            </div>
+            <div>
+              <div className="text-4xl font-bold text-primary mb-2">Palermo</div>
+              <div className="text-muted-foreground">città pilota</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Technology Pillars - Split into Today and Roadmap */}
+      <section className="py-20 px-4 bg-card">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4">
-            Pilastri <span className="text-primary">Tecnologici</span>
+            Cosa Abbiamo <span className="text-primary">Costruito</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Le tecnologie chiave alla base della nostra piattaforma.
+            La tecnologia operativa oggi sulla piattaforma.
+          </p>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+            <TechCard
+              icon={<Zap className="w-8 h-8" />}
+              title="Pipeline AI di Estrazione"
+              description="Sistema automatizzato di scraping e analisi che processa 77+ fonti Instagram e web usando Apify e OpenRouter. Oltre 1.000 eventi catalogati con estrazione automatica quotidiana e discovery settimanale di nuove fonti."
+            />
+            <TechCard
+              icon={<Globe className="w-8 h-8" />}
+              title="NLP Multilingue"
+              description="Elaborazione del linguaggio naturale ottimizzata per italiano, dialetto siciliano e inglese. Estrae dettagli di eventi da post social non strutturati, comprende riferimenti culturali locali e slang."
+            />
+            <TechCard
+              icon={<Database className="w-8 h-8" />}
+              title="Discovery Automatizzata"
+              description="Algoritmi per la scoperta automatica di nuove fonti di eventi nelle città target. Database Supabase PostgreSQL con storage media integrato e pipeline di matching qualitativo delle immagini."
+            />
+          </div>
+
+          <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4 mt-16">
+            Cosa Stiamo <span className="text-primary">Sviluppando</span>
+          </h2>
+          <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
+            La nostra roadmap include funzionalità che portano la piattaforma al livello successivo.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <TechCard
               icon={<Brain className="w-8 h-8" />}
               title="Recommendation Engine"
-              description="Algoritmi di raccomandazione che apprendono dalle preferenze individuali e dai pattern sociali, combinando collaborative filtering e context-awareness per suggerire esperienze culturali personalizzate."
+              description="Stiamo sviluppando algoritmi di raccomandazione che combinano collaborative filtering e context-awareness per suggerire esperienze culturali personalizzate basate su preferenze e pattern sociali."
             />
             <TechCard
               icon={<Network className="w-8 h-8" />}
               title="Social Graph Analysis"
-              description="Analisi delle reti sociali urbane per comprendere come le comunità si formano attorno a eventi e spazi culturali, identificando dinamiche di aggregazione e influenza sociale."
+              description="La nostra roadmap include l'analisi delle reti sociali urbane per comprendere come le comunità si formano attorno a eventi e spazi, identificando dinamiche di aggregazione."
             />
             <TechCard
               icon={<BarChart3 className="w-8 h-8" />}
               title="Cultural Analytics"
-              description="Modelli predittivi che analizzano trend culturali e di partecipazione, offrendo insight sulle dinamiche dell'ecosistema sociale urbano in tempo reale."
+              description="Modelli predittivi in sviluppo per analizzare trend culturali e di partecipazione, offrendo insight sulle dinamiche dell'ecosistema sociale urbano in tempo reale."
             />
             <TechCard
               icon={<Users className="w-8 h-8" />}
               title="Behavioral Insights"
-              description="Applicazione di principi di behavioral science e gamification informata dalla ricerca per incentivare la partecipazione sociale e il senso di comunità."
-            />
-            <TechCard
-              icon={<Globe className="w-8 h-8" />}
-              title="NLP Multilingue"
-              description="Elaborazione del linguaggio naturale ottimizzata per il contesto culturale mediterraneo, con comprensione di dialetti, slang e riferimenti culturali locali."
+              description="Applicazione di principi di behavioral science e gamification informata dalla ricerca per incentivare la partecipazione sociale e rafforzare il senso di comunità."
             />
             <TechCard
               icon={<Lightbulb className="w-8 h-8" />}
-              title="Responsible AI"
-              description="Design etico e trasparente, con attenzione alla privacy, all'equità algoritmica e all'impatto sociale positivo. Tecnologia al servizio delle persone, non il contrario."
+              title="AI Concierge"
+              description="Chatbot conversazionale per la scoperta di eventi tramite linguaggio naturale, con comprensione del contesto culturale e delle preferenze individuali."
+            />
+            <TechCard
+              icon={<Globe className="w-8 h-8" />}
+              title="Espansione Geografica"
+              description="Da Palermo verso altre città siciliane e italiane, poi nel Mediterraneo ed Europa, portando il modello di mappatura culturale AI-driven in nuovi territori."
             />
           </div>
         </div>
       </section>
 
       {/* Interdisciplinary Section */}
-      <section className="py-20 px-4 bg-card">
+      <section className="py-20 px-4 bg-background">
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
@@ -164,14 +211,14 @@ export default function InnovazionePage() {
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  L&apos;innovazione più impattante nell&apos;ambito
-                  dell&apos;intelligenza artificiale non avviene in isolamento
-                  tecnologico, ma quando i modelli computazionali si integrano
-                  con la comprensione profonda dei comportamenti umani e delle
-                  dinamiche sociali.
+                  <span translate="no">CROWDIA</span> nasce dall&apos;intersezione tra ingegneria software, intelligenza artificiale e passione per la cultura mediterranea. Non siamo solo una tech company — siamo un progetto che crede nell&apos;innovazione multidisciplinare.
                 </p>
                 <p>
-                  Il nostro team combina competenze in{" "}
+                  L&apos;innovazione più impattante nell&apos;ambito
+                  dell&apos;intelligenza artificiale avviene quando i modelli computazionali si integrano con la comprensione profonda dei comportamenti umani e delle dinamiche sociali.
+                </p>
+                <p>
+                  Integriamo competenze in{" "}
                   <strong className="text-foreground">
                     computer science, data science, sociologia urbana e studi
                     culturali
@@ -216,54 +263,50 @@ export default function InnovazionePage() {
       </section>
 
       {/* Impact Section */}
-      <section className="py-20 px-4 bg-background">
+      <section className="py-20 px-4 bg-card">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4">
-            Impatto e{" "}
-            <span className="text-primary">Contesto Europeo</span>
+            L&apos;Impatto che{" "}
+            <span className="text-primary">Vogliamo Creare</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            La nostra visione si inserisce nelle sfide chiave
-            dell&apos;innovazione europea.
+            Crediamo in un&apos;innovazione che generi valore reale per persone e comunità.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ImpactCard
               title="Smart Cities & Comunità"
-              description="Contribuire alla trasformazione digitale delle città europee, partendo dal Mediterraneo. La nostra piattaforma genera dati e insight utili per policy maker, urbanisti e amministrazioni locali che vogliono comprendere e valorizzare la vita culturale dei territori."
+              description="Vogliamo contribuire alla trasformazione digitale delle città, partendo dal Mediterraneo. I dati e gli insight che generiamo possono aiutare urbanisti, amministrazioni e policy maker a comprendere meglio la vita culturale dei territori."
             />
             <ImpactCard
               title="Inclusione Digitale"
-              description="Rendere la tecnologia accessibile e utile per tutti, abbattendo le barriere tra il digitale e la vita reale. Un'attenzione particolare alle comunità meno rappresentate nell'ecosistema tecnologico europeo."
+              description="La tecnologia deve essere accessibile a tutti. Lavoriamo per abbattere le barriere tra il digitale e la vita reale, con attenzione particolare alle comunità meno rappresentate nell'ecosistema tech."
             />
             <ImpactCard
               title="Innovazione Mediterranea"
-              description="Il Mediterraneo ha una tradizione unica di socialità, cultura e comunità. La nostra missione è trasformare questa ricchezza in un modello di innovazione esportabile, dimostrando che il Sud Europa può essere protagonista dell'innovazione tecnologica."
+              description="Il Mediterraneo ha una tradizione unica di socialità e cultura. Crediamo che questa ricchezza possa diventare un modello di innovazione esportabile, dimostrando che il Sud Europa può guidare la rivoluzione tecnologica."
             />
             <ImpactCard
               title="Ricerca Collaborativa"
-              description="Siamo aperti a collaborazioni con università, centri di ricerca e partner europei. Crediamo nella ricerca applicata che unisce rigore accademico e impatto concreto, contribuendo alla costruzione dello Spazio Europeo della Ricerca."
+              description="Siamo aperti a partnership con università e centri di ricerca. Crediamo nella ricerca applicata che unisce rigore accademico e impatto concreto, contribuendo alla costruzione di uno spazio europeo dell'innovazione."
             />
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 px-4 bg-card border-t border-primary/20">
+      <section className="py-20 px-4 bg-background border-t border-primary/20">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold">
             Costruiamo Insieme il{" "}
             <span className="text-primary">Futuro</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Siamo alla ricerca di partner strategici, istituzioni di ricerca e
-            organizzazioni che condividono la nostra visione di un&apos;innovazione
-            tecnologica al servizio della coesione sociale e culturale. Se sei
-            interessato a collaborare, ci piacerebbe parlarne.
+            Cerchiamo persone e organizzazioni che condividono la nostra visione: università, centri di ricerca, istituzioni culturali, amministrazioni locali, investitori e partner che credono in un&apos;innovazione tecnologica al servizio delle comunità. Se ti riconosci in questo progetto, parliamone.
           </p>
           <div className="pt-4">
             <a
-              href="mailto:info@crowdia.app"
+              href="mailto:info@crowdia.ai"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-inter font-semibold rounded-lg hover:bg-primary/90 transition-colors text-lg"
             >
               Contattaci
@@ -273,10 +316,10 @@ export default function InnovazionePage() {
       </section>
 
       {/* Footer */}
-      <footer className="py-8 px-4 bg-background border-t border-primary/10">
+      <footer className="py-8 px-4 bg-card border-t border-primary/10">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm text-gray-500">
-            &copy; 2025 <span translate="no">CROWDIA</span>. All rights
+            &copy; 2026 <span translate="no">CROWDIA</span>. All rights
             reserved.
           </p>
         </div>
