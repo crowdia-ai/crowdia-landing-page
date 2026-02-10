@@ -59,15 +59,13 @@ export default function InnovazionePage() {
 
         <div className="max-w-4xl mx-auto space-y-8 px-4">
           <h1 className="font-montserrat text-4xl md:text-5xl lg:text-7xl font-bold mb-6 mt-20 leading-tight">
-            <span className="text-white">Intelligenza Artificiale</span>
+            <span className="text-white">Urban Social Discovery</span>
             <br />
-            <span className="text-primary">per l&apos;Innovazione Sociale</span>
+            <span className="text-primary">Ecosystem</span>
           </h1>
 
           <p className="text-lg md:text-xl lg:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-            Uniamo tecnologia avanzata e comprensione culturale per trasformare
-            il modo in cui le persone vivono e si connettono negli spazi urbani
-            del Mediterraneo.
+            Breaking heterogeneous data silos to unlock urban cultural intelligence across Mediterranean cities through AI-powered semantic aggregation.
           </p>
         </div>
       </VideoHero>
@@ -77,33 +75,25 @@ export default function InnovazionePage() {
         <div className="max-w-5xl mx-auto">
           <div className="max-w-3xl mx-auto">
             <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-8">
-              La Nostra <span className="text-primary">Visione</span>
+              Our <span className="text-primary">Vision</span>
             </h2>
             <div className="space-y-6 text-lg text-muted-foreground leading-relaxed border-l-2 border-primary/20 pl-6">
               <p>
-                <span translate="no">CROWDIA</span> nasce dall&apos;osservazione
-                di un problema reale: nelle città del Sud Europa, la ricchezza
-                culturale e sociale è enorme, ma frammentata. Eventi, comunità e
-                opportunità di connessione restano invisibili alla maggior parte
-                delle persone.
+                <span translate="no">CROWDIA</span> addresses a critical challenge in Southern European urban ecosystems: cultural and social richness exists in abundance, but remains trapped in heterogeneous data silos. Events, communities, and opportunities for social connection stay invisible to most citizens due to fragmented information landscapes.
               </p>
               <p>
-                La nostra piattaforma applica{" "}
+                Our platform applies{" "}
                 <strong className="text-foreground">
-                  intelligenza artificiale e analisi dei dati
+                  AI-powered semantic data aggregation
                 </strong>{" "}
-                per mappare, comprendere e valorizzare gli ecosistemi culturali
-                urbani — creando un ponte tra innovazione tecnologica e dinamiche
-                sociali reali.
+                to map, analyze, and unlock urban cultural ecosystems — creating a foundational infrastructure layer that bridges technological innovation with real-world social dynamics.
               </p>
               <p>
-                Non si tratta solo di tecnologia: il nostro approccio integra{" "}
+                This is not purely a technology challenge: our approach integrates{" "}
                 <strong className="text-foreground">
-                  scienze sociali, studi culturali e behavioral science
+                  social sciences, cultural studies, and behavioral science
                 </strong>{" "}
-                con machine learning e data analytics, perché crediamo che
-                l&apos;innovazione più significativa nasca all&apos;intersezione
-                tra discipline.
+                with machine learning and data analytics, because we believe the most impactful innovation emerges at disciplinary intersections.
               </p>
             </div>
           </div>
@@ -115,16 +105,16 @@ export default function InnovazionePage() {
         <div className="max-w-5xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
             <div className="md:border-r md:border-white/10">
-              <div className="font-montserrat text-4xl md:text-5xl font-bold text-primary mb-2 drop-shadow-[0_0_20px_hsl(var(--primary)/0.3)]">1.000+</div>
-              <div className="text-muted-foreground text-sm uppercase tracking-wider">eventi mappati</div>
+              <div className="font-montserrat text-4xl md:text-5xl font-bold text-primary mb-2 drop-shadow-[0_0_20px_hsl(var(--primary)/0.3)]">1,000+</div>
+              <div className="text-muted-foreground text-sm uppercase tracking-wider">events catalogued</div>
             </div>
             <div className="md:border-r md:border-white/10">
-              <div className="font-montserrat text-4xl md:text-5xl font-bold text-primary mb-2 drop-shadow-[0_0_20px_hsl(var(--primary)/0.3)]">77+</div>
-              <div className="text-muted-foreground text-sm uppercase tracking-wider">fonti monitorate</div>
+              <div className="font-montserrat text-4xl md:text-5xl font-bold text-primary mb-2 drop-shadow-[0_0_20px_hsl(var(--primary)/0.3)]">70+</div>
+              <div className="text-muted-foreground text-sm uppercase tracking-wider">Diversified Urban Data Sources</div>
             </div>
             <div>
               <div className="font-montserrat text-4xl md:text-5xl font-bold text-primary mb-2 drop-shadow-[0_0_20px_hsl(var(--primary)/0.3)]">Palermo</div>
-              <div className="text-muted-foreground text-sm uppercase tracking-wider">città pilota</div>
+              <div className="text-muted-foreground text-sm uppercase tracking-wider">pilot city</div>
             </div>
           </div>
         </div>
@@ -134,72 +124,72 @@ export default function InnovazionePage() {
       <section className="py-20 px-4 bg-card">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4">
-            Cosa Abbiamo <span className="text-primary">Costruito</span>
+            Core Technology <span className="text-primary">Stack</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            La tecnologia operativa oggi sulla piattaforma.
+            Operational infrastructure deployed and validated in production.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
             <TechCard
               icon={<Zap className="w-8 h-8" />}
-              title="Pipeline AI di Estrazione"
-              description="Sistema automatizzato di scraping e analisi che processa 77+ fonti Instagram e web usando Apify e OpenRouter. Oltre 1.000 eventi catalogati con estrazione automatica quotidiana e discovery settimanale di nuove fonti."
+              title="Urban Intelligence Engine"
+              description="Automated AI-powered semantic data aggregation system processing 70+ diversified urban data sources (Instagram, web platforms). Over 1,000 events catalogued with daily automated extraction and weekly discovery of new heterogeneous sources."
             />
             <TechCard
               icon={<Globe className="w-8 h-8" />}
-              title="NLP Multilingue"
-              description="Elaborazione del linguaggio naturale ottimizzata per italiano, dialetto siciliano e inglese. Estrae dettagli di eventi da post social non strutturati, comprende riferimenti culturali locali e slang."
+              title="Multilingual NLP Pipeline"
+              description="Natural language processing optimized for Italian, Sicilian dialect, and English. Extracts structured event metadata from unstructured social posts, understands local cultural references and regional linguistic nuances."
             />
             <TechCard
               icon={<Database className="w-8 h-8" />}
-              title="Discovery Automatizzata"
-              description="Algoritmi per la scoperta automatica di nuove fonti di eventi nelle città target. Database Supabase PostgreSQL con storage media integrato e pipeline di matching qualitativo delle immagini."
+              title="Automated Source Discovery"
+              description="Algorithms for autonomous discovery of new urban data sources in target cities. Supabase PostgreSQL database with integrated media storage and qualitative image matching pipeline for data validation."
             />
           </div>
 
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4 mt-16">
-            Cosa Stiamo <span className="text-primary">Sviluppando</span>
+            R&D Roadmap: <span className="text-primary">Predictive Social Dynamics</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            La nostra roadmap include funzionalità che portano la piattaforma al livello successivo.
+            Advanced capabilities under development for next-generation urban intelligence.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <TechCard
               icon={<Brain className="w-8 h-8" />}
-              title="Recommendation Engine"
-              description="Stiamo sviluppando algoritmi di raccomandazione che combinano collaborative filtering e context-awareness per suggerire esperienze culturali personalizzate basate su preferenze e pattern sociali."
+              title="Context-Aware Recommendation Engine"
+              description="Developing recommendation algorithms combining collaborative filtering with context-awareness to suggest personalized cultural experiences based on user preferences and social patterns."
               dashed
             />
             <TechCard
               icon={<Network className="w-8 h-8" />}
-              title="Social Graph Analysis"
-              description="La nostra roadmap include l'analisi delle reti sociali urbane per comprendere come le comunità si formano attorno a eventi e spazi, identificando dinamiche di aggregazione."
+              title="Urban Social Graph Analysis"
+              description="Research roadmap includes analysis of urban social networks to understand how communities form around events and spaces, identifying aggregation dynamics and social cohesion patterns."
               dashed
             />
             <TechCard
               icon={<BarChart3 className="w-8 h-8" />}
-              title="Cultural Analytics"
-              description="Modelli predittivi in sviluppo per analizzare trend culturali e di partecipazione, offrendo insight sulle dinamiche dell'ecosistema sociale urbano in tempo reale."
+              title="Cultural Analytics & Forecasting"
+              description="Predictive models under development to analyze cultural trends and participation patterns, offering real-time insights into urban social ecosystem dynamics for policy-making support."
               dashed
             />
             <TechCard
               icon={<Users className="w-8 h-8" />}
-              title="Behavioral Insights"
-              description="Applicazione di principi di behavioral science e gamification informata dalla ricerca per incentivare la partecipazione sociale e rafforzare il senso di comunità."
+              title="Behavioral Insights Framework"
+              description="Application of behavioral science principles and research-informed gamification to incentivize social participation and strengthen community cohesion in urban environments."
               dashed
             />
             <TechCard
               icon={<Lightbulb className="w-8 h-8" />}
-              title="AI Concierge"
-              description="Chatbot conversazionale per la scoperta di eventi tramite linguaggio naturale, con comprensione del contesto culturale e delle preferenze individuali."
+              title="AI Cultural Concierge"
+              description="Conversational chatbot for event discovery via natural language, with deep understanding of cultural context and individual preferences for hyper-personalized recommendations."
               dashed
             />
             <TechCard
               icon={<Globe className="w-8 h-8" />}
-              title="Espansione Geografica"
-              description="Da Palermo verso altre città siciliane e italiane, poi nel Mediterraneo ed Europa, portando il modello di mappatura culturale AI-driven in nuovi territori."
+              title="Geographic Expansion Framework"
+              description="From Palermo to other Sicilian and Italian cities, then across Mediterranean and European urban centers — scaling our AI-driven cultural mapping model to new territories."
               dashed
             />
           </div>
@@ -212,56 +202,49 @@ export default function InnovazionePage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <div>
               <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-8">
-                Dove la Tecnologia Incontra{" "}
-                <span className="text-primary">le Scienze Sociali</span>
+                Where Technology Meets{" "}
+                <span className="text-primary">Social Sciences</span>
               </h2>
               <div className="space-y-6 text-muted-foreground leading-relaxed">
                 <p>
-                  <span translate="no">CROWDIA</span> nasce dall&apos;intersezione tra ingegneria software, intelligenza artificiale e passione per la cultura mediterranea. Non siamo solo una tech company — siamo un progetto che crede nell&apos;innovazione multidisciplinare.
+                  <span translate="no">CROWDIA</span> emerges at the intersection of software engineering, artificial intelligence, and deep understanding of Mediterranean cultural dynamics. We are not just a tech company — we are an interdisciplinary innovation project designed for European research collaboration.
                 </p>
                 <p>
-                  L&apos;innovazione più impattante nell&apos;ambito
-                  dell&apos;intelligenza artificiale avviene quando i modelli computazionali si integrano con la comprensione profonda dei comportamenti umani e delle dinamiche sociali.
+                  The most impactful innovation in artificial intelligence happens when computational models integrate with profound understanding of human behavior and social dynamics — the core principle of SSH-STEM convergence.
                 </p>
                 <p>
-                  Integriamo competenze in{" "}
+                  Our team integrates expertise in{" "}
                   <strong className="text-foreground">
-                    computer science, data science, sociologia urbana e studi
-                    culturali
+                    computer science, data science, urban sociology, and cultural studies
                   </strong>
-                  . Questa convergenza ci permette di sviluppare soluzioni che
-                  non sono solo tecnicamente avanzate, ma culturalmente
-                  consapevoli e socialmente rilevanti.
+                  . This convergence enables us to develop solutions that are not only technically advanced but culturally aware and socially relevant — perfectly aligned with Horizon Europe Cluster 2 priorities.
                 </p>
                 <p>
-                  Crediamo nell&apos;approccio{" "}
-                  <strong className="text-foreground">SSH-STEM</strong>: le
-                  Social Sciences &amp; Humanities non sono un complemento alla
-                  tecnologia, ma una componente essenziale dell&apos;innovazione
-                  che genera valore reale per le comunità.
+                  We embrace the{" "}
+                  <strong className="text-foreground">SSH-STEM</strong> framework: Social Sciences &amp; Humanities are not a complement to technology, but an essential component of innovation that generates real value for communities and municipal authorities.
                 </p>
               </div>
             </div>
             <div className="space-y-4">
               <InterCard
-                label="Sociologia Urbana"
-                desc="Comprensione delle dinamiche di aggregazione e coesione sociale"
+                label="Urban Sociology"
+                desc="Understanding social aggregation and community cohesion dynamics"
               />
               <InterCard
                 label="Cultural Studies"
-                desc="Analisi dei pattern culturali e delle identità locali"
+                desc="Analysis of cultural patterns and local identity formation"
               />
               <InterCard
                 label="Behavioral Science"
-                desc="Modelli di incentivazione e decision-making sociale"
+                desc="Incentive models and social decision-making frameworks"
               />
               <InterCard
                 label="Data Science & ML"
-                desc="Algoritmi predittivi e sistemi di raccomandazione"
+                desc="Predictive algorithms and semantic recommendation systems"
               />
               <InterCard
                 label="Human-Computer Interaction"
-                desc="Design centrato sull'utente e accessibilità digitale"
+                desc="User-centered design and digital accessibility"
               />
             </div>
           </div>
@@ -272,29 +255,28 @@ export default function InnovazionePage() {
       <section className="py-20 px-4 bg-card">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold text-center mb-4">
-            L&apos;Impatto che{" "}
-            <span className="text-primary">Vogliamo Creare</span>
+            Impact <span className="text-primary">&amp; Alignment</span>
           </h2>
           <p className="text-muted-foreground text-center mb-16 max-w-2xl mx-auto">
-            Crediamo in un&apos;innovazione che generi valore reale per persone e comunità.
+            Aligned with Horizon Europe priorities and Smart Cities initiatives.
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             <ImpactCard
-              title="Smart Cities & Comunità"
-              description="Vogliamo contribuire alla trasformazione digitale delle città, partendo dal Mediterraneo. I dati e gli insight che generiamo possono aiutare urbanisti, amministrazioni e policy maker a comprendere meglio la vita culturale dei territori."
+              title="Smart Cities & Municipal Authorities"
+              description="Contributing to digital transformation of European cities, starting from the Mediterranean. Our data and insights support urban planners, municipal authorities, and policy makers in understanding cultural life dynamics for evidence-based governance."
             />
             <ImpactCard
-              title="Inclusione Digitale"
-              description="La tecnologia deve essere accessibile a tutti. Lavoriamo per abbattere le barriere tra il digitale e la vita reale, con attenzione particolare alle comunità meno rappresentate nell'ecosistema tech."
+              title="Digital Inclusion & Accessibility"
+              description="Technology must be accessible to all citizens. We work to break barriers between digital infrastructure and real-world social life, with particular attention to underrepresented communities in the European tech ecosystem."
             />
             <ImpactCard
-              title="Innovazione Mediterranea"
-              description="Il Mediterraneo ha una tradizione unica di socialità e cultura. Crediamo che questa ricchezza possa diventare un modello di innovazione esportabile, dimostrando che il Sud Europa può guidare la rivoluzione tecnologica."
+              title="Mediterranean Innovation Model"
+              description="The Mediterranean has a unique tradition of sociality and cultural vitality. We demonstrate that this richness can become an exportable innovation model, positioning Southern Europe as a leader in SSH-STEM technological transformation."
             />
             <ImpactCard
-              title="Ricerca Collaborativa"
-              description="Siamo aperti a partnership con università e centri di ricerca. Crediamo nella ricerca applicata che unisce rigore accademico e impatto concreto, contribuendo alla costruzione di uno spazio europeo dell'innovazione."
+              title="Collaborative Research & Consortia"
+              description="Open to partnerships with universities, research centers, and Horizon Europe consortia. We believe in applied research that combines academic rigor with concrete societal impact, contributing to the European Research Area."
             />
           </div>
         </div>
@@ -304,18 +286,17 @@ export default function InnovazionePage() {
       <section className="py-20 px-4 bg-background border-t border-primary/20">
         <div className="max-w-3xl mx-auto text-center space-y-8">
           <h2 className="font-montserrat text-3xl md:text-4xl font-bold">
-            Costruiamo Insieme il{" "}
-            <span className="text-primary">Futuro</span>
+            Available for <span className="text-primary">Consortium Partnership</span>
           </h2>
           <p className="text-lg text-muted-foreground leading-relaxed">
-            Cerchiamo persone e organizzazioni che condividono la nostra visione: università, centri di ricerca, istituzioni culturali, amministrazioni locali, investitori e partner che credono in un&apos;innovazione tecnologica al servizio delle comunità. Se ti riconosci in questo progetto, parliamone.
+            We are seeking research coordinators, municipal authorities, universities, and European innovation partners who share our vision. <span translate="no">CROWDIA</span> operates as an SME ready for consortium integration in Horizon Europe proposals (Cluster 2: Culture, Creativity &amp; Inclusive Society). If you recognize the value of breaking heterogeneous data silos for smarter cities, let&apos;s collaborate.
           </p>
           <div className="pt-4">
             <a
               href="mailto:info@crowdia.ai"
               className="inline-flex items-center gap-2 px-8 py-4 bg-primary text-white font-inter font-semibold rounded-lg hover:bg-primary/90 hover:shadow-[0_0_25px_hsl(var(--primary)/0.4)] transition-all duration-300 text-lg"
             >
-              Contattaci
+              Contact Us for Partnership
             </a>
           </div>
         </div>
