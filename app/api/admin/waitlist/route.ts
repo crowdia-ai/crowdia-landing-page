@@ -3,10 +3,13 @@ import { createClient } from '@supabase/supabase-js';
 
 const ADMIN_PASSWORD = 'crowdia2025';
 
-const supabaseAdmin = createClient(
-  process.env.NEXT_PUBLIC_SUPABASE_URL!,
-  process.env.SUPABASE_SERVICE_ROLE_KEY!
-);
+function getSupabaseAdmin() {
+  return createClient(
+    process.env.NEXT_PUBLIC_SUPABASE_URL!,
+    process.env.SUPABASE_SERVICE_ROLE_KEY!,
+    { auth: { persistSession: false } }
+  );
+}
 
 export async function GET(request: NextRequest) {
   const authHeader = request.headers.get('x-admin-password');
@@ -19,7 +22,7 @@ export async function GET(request: NextRequest) {
   }
 
   try {
-    const { data, error } = await supabaseAdmin
+    const { data, error } = await getSupabaseAdmin()
       .from('waitlist')
       .select('*')
       .order('created_at', { ascending: false });
