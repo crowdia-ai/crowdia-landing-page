@@ -15,7 +15,7 @@ export async function POST(request: NextRequest) {
     const metadata = body.metadata && typeof body.metadata === 'object' ? body.metadata : null;
     
     // Insert into Supabase
-    const { data, error } = await supabase
+    const { error } = await supabase
       .from('waitlist')
       .insert([
         {
@@ -24,8 +24,7 @@ export async function POST(request: NextRequest) {
           source,
           metadata,
         },
-      ])
-      .select();
+      ]);
 
     if (error) {
       // Check if it's a duplicate email error
@@ -44,7 +43,7 @@ export async function POST(request: NextRequest) {
     }
 
     return NextResponse.json(
-      { success: true, data },
+      { success: true },
       { status: 201 }
     );
   } catch (error) {
