@@ -17,11 +17,9 @@ export default function Home() {
       {/* Hero Section with Video Background */}
       <VideoHero>
         {/* Logo and Brand in Top Left */}
-        <div className="absolute top-8 left-8 flex items-center gap-1 z-20 group cursor-pointer">
+        <Link href="/" className="absolute top-8 left-8 flex items-center gap-1 z-20 group">
           {/* Logo with permanent glow */}
           <div className="relative w-10 h-10 md:w-12 md:h-12">
-            {/* Animated glow background - smaller */}
-            {/* <div className="absolute inset-0 rounded-full bg-primary/15 blur-md animate-glow" /> */}
             <div className="absolute inset-0.5 rounded-full bg-primary/8 blur-xl animate-glow" style={{ animationDelay: '1s' }} />
 
             {/* Logo image */}
@@ -39,18 +37,15 @@ export default function Home() {
 
           {/* Title with permanent glow */}
           <h1 className="font-montserrat text-2xl md:text-3xl lg:text-4xl font-bold relative">
-            {/* Animated background glow - smaller */}
-            {/* <span className="absolute -inset-1 bg-primary/8 blur-lg rounded-lg animate-glow" /> */}
             <span className="absolute -inset-0.5 bg-primary/4 blur-xl rounded-lg animate-glow" style={{ animationDelay: '1s' }} />
 
             <span className="text-white relative inline-block">
-              {/* Text with layered glow */}
               <span className="relative z-10 drop-shadow-[0_0_8px_hsl(var(--primary)/0.4)] group-hover:drop-shadow-[0_0_15px_hsl(var(--primary)/0.7)] group-hover:scale-110 transition-all duration-500" translate="no">
                 CROWDIA
               </span>
             </span>
           </h1>
-        </div>
+        </Link>
 
         <div className="max-w-5xl mx-auto space-y-8">
           {/* Main Heading */}
@@ -86,9 +81,12 @@ export default function Home() {
           </p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+            {/* Connector lines between steps (desktop only) */}
+            <div className="hidden md:block absolute top-10 left-[calc(16.67%+40px)] right-[calc(16.67%+40px)] h-px bg-gradient-to-r from-primary/50 via-primary/20 to-primary/50" />
+
             {/* Step 1 */}
             <div className="text-center relative">
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)] ring-4 ring-primary/20">
                 <span className="font-montserrat text-3xl font-bold">1</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">
@@ -102,7 +100,7 @@ export default function Home() {
 
             {/* Step 2 */}
             <div className="text-center relative">
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)] ring-4 ring-primary/20">
                 <span className="font-montserrat text-3xl font-bold">2</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">
@@ -116,7 +114,7 @@ export default function Home() {
 
             {/* Step 3 */}
             <div className="text-center relative">
-              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)]">
+              <div className="w-20 h-20 rounded-full bg-primary flex items-center justify-center mx-auto mb-6 shadow-[0_0_30px_hsl(var(--primary)/0.5)] ring-4 ring-primary/20">
                 <span className="font-montserrat text-3xl font-bold">3</span>
               </div>
               <h3 className="font-montserrat text-2xl font-bold mb-3">Guadagna</h3>
@@ -132,7 +130,7 @@ export default function Home() {
       {/* CTA Section with Choice Buttons */}
       <section id="cta-section" className="py-20 px-4 bg-background border-t-2 border-primary/20">
         <div className="max-w-4xl mx-auto text-center space-y-8">
-          <div className="relative w-16 h-16 mx-auto group cursor-pointer">
+          <Link href="/" className="relative w-16 h-16 mx-auto group block">
             {/* Animated glow background */}
             <div className="absolute inset-0.5 rounded-full bg-primary/8 blur-xl animate-glow" style={{ animationDelay: '1s' }} />
 
@@ -142,7 +140,7 @@ export default function Home() {
               fill
               className="object-contain drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)] group-hover:drop-shadow-[0_0_25px_hsl(var(--primary)/0.9)] transition-all duration-500 group-hover:scale-110"
             />
-          </div>
+          </Link>
           <h3 className="font-montserrat text-3xl md:text-4xl font-bold">
             Chi sei?
           </h3>
@@ -176,7 +174,7 @@ export default function Home() {
       <footer className="py-8 px-4 bg-background border-t border-primary/10">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-sm text-gray-500">
-            &copy; 2025 <span translate="no">CROWDIA</span>. All rights reserved.
+            &copy; {new Date().getFullYear()} <span translate="no">CROWDIA</span>. Tutti i diritti riservati.
           </p>
         </div>
       </footer>
