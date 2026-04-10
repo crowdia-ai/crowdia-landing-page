@@ -8,7 +8,6 @@ import {
   Globe,
   Sparkles,
   HandshakeIcon,
-  Building2,
   UserCheck,
   MapPin,
   Compass,
@@ -78,14 +77,6 @@ export function IstituzionalePage() {
           <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[150px]" />
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
-            {/* Institutional badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-charcoal-500/5 border border-charcoal-500/10 mb-8">
-              <Building2 className="w-4 h-4 text-magenta-500" />
-              <span className="font-inter text-xs font-medium tracking-widest uppercase text-charcoal-300">
-                Per Amministrazioni Locali
-              </span>
-            </div>
-
             <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8 text-charcoal-500">
               L&apos;Infrastruttura Digitale
               <br />
@@ -128,14 +119,6 @@ export function IstituzionalePage() {
         ================================================================ */}
         <section id="missione" className="py-24 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            {/* Section label */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-magenta-50 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-magenta-500" />
-              <span className="font-inter text-xs font-medium tracking-widest uppercase text-magenta-600">
-                La Nostra Missione
-              </span>
-            </div>
-
             <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
               Combattere l&apos;Isolamento,
               <br />
@@ -189,14 +172,6 @@ export function IstituzionalePage() {
         ================================================================ */}
         <section className="py-24 px-6 bg-gray-50/50">
           <div className="max-w-5xl mx-auto">
-            {/* Section label */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-magenta-50 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-magenta-500" />
-              <span className="font-inter text-xs font-medium tracking-widest uppercase text-magenta-600">
-                Tecnologia
-              </span>
-            </div>
-
             <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
               Lumio: Molto pi&ugrave; di
               <br />
@@ -272,14 +247,6 @@ export function IstituzionalePage() {
         ================================================================ */}
         <section className="py-24 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            {/* Section label */}
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-magenta-50 mb-6">
-              <span className="w-1.5 h-1.5 rounded-full bg-magenta-500" />
-              <span className="font-inter text-xs font-medium tracking-widest uppercase text-magenta-600">
-                La Partnership
-              </span>
-            </div>
-
             <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
               Collaborazione Strategica
               <br />
