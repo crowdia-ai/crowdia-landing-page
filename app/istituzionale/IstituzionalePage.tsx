@@ -1,23 +1,35 @@
 "use client";
 
+import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
   Users,
   Globe,
-  Sparkles,
-  HandshakeIcon,
-  UserCheck,
   MapPin,
   Compass,
   CalendarCheck,
   Mail,
-  Phone,
   ChevronRight,
 } from "lucide-react";
 
 export function IstituzionalePage() {
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const playVideo = () => {
+      videoRef.current?.play().catch(() => {});
+    };
+    playVideo();
+    document.addEventListener("touchstart", playVideo, { once: true });
+    document.addEventListener("click", playVideo, { once: true });
+    return () => {
+      document.removeEventListener("touchstart", playVideo);
+      document.removeEventListener("click", playVideo);
+    };
+  }, []);
+
   return (
     <div className="light" data-theme="light">
       <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700">
@@ -59,8 +71,25 @@ export function IstituzionalePage() {
             HERO SECTION - L'Impatto
         ================================================================ */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-          {/* Warm gradient background evoking Sicilian sunlight */}
+          {/* Warm gradient fallback evoking Sicilian sunlight */}
           <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-white to-rose-50/60" />
+
+          {/* Video background - Sicilian urban scene with magenta aura */}
+          <video
+            ref={videoRef}
+            className="absolute inset-0 w-full h-full object-cover opacity-40"
+            autoPlay
+            muted
+            loop
+            playsInline
+            preload="auto"
+            aria-hidden="true"
+          >
+            <source src="/vid-bckgrnd-istituzionale.mp4" type="video/mp4" />
+          </video>
+
+          {/* Light-mode legibility overlay over the video */}
+          <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-amber-50/70" />
 
           {/* Subtle geometric pattern overlay */}
           <div
