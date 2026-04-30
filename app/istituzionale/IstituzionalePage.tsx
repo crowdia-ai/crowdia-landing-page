@@ -273,18 +273,18 @@ export function IstituzionalePage() {
                 </p>
               </div>
 
-              {/* Patrocinio Istituzionale */}
+              {/* Nessun Vincolo Formale */}
               <div className="relative">
                 <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4">
                   02
                 </div>
                 <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3 -mt-2">
-                  Patrocinio Istituzionale
+                  Nessun Vincolo Formale
                 </h3>
                 <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Il Comune offre il proprio supporto istituzionale; Crowdia
-                  restituisce una vetrina tecnologica d&apos;avanguardia che
-                  modernizza istantaneamente l&apos;immagine dell&apos;Ente.
+                  Non chiediamo delibere n&eacute; protocolli. Un solo
+                  referente interno per la segnalazione degli eventi: &egrave;
+                  tutto quello che serve per portare il Comune su Crowdia.
                 </p>
               </div>
 
