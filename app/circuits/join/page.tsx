@@ -111,13 +111,13 @@ export default function CircuitsJoinPage() {
         <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <Link
-              href="/"
+              href="/circuits"
               className="flex items-center gap-2 text-charcoal-300 hover:text-charcoal-500 transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
-              <span className="font-inter text-sm">Home</span>
+              <span className="font-inter text-sm">Indietro</span>
             </Link>
-            <Link href="/" className="flex items-center gap-2 group">
+            <Link href="/circuits" className="flex items-center gap-2 group">
               <div className="relative w-8 h-8">
                 <Image
                   src="/crowdia-logo-icon-transparent.png"
@@ -167,10 +167,10 @@ export default function CircuitsJoinPage() {
                   Il team Crowdia ti contatter&agrave; a breve.
                 </p>
                 <Link
-                  href="/"
+                  href="/circuits"
                   className="inline-flex items-center gap-2 px-6 py-3 bg-magenta-500 text-white font-inter font-semibold rounded-xl hover:bg-magenta-600 transition-colors"
                 >
-                  Torna alla Home
+                  Torna a Crowdia per Organizzatori
                   <ChevronRight className="w-4 h-4" />
                 </Link>
               </div>
