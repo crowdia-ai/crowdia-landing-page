@@ -1,191 +1,269 @@
-"use client";
-
-import { useState } from "react";
-import { VideoHero } from "@/components/video-hero";
-import { SparkleButton } from "@/components/ui/sparkle-button";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowLeft, CheckCircle, Loader2 } from "lucide-react";
+import {
+  ChevronRight,
+  ArrowLeft,
+  BadgeCheck,
+  Sparkles,
+  Lock,
+} from "lucide-react";
 
 export default function VoicesPage() {
-  const [formData, setFormData] = useState({
-    socialLink: "",
-    role: "",
-    motivation: "",
-  });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [isSuccess, setIsSuccess] = useState(false);
-  const [error, setError] = useState("");
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-    setIsSubmitting(true);
-    setError("");
-
-    try {
-      const response = await fetch("/api/waitlist", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          source: "voices",
-          metadata: {
-            socialLink: formData.socialLink,
-            role: formData.role,
-            motivation: formData.motivation,
-          },
-        }),
-      });
-
-      if (!response.ok) throw new Error("Submission failed");
-      setIsSuccess(true);
-    } catch {
-      setError("Si è verificato un errore. Riprova.");
-    } finally {
-      setIsSubmitting(false);
-    }
-  };
-
   return (
-    <main className="min-h-screen">
-      {/* Hero Section with Video Background */}
-      <VideoHero allowOverflow>
-        {/* Back Button */}
-        <Link
-          href="/"
-          className="absolute top-8 left-8 flex items-center gap-2 text-white/80 hover:text-white transition-colors z-20"
-        >
-          <ArrowLeft className="w-5 h-5" />
-          <span className="font-inter">Indietro</span>
-        </Link>
+    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black text-slate-900 dark:text-slate-100 selection:bg-magenta-100 selection:text-magenta-700 dark:selection:bg-magenta-500/30 dark:selection:text-magenta-100">
+      {/* ================================================================
+          NAVIGATION BAR
+      ================================================================ */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-slate-200/60 dark:border-zinc-800/60">
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
+          <Link
+            href="/"
+            className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+          >
+            <ArrowLeft className="w-4 h-4" />
+            <span className="font-inter text-sm">Home</span>
+          </Link>
 
-        {/* Logo in Top Right */}
-        <div className="absolute top-8 right-8 flex items-center gap-1 z-20 group cursor-pointer">
-          <Link href="/" className="flex items-center gap-1">
-            <div className="relative w-10 h-10 md:w-12 md:h-12">
-              <div className="absolute inset-0.5 rounded-full bg-primary/8 blur-xl animate-glow" style={{ animationDelay: '1s' }} />
-              <div className="relative w-full h-full transition-all duration-500 group-hover:scale-110">
-                <Image
-                  src="/crowdia-logo-icon-transparent.png"
-                  alt="CROWDIA Logo"
-                  fill
-                  className="object-contain drop-shadow-[0_0_15px_hsl(var(--primary)/0.6)] group-hover:drop-shadow-[0_0_25px_hsl(var(--primary)/0.9)]"
-                  priority
-                  sizes="(max-width: 768px) 40px, 48px"
-                />
-              </div>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="relative w-8 h-8">
+              <Image
+                src="/crowdia-logo-icon-transparent.png"
+                alt="CROWDIA Logo"
+                fill
+                className="object-contain"
+                sizes="32px"
+                priority
+              />
             </div>
-            <span className="font-montserrat text-2xl md:text-3xl font-bold text-white drop-shadow-[0_0_8px_hsl(var(--primary)/0.4)]" translate="no">
+            <span
+              className="font-montserrat text-lg font-bold group-hover:text-magenta-500 transition-colors"
+              translate="no"
+            >
               CROWDIA
             </span>
           </Link>
         </div>
+      </nav>
 
-        <div className="max-w-4xl mx-auto space-y-8 px-4">
-          {/* Main Heading */}
-          <h1 className="font-montserrat text-4xl md:text-6xl lg:text-7xl font-bold mb-6 mt-20">
-            <span className="text-white">La tua voce muove</span>{" "}
-            <span className="text-primary">Palermo.</span>
+      {/* ================================================================
+          HERO — La tua influenza ha un nuovo centro.
+      ================================================================ */}
+      <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
+        {/* Neutral gradient surface (placeholder until video-loop / wallpaper lands) */}
+        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-white to-zinc-100 dark:from-zinc-900 dark:via-black dark:to-zinc-950" />
+
+        {/* TODO: drop video loop or wallpaper image when available */}
+        {/* <video className="absolute inset-0 w-full h-full object-cover opacity-40" autoPlay muted loop playsInline preload="auto" aria-hidden="true"><source src="/vid-bckgrnd-voices.mp4" type="video/mp4" /></video> */}
+
+        {/* Subtle dotted texture */}
+        <div
+          className="absolute inset-0 opacity-[0.04] dark:opacity-[0.06]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, currentColor 1px, transparent 0)`,
+            backgroundSize: "32px 32px",
+          }}
+        />
+
+        {/* Magenta accent glows */}
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-magenta-500/10 rounded-full blur-[140px]" />
+        <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/5 rounded-full blur-[150px]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
+          <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8">
+            La tua influenza ha
+            <br />
+            <span className="relative inline-block">
+              <span className="relative z-10 text-magenta-500">
+                un nuovo centro.
+              </span>
+              <span className="absolute bottom-1 left-0 right-0 h-3 bg-magenta-500/10 -z-0 rounded" />
+            </span>
           </h1>
 
-          {/* Subheading */}
-          <p className="text-xl md:text-2xl text-gray-300 max-w-2xl mx-auto">
-            Non cerchiamo semplici utenti. Cerchiamo le Voci che accenderanno la città.
+          <p className="font-inter text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-12">
+            Unisciti a Voices, il programma esclusivo di Crowdia dedicato ai
+            Creators che definiscono la scena di Palermo. Trasforma il tuo
+            impatto in autorit&agrave; urbana.
           </p>
 
-          {/* Body Text */}
-          <p className="text-lg text-gray-400 max-w-2xl mx-auto">
-            Sei un PR, un Creator, un Influencer, o un punto di riferimento per la tua community? Unisciti al programma Voices. Ottieni budget, accessi backstage e contatto diretto con i founder.
+          <div className="flex flex-col sm:flex-row gap-4">
+            <Link
+              href="/voices/apply"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-magenta-500 text-white font-inter font-semibold rounded-xl hover:bg-magenta-600 transition-all duration-300 shadow-lg shadow-magenta-500/25 hover:shadow-xl hover:shadow-magenta-500/30 hover:-translate-y-0.5"
+            >
+              Candidati per Voices
+              <ChevronRight className="w-4 h-4" />
+            </Link>
+            <a
+              href="#problem"
+              className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-slate-900/5 dark:bg-white/5 text-slate-900 dark:text-slate-100 font-inter font-medium rounded-xl hover:bg-slate-900/10 dark:hover:bg-white/10 transition-all duration-300 border border-slate-900/10 dark:border-white/10"
+            >
+              Scopri di Pi&ugrave;
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          SECTION 1 — THE PROBLEM
+      ================================================================ */}
+      <section id="problem" className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Smetti di essere{" "}
+            <span className="text-magenta-500">invisibile.</span>
+          </h2>
+
+          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+            Oggi i tuoi contenuti combattono contro algoritmi ostili che
+            decidono chi pu&ograve; vederti. La tua influenza merita un canale
+            diretto, dove il tuo gusto e la tua conoscenza della
+            citt&agrave; non vengono filtrati, ma amplificati.
           </p>
+        </div>
+      </section>
 
-          {/* Application Form */}
-          <div className="mt-12 max-w-md mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/20">
-              {isSuccess ? (
-                <div className="text-center py-8">
-                  <CheckCircle className="w-16 h-16 text-primary mx-auto mb-4" />
-                  <h3 className="font-montserrat text-2xl font-bold text-white mb-2">
-                    Candidatura Inviata!
-                  </h3>
-                  <p className="text-gray-300">
-                    Ti contatteremo presto per discutere la tua candidatura.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-6">
-                  <div>
-                    <label htmlFor="socialLink" className="block text-left font-inter font-medium text-white mb-2">
-                      Link Instagram/TikTok *
-                    </label>
-                    <input
-                      type="url"
-                      id="socialLink"
-                      required
-                      value={formData.socialLink}
-                      onChange={(e) => setFormData({ ...formData, socialLink: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-white/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-white bg-white/10 placeholder:text-gray-500"
-                      placeholder="https://instagram.com/..."
-                    />
-                  </div>
+      {/* ================================================================
+          SECTION 2 — THE PROGRAM (Voices)
+      ================================================================ */}
+      <section className="py-24 px-6 bg-slate-100/60 dark:bg-zinc-900/40">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Voices: Pi&ugrave; di un programma,
+            <br />
+            <span className="text-magenta-500">un&apos;identit&agrave;.</span>
+          </h2>
 
-                  <div>
-                    <label htmlFor="role" className="block text-left font-inter font-medium text-white mb-2">
-                      Chi sei? *
-                    </label>
-                    <select
-                      id="role"
-                      required
-                      value={formData.role}
-                      onChange={(e) => setFormData({ ...formData, role: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-white/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-white bg-white/10"
-                    >
-                      <option value="" className="bg-charcoal-900">Seleziona...</option>
-                      <option value="promoter" className="bg-charcoal-900">Promoter</option>
-                      <option value="creator" className="bg-charcoal-900">Creator/Influencer</option>
-                      <option value="altro" className="bg-charcoal-900">Altro</option>
-                    </select>
-                  </div>
+          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+            Voices &egrave; il network d&apos;&eacute;lite dei Creators di
+            Crowdia. Non siamo un&apos;agenzia di influencer: siamo
+            un&apos;infrastruttura tecnologica che mette i tuoi consigli e le
+            tue scoperte al centro della Social Discovery Map. Come Creator,
+            sarai la guida che accende i riflettori sui luoghi e gli eventi
+            pi&ugrave; rilevanti di Palermo.
+          </p>
+        </div>
+      </section>
 
-                  <div>
-                    <label htmlFor="motivation" className="block text-left font-inter font-medium text-white mb-2">
-                      Perché dovremmo sceglierti? *
-                    </label>
-                    <textarea
-                      id="motivation"
-                      required
-                      rows={4}
-                      value={formData.motivation}
-                      onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
-                      className="w-full px-4 py-3 rounded-lg border border-white/30 focus:border-primary focus:ring-2 focus:ring-primary/20 outline-none transition-all text-white bg-white/10 placeholder:text-gray-500 resize-none"
-                      placeholder="Raccontaci di te e della tua community..."
-                    />
-                  </div>
+      {/* ================================================================
+          SECTION 3 — THE ADVANTAGE (3 items)
+      ================================================================ */}
+      <section className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-16 leading-tight">
+            Diventa il volto della
+            <br />
+            <span className="text-magenta-500">
+              nuova esplorazione urbana.
+            </span>
+          </h2>
 
-                  {error && (
-                    <p className="text-red-400 text-sm">{error}</p>
-                  )}
+          <div className="grid md:grid-cols-3 gap-6">
+            {/* Status & Badge */}
+            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
+              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
+                <BadgeCheck className="w-6 h-6 text-magenta-500" />
+              </div>
+              <h3 className="font-montserrat text-lg font-bold mb-3">
+                Status &amp; Badge
+              </h3>
+              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Un profilo certificato che ti distingue come autorit&agrave;
+                della citt&agrave; e membro del nucleo fondatore.
+              </p>
+            </div>
 
-                  <SparkleButton
-                    type="submit"
-                    variant="primary"
-                    size="lg"
-                    className="w-full"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting ? (
-                      <>
-                        <Loader2 className="w-5 h-5 animate-spin" />
-                        Invio in corso...
-                      </>
-                    ) : (
-                      "Candidati come Voice"
-                    )}
-                  </SparkleButton>
-                </form>
-              )}
+            {/* Lumio Integration */}
+            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
+              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
+                <Sparkles className="w-6 h-6 text-magenta-500" />
+              </div>
+              <h3 className="font-montserrat text-lg font-bold mb-3">
+                Lumio Integration
+              </h3>
+              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                I tuoi contenuti e i tuoi suggerimenti istruiranno la nostra
+                AI, rendendo la tua &quot;voce&quot; la fonte primaria per
+                migliaia di utenti.
+              </p>
+            </div>
+
+            {/* Early Access */}
+            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
+              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
+                <Lock className="w-6 h-6 text-magenta-500" />
+              </div>
+              <h3 className="font-montserrat text-lg font-bold mb-3">
+                Early Access
+              </h3>
+              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Accedi in anteprima alle funzioni PRO dell&apos;app e agli
+                eventi pi&ugrave; esclusivi del Circuito.
+              </p>
             </div>
           </div>
         </div>
-      </VideoHero>
+      </section>
+
+      {/* ================================================================
+          SECTION 4 — THE CALL (Apply Now)
+      ================================================================ */}
+      <section className="py-24 px-6 bg-zinc-950 text-white relative overflow-hidden">
+        <div className="absolute -top-32 right-0 w-80 h-80 bg-magenta-500/15 rounded-full blur-[100px]" />
+        <div className="absolute bottom-0 -left-32 w-64 h-64 bg-magenta-500/10 rounded-full blur-[80px]" />
+
+        <div className="relative z-10 max-w-3xl mx-auto text-center">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Prendi il comando della{" "}
+            <span className="text-magenta-400">citt&agrave;.</span>
+          </h2>
+          <p className="font-inter text-lg text-white/70 mb-12 leading-relaxed">
+            Stiamo cercando Creators, PR e connettori sociali che non si
+            accontentano di postare, ma vogliono guidare. Se hai una visione
+            unica su Palermo, il tuo posto &egrave; nel programma Voices.
+          </p>
+
+          <div className="flex justify-center">
+            <Link
+              href="/voices/apply"
+              className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-magenta-500 text-white font-inter font-semibold rounded-xl hover:bg-magenta-400 transition-all duration-300 shadow-lg shadow-magenta-500/30 hover:shadow-xl hover:shadow-magenta-500/40 hover:-translate-y-0.5"
+            >
+              Invia la tua candidatura
+              <ChevronRight className="w-5 h-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          FOOTER
+      ================================================================ */}
+      <footer className="py-8 px-6 bg-zinc-900 text-center">
+        <div className="flex items-center justify-center gap-2 mb-3">
+          <div className="relative w-6 h-6">
+            <Image
+              src="/crowdia-logo-icon-transparent.png"
+              alt="CROWDIA"
+              fill
+              className="object-contain"
+              sizes="24px"
+            />
+          </div>
+          <span
+            className="font-montserrat text-sm font-bold text-white/60"
+            translate="no"
+          >
+            CROWDIA
+          </span>
+        </div>
+        <p className="font-inter text-xs text-white/30">
+          &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti
+          riservati.
+        </p>
+      </footer>
     </main>
   );
 }
