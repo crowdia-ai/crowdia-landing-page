@@ -96,13 +96,13 @@ export default function VoicesApplyPage() {
   }
 
   return (
-    <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black text-slate-900 dark:text-slate-100 selection:bg-magenta-100 selection:text-magenta-700 dark:selection:bg-magenta-500/30 dark:selection:text-magenta-100">
+    <main className="min-h-screen bg-zinc-950 text-white selection:bg-magenta-500/30 selection:text-magenta-100">
       {/* NAV */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-slate-200/60 dark:border-zinc-800/60">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/70 backdrop-blur-md border-b border-zinc-800/60">
         <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
           <Link
             href="/voices"
-            className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
+            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
           >
             <ArrowLeft className="w-4 h-4" />
             <span className="font-inter text-sm">Voices</span>
@@ -129,17 +129,23 @@ export default function VoicesApplyPage() {
       </nav>
 
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-        {/* magenta accent glow */}
+        {/* City video background */}
+        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+          <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay */}
+        <div className="absolute inset-0 bg-black/70" />
+        {/* Magenta accent glows */}
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-magenta-500/10 rounded-full blur-[140px] pointer-events-none" />
         <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/5 rounded-full blur-[150px] pointer-events-none" />
 
         <div className="relative z-10 max-w-2xl mx-auto">
           {/* HEADER */}
-          <h1 className="font-montserrat text-4xl md:text-5xl font-bold leading-[1.1] mb-4">
+          <h1 className="font-montserrat text-4xl md:text-5xl font-bold leading-[1.1] mb-4 text-white">
             La tua voce muove{" "}
             <span className="text-magenta-500">Palermo.</span>
           </h1>
-          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 leading-relaxed mb-12">
+          <p className="font-inter text-lg text-white/80 leading-relaxed mb-12">
             Non cerchiamo semplici utenti. Cerchiamo le Voci che accenderanno
             la citt&agrave;.
           </p>

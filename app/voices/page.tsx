@@ -49,11 +49,12 @@ export default function VoicesPage() {
           HERO — La tua influenza ha un nuovo centro.
       ================================================================ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-        {/* Neutral gradient surface (placeholder until video-loop / wallpaper lands) */}
-        <div className="absolute inset-0 bg-gradient-to-br from-slate-100 via-white to-zinc-100 dark:from-zinc-900 dark:via-black dark:to-zinc-950" />
-
-        {/* TODO: drop video loop or wallpaper image when available */}
-        {/* <video className="absolute inset-0 w-full h-full object-cover opacity-40" autoPlay muted loop playsInline preload="auto" aria-hidden="true"><source src="/vid-bckgrnd-voices.mp4" type="video/mp4" /></video> */}
+        {/* City video background */}
+        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+          <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
+        </video>
+        {/* Dark overlay for text legibility */}
+        <div className="absolute inset-0 bg-black/65 md:bg-black/70 lg:bg-black/75" />
 
         {/* Subtle dotted texture */}
         <div
@@ -68,7 +69,7 @@ export default function VoicesPage() {
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-magenta-500/10 rounded-full blur-[140px]" />
         <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/5 rounded-full blur-[150px]" />
 
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-white">
           <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8">
             La tua influenza ha
             <br />
@@ -80,7 +81,7 @@ export default function VoicesPage() {
             </span>
           </h1>
 
-          <p className="font-inter text-lg md:text-xl text-slate-600 dark:text-slate-400 max-w-2xl leading-relaxed mb-12">
+          <p className="font-inter text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed mb-12">
             Unisciti a Voices, il programma esclusivo di Crowdia dedicato ai
             Creators che definiscono la scena di Palermo. Trasforma il tuo
             impatto in autorit&agrave; urbana.

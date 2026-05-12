@@ -105,14 +105,14 @@ export default function CircuitsJoinPage() {
   }
 
   return (
-    <div className="light" data-theme="light">
-      <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700">
+    <div>
+      <main className="min-h-screen bg-zinc-950 text-white selection:bg-magenta-500/30 selection:text-magenta-100">
         {/* NAV */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
+        <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/70 backdrop-blur-md border-b border-zinc-800/60">
           <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
             <Link
               href="/circuits"
-              className="flex items-center gap-2 text-charcoal-300 hover:text-charcoal-500 transition-colors"
+              className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors"
             >
               <ArrowLeft className="w-4 h-4" />
               <span className="font-inter text-sm">Indietro</span>
@@ -129,7 +129,7 @@ export default function CircuitsJoinPage() {
                 />
               </div>
               <span
-                className="font-montserrat text-lg font-bold text-charcoal-500 group-hover:text-magenta-500 transition-colors"
+                className="font-montserrat text-lg font-bold group-hover:text-magenta-500 transition-colors"
                 translate="no"
               >
                 CROWDIA
@@ -139,20 +139,25 @@ export default function CircuitsJoinPage() {
         </nav>
 
         <section className="relative pt-32 pb-24 px-6 overflow-hidden">
-          {/* Match the ORGs LP palette: warm gradient + magenta accents */}
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50/60 via-white to-rose-50/40 pointer-events-none" />
-          <div className="absolute -top-32 -right-32 w-96 h-96 bg-magenta-500/8 rounded-full blur-[120px] pointer-events-none" />
-          <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[150px] pointer-events-none" />
+          {/* City video background */}
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+            <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay */}
+          <div className="absolute inset-0 bg-black/70" />
+          {/* Magenta accent glows */}
+          <div className="absolute -top-32 -right-32 w-96 h-96 bg-magenta-500/10 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/5 rounded-full blur-[150px] pointer-events-none" />
 
           <div className="relative z-10 max-w-2xl mx-auto">
             {/* HEADER */}
-            <h1 className="font-montserrat text-4xl md:text-5xl font-bold leading-[1.1] mb-4 text-charcoal-500">
+            <h1 className="font-montserrat text-4xl md:text-5xl font-bold leading-[1.1] mb-4">
               Entra nel Circuito di{" "}
               <span className="text-magenta-500" translate="no">
                 Crowdia.
               </span>
             </h1>
-            <p className="font-inter text-lg text-charcoal-300 leading-relaxed mb-10">
+            <p className="font-inter text-lg text-white/80 leading-relaxed mb-10">
               Pochi campi, due passaggi. Il team Crowdia ti contatter&agrave;
               a breve.
             </p>

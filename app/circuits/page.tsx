@@ -50,14 +50,12 @@ export default function Home() {
             HERO SECTION — Accendiamo la città.
         ================================================================ */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-          {/* Warm gradient fallback evoking Sicilian sunlight (visible state until video file lands) */}
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-white to-rose-50/60" />
-
-          {/* TODO: drop in /vid-bckgrnd-orgs.mp4 when available; commented element below is a placeholder. */}
-          {/* <video className="absolute inset-0 w-full h-full object-cover opacity-40" autoPlay muted loop playsInline preload="auto" aria-hidden="true"><source src="/vid-bckgrnd-orgs.mp4" type="video/mp4" /></video> */}
-
-          {/* Light-mode legibility overlay */}
-          <div className="absolute inset-0 bg-gradient-to-br from-white/70 via-white/60 to-amber-50/70" />
+          {/* City video background */}
+          <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+            <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
+          </video>
+          {/* Dark overlay for text legibility */}
+          <div className="absolute inset-0 bg-black/65 md:bg-black/70 lg:bg-black/75" />
 
           {/* Subtle dotted texture */}
           <div
@@ -72,8 +70,8 @@ export default function Home() {
           <div className="absolute -top-32 -right-32 w-96 h-96 bg-magenta-500/8 rounded-full blur-[120px]" />
           <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-amber-200/20 rounded-full blur-[150px]" />
 
-          <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
-            <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8 text-charcoal-500">
+          <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-white">
+            <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8">
               Accendiamo{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-magenta-500">la città.</span>
@@ -81,7 +79,7 @@ export default function Home() {
               </span>
             </h1>
 
-            <p className="font-inter text-lg md:text-xl text-charcoal-300 max-w-2xl leading-relaxed mb-12">
+            <p className="font-inter text-lg md:text-xl text-white/80 max-w-2xl leading-relaxed mb-12">
               Crowdia &egrave; l&apos;AI Social Discovery App che connette i tuoi
               eventi e il tuo spazio con il pubblico giusto. Illumina la tua
               offerta e raggiungi chi vive Palermo ogni giorno.
@@ -97,7 +95,7 @@ export default function Home() {
               </Link>
               <a
                 href="#problem"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-charcoal-500/5 text-charcoal-500 font-inter font-medium rounded-xl hover:bg-charcoal-500/10 transition-all duration-300 border border-charcoal-500/10"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/10 text-white font-inter font-medium rounded-xl hover:bg-white/20 transition-all duration-300 border border-white/20"
               >
                 Scopri di Pi&ugrave;
               </a>
