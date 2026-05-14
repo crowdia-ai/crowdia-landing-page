@@ -4,7 +4,6 @@ import { WaitlistForm } from "@/components/waitlist-form";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowLeft,
   MapPin,
   Search,
   Star,
@@ -21,15 +20,7 @@ export default function SocialPage() {
           NAVIGATION BAR
       ================================================================ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-slate-200/60 dark:border-zinc-800/60">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="font-inter text-sm">Home</span>
-          </Link>
-
+        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center">
           <Link href="/" className="flex items-center gap-2 group">
             <div className="relative w-8 h-8">
               <Image
