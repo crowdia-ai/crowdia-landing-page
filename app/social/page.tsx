@@ -4,12 +4,11 @@ import { WaitlistForm } from "@/components/waitlist-form";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  MapPin,
-  Search,
-  Star,
-  Heart,
   Sparkles,
-  BadgeCheck,
+  Compass,
+  Users,
+  Activity,
+  Trophy,
   ChevronRight,
 } from "lucide-react";
 
@@ -43,10 +42,9 @@ export default function SocialPage() {
       </nav>
 
       {/* ================================================================
-          HERO — Minimal dark gradient, no video
+          HERO — Accendi Palermo.
       ================================================================ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-zinc-950">
-        {/* Subtle dotted texture */}
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
@@ -55,31 +53,27 @@ export default function SocialPage() {
             color: "white",
           }}
         />
-
-        {/* Magenta accent glows */}
         <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-magenta-500/10 rounded-full blur-[140px]" />
         <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/8 rounded-full blur-[150px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-white">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-magenta-500/10 border border-magenta-500/20 text-magenta-400 text-sm font-inter font-medium mb-8">
             <Sparkles className="w-4 h-4" />
-            Palermo&apos;s social discovery app
+            La prima Social-Smart City App
           </div>
 
-          <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8">
-            La tua vita sociale
-            <br />
+          <h1 className="font-montserrat text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold leading-[1.05] mb-8">
+            Accendi{" "}
             <span className="relative inline-block">
-              <span className="relative z-10 text-magenta-500">
-                merita un upgrade.
-              </span>
+              <span className="relative z-10 text-magenta-500">Palermo.</span>
               <span className="absolute bottom-1 left-0 right-0 h-3 bg-magenta-500/10 -z-0 rounded" />
             </span>
           </h1>
 
-          <p className="font-inter text-lg md:text-xl text-white/75 max-w-2xl leading-relaxed mb-12">
-            Basta screenshot persi nelle chat. Scopri eventi, luoghi e persone
-            con una mappa intelligente che impara i tuoi gusti.
+          <p className="font-inter text-lg md:text-xl text-white/80 max-w-3xl leading-relaxed mb-12">
+            La prima <strong className="text-white">Social-Smart City App</strong>.
+            Scopri cosa succede intorno a te, dal centro alle coste, guidato
+            dall&apos;intelligenza artificiale che impara dai tuoi gusti.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4">
@@ -87,144 +81,121 @@ export default function SocialPage() {
               href="#waitlist"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-magenta-500 text-white font-inter font-semibold rounded-xl hover:bg-magenta-600 transition-all duration-300 shadow-lg shadow-magenta-500/25 hover:-translate-y-0.5"
             >
-              Entra in Lista d&apos;Attesa
+              Ottieni l&apos;accesso anticipato
               <ChevronRight className="w-4 h-4" />
             </a>
             <a
-              href="#features"
+              href="#smart-discovery"
               className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white/5 text-white font-inter font-medium rounded-xl hover:bg-white/10 transition-all duration-300 border border-white/10"
             >
-              Scopri le funzionalit&agrave;
+              Come funziona
             </a>
           </div>
         </div>
       </section>
 
       {/* ================================================================
-          PROBLEM — The old way doesn't work
+          SECTION 1 — IL PROBLEMA
       ================================================================ */}
       <section className="py-24 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-            Trovare eventi a Palermo{" "}
-            <span className="text-magenta-500">non dovrebbe essere un lavoro.</span>
+            Smetti di cercare,{" "}
+            <span className="text-magenta-500">inizia a vivere.</span>
           </h2>
           <p className="font-inter text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-            Locandine sparse su Instagram, link scaduti, chat di gruppo infinite:
-            la vita notturna di Palermo esiste, ma nessuno la centralizzava.
-            Fino ad ora.
+            Basta scoprire gli eventi migliori il giorno dopo. Rompi la bolla
+            dei soliti posti e dei feed social ingolfati: la città è finalmente
+            a portata di mano, in tempo reale.
           </p>
         </div>
       </section>
 
       {/* ================================================================
-          FEATURES — New capabilities since early version
+          SECTION 2 — LA SOLUZIONE
       ================================================================ */}
-      <section id="features" className="py-24 px-6 bg-slate-100/60 dark:bg-zinc-900/40">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-            Tutto quello che ti serve,
-            <br />
-            <span className="text-magenta-500">in un unico posto.</span>
+      <section className="py-24 px-6 bg-slate-100/60 dark:bg-zinc-900/40">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Il layer digitale{" "}
+            <span className="text-magenta-500">della città.</span>
           </h2>
-          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 mb-16 max-w-2xl">
-            Abbiamo costruito la piattaforma di social discovery che Palermo
-            meritava da sempre.
+          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+            Crowdia mappa concept, atmosfere ed eventi eliminando i confini tra
+            centro e provincia. È l&apos;infrastruttura intelligente dove
+            l&apos;informazione trova te nel momento esatto in cui vuoi uscire.
           </p>
+        </div>
+      </section>
+
+      {/* ================================================================
+          SECTION 3 — SMART DISCOVERY
+      ================================================================ */}
+      <section id="smart-discovery" className="py-24 px-6">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-16 leading-tight">
+            Smart{" "}
+            <span className="text-magenta-500">Discovery.</span>
+          </h2>
 
           <div className="grid md:grid-cols-2 gap-6">
-            {/* Map Discovery */}
+            {/* Lumio AI */}
             <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
               <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <MapPin className="w-6 h-6 text-magenta-500" />
+                <Compass className="w-6 h-6 text-magenta-500" />
               </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Social Discovery Map
+              <h3 className="font-montserrat text-xl font-bold mb-3" translate="no">
+                Lumio AI
               </h3>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Una mappa in tempo reale di tutti gli eventi attivi. Vedi cosa
-                sta succedendo intorno a te adesso, filtra per atmosfera o
-                categoria, e scopri posti nuovi.
+                La tua bussola urbana che trova l&apos;atmosfera perfetta per
+                il tuo &quot;vibe&quot; attuale.
               </p>
             </div>
 
-            {/* Smart Search */}
+            {/* Voices */}
             <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
               <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <Search className="w-6 h-6 text-magenta-500" />
+                <Users className="w-6 h-6 text-magenta-500" />
               </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Ricerca Intelligente
+              <h3 className="font-montserrat text-xl font-bold mb-3" translate="no">
+                Voices
               </h3>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Cerca per atmosfera, non solo per parola chiave. La nostra AI
-                capisce &quot;serata tranquilla con amici&quot; e ti mostra
-                esattamente quello che stai cercando.
+                I consigli dei KOL che creano la scena locale. Persone reali,
+                non algoritmi.
               </p>
             </div>
 
-            {/* Points & Rewards */}
+            {/* Real-Time */}
             <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
               <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <Star className="w-6 h-6 text-magenta-500" />
+                <Activity className="w-6 h-6 text-magenta-500" />
               </div>
               <h3 className="font-montserrat text-xl font-bold mb-3">
-                Punti e Ricompense
+                Real-Time
               </h3>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Ogni check-in, ogni invito e ogni partecipazione ti guadagna
-                punti. Sali di livello, sblocca badge esclusivi e diventa un
-                punto di riferimento della scena.
+                Una mappa dinamica che ti mostra cosa pulsa{" "}
+                <em>ora</em> in tutto il territorio.
               </p>
             </div>
 
-            {/* Voices Creators */}
+            {/* Rewards */}
             <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
               <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <BadgeCheck className="w-6 h-6 text-magenta-500" />
+                <Trophy className="w-6 h-6 text-magenta-500" />
               </div>
               <h3 className="font-montserrat text-xl font-bold mb-3">
-                Voices Creators
+                Rewards
               </h3>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                I creator verificati di Palermo condividono le loro scoperte
-                direttamente nell&apos;app. Segui i Voices e lascia che siano
-                loro a guidarti.
-              </p>
-            </div>
-
-            {/* Saved Events */}
-            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <Heart className="w-6 h-6 text-magenta-500" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                La Tua Lista Personale
-              </h3>
-              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Salva gli eventi che ti interessano e accedili in un click.
-                Il tuo feed si adatta ai tuoi gusti nel tempo.
-              </p>
-            </div>
-
-            {/* Organizer Profiles */}
-            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <Sparkles className="w-6 h-6 text-magenta-500" />
-              </div>
-              <h3 className="font-montserrat text-xl font-bold mb-3">
-                Profili Organizzatori
-              </h3>
-              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Ogni locale e organizzatore ha il suo profilo pubblico.
-                Scopri la storia di un posto, i suoi eventi passati e
-                futuri, tutto in un&apos;unica pagina.
+                Premiamo la tua curiosità. Guadagna punti esplorando nuovi
+                posti e sblocca accessi esclusivi nel circuito.
               </p>
             </div>
           </div>
@@ -232,7 +203,74 @@ export default function SocialPage() {
       </section>
 
       {/* ================================================================
-          CTA — Waitlist Section
+          SECTION 4 — L'ESPERIENZA
+      ================================================================ */}
+      <section className="py-24 px-6 bg-slate-100/60 dark:bg-zinc-900/40">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+            Palermo come non{" "}
+            <span className="text-magenta-500">l&apos;hai mai vista.</span>
+          </h2>
+          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
+            Dai vicoli storici ai litorali, riprenditi la scena. Naviga il
+            territorio con una consapevolezza nuova e scopri il potenziale
+            nascosto intorno a te.
+          </p>
+        </div>
+      </section>
+
+      {/* ================================================================
+          SECTION 5 — SOCIAL PROOF
+      ================================================================ */}
+      <section className="py-24 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-12 leading-tight">
+            La community sta{" "}
+            <span className="text-magenta-500">sbloccando Palermo.</span>
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-6">
+            <div className="p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800">
+              <div className="font-montserrat text-4xl md:text-5xl font-bold text-magenta-500 mb-2">
+                2.417
+              </div>
+              <div className="font-montserrat text-sm font-bold text-charcoal-500 dark:text-white/90 mb-2 uppercase tracking-wide">
+                Primi Utenti
+              </div>
+              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Già in lista per l&apos;accesso prioritario.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800">
+              <div className="font-montserrat text-4xl md:text-5xl font-bold text-magenta-500 mb-2">
+                +142
+              </div>
+              <div className="font-montserrat text-sm font-bold text-charcoal-500 dark:text-white/90 mb-2 uppercase tracking-wide">
+                Nuovi iscritti
+              </div>
+              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                Persone unite alla waitlist nell&apos;ultima settimana.
+              </p>
+            </div>
+
+            <div className="p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800">
+              <div className="font-montserrat text-4xl md:text-5xl font-bold text-magenta-500 mb-2">
+                Top 5%
+              </div>
+              <div className="font-montserrat text-sm font-bold text-charcoal-500 dark:text-white/90 mb-2 uppercase tracking-wide">
+                La tua posizione
+              </div>
+              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
+                La tua posizione attuale se ti iscrivi ora.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          SECTION 6 — IL CONTATTO (Waitlist)
       ================================================================ */}
       <section id="waitlist" className="py-24 px-6 bg-zinc-950 text-white relative overflow-hidden">
         <div className="absolute -top-32 right-0 w-80 h-80 bg-magenta-500/15 rounded-full blur-[100px]" />
@@ -240,17 +278,17 @@ export default function SocialPage() {
 
         <div className="relative z-10 max-w-xl mx-auto text-center">
           <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-4 leading-tight">
-            Pronto a vivere{" "}
-            <span className="text-magenta-400">Palermo?</span>
+            Prendi le chiavi{" "}
+            <span className="text-magenta-400">della città.</span>
           </h2>
           <p className="font-inter text-lg text-white/70 mb-10 leading-relaxed">
-            Iscriviti alla beta. Posti limitati, accesso prioritario per i
-            primi iscritti.
+            Assicurati il tuo accesso anticipato per l&apos;apertura del
+            circuito. Non restare fuori dalla mappa.
           </p>
 
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <WaitlistForm
-              buttonText="Entra in Lista d'Attesa"
+              buttonText="Ottieni l'accesso"
               source="social"
               glowButton={true}
               emailOnly={true}

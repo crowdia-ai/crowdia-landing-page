@@ -70,12 +70,12 @@ export default function VoicesPage() {
         <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/5 rounded-full blur-[150px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-white">
-          <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8">
-            La tua influenza ha
+          <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8 uppercase tracking-tight">
+            La tua voce,
             <br />
             <span className="relative inline-block">
               <span className="relative z-10 text-magenta-500">
-                un nuovo centro.
+                amplificata.
               </span>
               <span className="absolute bottom-1 left-0 right-0 h-3 bg-magenta-500/10 -z-0 rounded" />
             </span>

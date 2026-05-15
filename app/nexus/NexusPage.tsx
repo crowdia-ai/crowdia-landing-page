@@ -349,38 +349,64 @@ export default function NexusPage() {
           </div>
         </section>
 
-        {/* CURIOSITY GAP */}
+        {/* INFRASTRUCTURE PROPOSITION (per Nexus LP Change ticket) */}
         <section className="py-24 px-6 bg-gradient-to-b from-amber-50/30 to-white">
           <div className="max-w-5xl mx-auto">
             <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
-              Quello che non vedi{" "}
-              <span className="text-magenta-500">qui</span>.
+              Pi&ugrave; di una vetrina.{" "}
+              <span className="text-magenta-500">Un&apos;infrastruttura.</span>
             </h2>
             <p className="font-inter text-lg text-charcoal-300 max-w-3xl leading-relaxed mb-12">
-              La landing page &egrave; solo l&apos;inizio. Durante il nostro
-              incontro tecnico di 15 minuti ti mostreremo:
+              Crowdia non &egrave; un semplice aggregatore di eventi. &Egrave;
+              il layer digitale progettato per dare una nuova intelligenza al
+              tuo spazio e connetterlo al battito reale della citt&agrave;
+              metropolitana.
             </p>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="flex gap-4 p-6 rounded-xl bg-white border border-gray-100">
-                <Eye className="w-6 h-6 text-magenta-500 flex-shrink-0 mt-0.5" />
+              <div className="p-6 rounded-xl bg-white border border-gray-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <Eye className="w-6 h-6 text-magenta-500 flex-shrink-0" />
+                  <h3 className="font-montserrat text-lg font-bold text-charcoal-500">
+                    Analisi del Territorio
+                  </h3>
+                </div>
                 <p className="font-inter text-charcoal-300 leading-relaxed">
-                  La <strong className="text-charcoal-500">Dashboard Business</strong> per il
-                  monitoraggio dei flussi dei tuoi clienti.
+                  Comprendi i flussi e le atmosfere che muovono il pubblico
+                  intorno a te. Offriamo una visione chiara di come la
+                  citt&agrave; respira, trasformando l&apos;intuizione in
+                  strategia per il tuo spazio.
                 </p>
               </div>
-              <div className="flex gap-4 p-6 rounded-xl bg-white border border-gray-100">
-                <Sparkles className="w-6 h-6 text-magenta-500 flex-shrink-0 mt-0.5" />
+
+              <div className="p-6 rounded-xl bg-white border border-gray-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <Sparkles className="w-6 h-6 text-magenta-500 flex-shrink-0" />
+                  <h3 className="font-montserrat text-lg font-bold text-charcoal-500">
+                    Accesso al Circuito
+                  </h3>
+                </div>
                 <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Il sistema di accesso esclusivo tramite{" "}
-                  <strong className="text-charcoal-500" translate="no">Nexus Pass</strong>.
+                  Entra a far parte di un ecosistema selezionato dove la
+                  qualit&agrave; dell&apos;esperienza &egrave; il primo
+                  criterio di visibilit&agrave;. Semplifichiamo
+                  l&apos;incontro tra chi crea valore sul territorio e chi
+                  lo cerca.
                 </p>
               </div>
-              <div className="flex gap-4 p-6 rounded-xl bg-white border border-gray-100">
-                <CheckCircle2 className="w-6 h-6 text-magenta-500 flex-shrink-0 mt-0.5" />
+
+              <div className="p-6 rounded-xl bg-white border border-gray-100">
+                <div className="flex items-center gap-3 mb-4">
+                  <CheckCircle2 className="w-6 h-6 text-magenta-500 flex-shrink-0" />
+                  <h3 className="font-montserrat text-lg font-bold text-charcoal-500">
+                    Posizionamento Strategico
+                  </h3>
+                </div>
                 <p className="font-inter text-charcoal-300 leading-relaxed">
-                  I vantaggi strategici riservati ai{" "}
-                  <strong className="text-charcoal-500">primi partner</strong> della fase pilota.
+                  Valorizza l&apos;identit&agrave; del tuo spazio
+                  all&apos;interno della prima Social-Smart City. Diventa un
+                  nodo nevralgico nella mappa di chi vive e scopre la
+                  provincia ogni giorno.
                 </p>
               </div>
             </div>
