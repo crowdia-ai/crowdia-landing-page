@@ -237,36 +237,6 @@ export default function Home() {
         </section>
 
         {/* ================================================================
-            SECTION 4 — THE SCENE (The Board)
-        ================================================================ */}
-        <section className="py-24 px-6 bg-gray-50/50">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
-              Chi sta gi&agrave; accendendo{" "}
-              <span className="text-magenta-500">la citt&agrave;.</span>
-            </h2>
-            <p className="font-inter text-lg text-charcoal-300 max-w-3xl leading-relaxed mb-12">
-              [Bacheca loghi/card delle realt&agrave; gi&agrave; attive nel
-              Circuito]
-            </p>
-
-            {/* TODO: populate with logo/card grid for active venues & organizers in the Circuito */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-6">
-              {Array.from({ length: 6 }).map((_, i) => (
-                <div
-                  key={i}
-                  className="aspect-square rounded-xl border border-dashed border-charcoal-500/15 bg-white/60 flex items-center justify-center"
-                >
-                  <span className="font-inter text-xs text-charcoal-500/30">
-                    Logo
-                  </span>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================
             SECTION 5 — THE CALL (The Circuit)
         ================================================================ */}
         <section className="py-24 px-6 bg-charcoal-500 text-white relative overflow-hidden">
