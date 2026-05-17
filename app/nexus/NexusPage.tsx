@@ -8,14 +8,12 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
   ArrowLeft,
-  Sparkles,
   Brain,
   Bot,
   Zap,
   Building2,
   Car,
   Plane,
-  Eye,
   CheckCircle2,
   ChevronRight,
   Loader2,
@@ -349,66 +347,78 @@ export default function NexusPage() {
           </div>
         </section>
 
-        {/* INFRASTRUCTURE PROPOSITION (per Nexus LP Change ticket) */}
-        <section className="py-24 px-6 bg-gradient-to-b from-amber-50/30 to-white">
-          <div className="max-w-5xl mx-auto">
-            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
-              Pi&ugrave; di una vetrina.{" "}
-              <span className="text-magenta-500">Un&apos;infrastruttura.</span>
-            </h2>
-            <p className="font-inter text-lg text-charcoal-300 max-w-3xl leading-relaxed mb-12">
-              Crowdia non &egrave; un semplice aggregatore di eventi. &Egrave;
-              il layer digitale progettato per dare una nuova intelligenza al
-              tuo spazio e connetterlo al battito reale della citt&agrave;
-              metropolitana.
-            </p>
+        {/* THE CURIOSITY GAP */}
+        <section className="py-24 px-6 bg-charcoal-500 overflow-hidden relative">
+          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-magenta-500/10 rounded-full blur-[120px]" />
+          <div className="absolute -bottom-40 -left-40 w-[500px] h-[500px] bg-amber-200/10 rounded-full blur-[120px]" />
+          <div
+            className="absolute inset-0 opacity-[0.04]"
+            style={{
+              backgroundImage: `radial-gradient(circle at 1px 1px, #ffffff 1px, transparent 0)`,
+              backgroundSize: "32px 32px",
+            }}
+          />
+          <div className="relative z-10 max-w-5xl mx-auto">
+            <div className="max-w-3xl mb-16">
+              <p className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-400 mb-4">
+                The Curiosity Gap
+              </p>
+              <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-6 leading-tight">
+                I tuoi ospiti cercano qualcosa stasera.{" "}
+                <span className="text-magenta-400">Tu sai cosa?</span>
+              </h2>
+              <p className="font-inter text-lg text-white/60 leading-relaxed">
+                In questo momento, centinaia di turisti a Palermo stanno
+                aprendo Google, TikTok, Reddit — cercando disperatamente cosa
+                fare. Pochissimi trovano qualcosa di autentico. Il gap tra
+                ci&ograve; che la citt&agrave; offre e ci&ograve; che il
+                turista scopre &egrave; enorme. <span translate="no">Crowdia Nexus</span> lo chiude.
+              </p>
+            </div>
 
             <div className="grid md:grid-cols-3 gap-6">
-              <div className="p-6 rounded-xl bg-white border border-gray-100">
-                <div className="flex items-center gap-3 mb-4">
-                  <Eye className="w-6 h-6 text-magenta-500 flex-shrink-0" />
-                  <h3 className="font-montserrat text-lg font-bold text-charcoal-500">
-                    Analisi del Territorio
-                  </h3>
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-magenta-500/40 transition-all duration-500 group">
+                <div className="text-4xl font-montserrat font-bold text-magenta-400 mb-2 group-hover:scale-105 transition-transform duration-500">
+                  73%
                 </div>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Comprendi i flussi e le atmosfere che muovono il pubblico
-                  intorno a te. Offriamo una visione chiara di come la
-                  citt&agrave; respira, trasformando l&apos;intuizione in
-                  strategia per il tuo spazio.
+                <p className="font-inter text-white/70 leading-relaxed">
+                  dei turisti non sa cosa fare la sera prima di controllare
+                  il telefono. Quel momento &egrave; tuo da conquistare.
                 </p>
               </div>
 
-              <div className="p-6 rounded-xl bg-white border border-gray-100">
-                <div className="flex items-center gap-3 mb-4">
-                  <Sparkles className="w-6 h-6 text-magenta-500 flex-shrink-0" />
-                  <h3 className="font-montserrat text-lg font-bold text-charcoal-500">
-                    Accesso al Circuito
-                  </h3>
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-magenta-500/40 transition-all duration-500 group">
+                <div className="text-4xl font-montserrat font-bold text-magenta-400 mb-2 group-hover:scale-105 transition-transform duration-500">
+                  3 sec
                 </div>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Entra a far parte di un ecosistema selezionato dove la
-                  qualit&agrave; dell&apos;esperienza &egrave; il primo
-                  criterio di visibilit&agrave;. Semplifichiamo
-                  l&apos;incontro tra chi crea valore sul territorio e chi
-                  lo cerca.
+                <p className="font-inter text-white/70 leading-relaxed">
+                  &Egrave; il tempo che impiega <span translate="no">Lumio</span> a trovare
+                  l&apos;esperienza giusta per il profilo del tuo ospite,
+                  in qualsiasi lingua.
                 </p>
               </div>
 
-              <div className="p-6 rounded-xl bg-white border border-gray-100">
-                <div className="flex items-center gap-3 mb-4">
-                  <CheckCircle2 className="w-6 h-6 text-magenta-500 flex-shrink-0" />
-                  <h3 className="font-montserrat text-lg font-bold text-charcoal-500">
-                    Posizionamento Strategico
-                  </h3>
+              <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-magenta-500/40 transition-all duration-500 group">
+                <div className="text-4xl font-montserrat font-bold text-magenta-400 mb-2 group-hover:scale-105 transition-transform duration-500">
+                  Day 0
                 </div>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Valorizza l&apos;identit&agrave; del tuo spazio
-                  all&apos;interno della prima Social-Smart City. Diventa un
-                  nodo nevralgico nella mappa di chi vive e scopre la
-                  provincia ogni giorno.
+                <p className="font-inter text-white/70 leading-relaxed">
+                  Nessuna configurazione. La citt&agrave; &egrave; gi&agrave;
+                  dentro <span translate="no">Crowdia</span>. Dal primo giorno sei
+                  operativo e i tuoi ospiti lo sentono.
                 </p>
               </div>
+            </div>
+
+            <div className="mt-12 p-8 rounded-2xl bg-white/5 border border-magenta-500/20">
+              <p className="font-inter text-white/80 text-lg leading-relaxed italic">
+                &ldquo;Non &egrave; una questione di tecnologia. &Egrave; una
+                questione di chi, tra i tuoi competitor, avr&agrave; la mappa
+                della citt&agrave; nelle mani dei propri ospiti per primo.&rdquo;
+              </p>
+              <p className="font-inter text-magenta-400 text-sm font-semibold mt-4" translate="no">
+                — Team Crowdia
+              </p>
             </div>
           </div>
         </section>
@@ -505,7 +515,7 @@ export default function NexusPage() {
 
                 <div>
                   <label className="block font-inter text-sm font-medium text-charcoal-500 mb-2">
-                    Email Professionale
+                    Indirizzo Email
                   </label>
                   <input
                     type="email"
