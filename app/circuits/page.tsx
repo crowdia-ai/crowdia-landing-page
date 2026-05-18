@@ -50,10 +50,15 @@ export default function Home() {
             HERO SECTION — Accendiamo la città.
         ================================================================ */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-          {/* City video background */}
-          <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
-            <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
-          </video>
+          {/* Hero photo background */}
+          <Image
+            src="/circuits-hero-bg.jpg"
+            alt=""
+            fill
+            className="object-cover"
+            priority
+            aria-hidden="true"
+          />
           {/* Dark overlay for text legibility */}
           <div className="absolute inset-0 bg-black/65 md:bg-black/70 lg:bg-black/75" />
 
@@ -124,23 +129,68 @@ export default function Home() {
         </section>
 
         {/* ================================================================
-            SECTION 2 — THE SOLUTION
+            SECTION 2 — HOW IT WORKS
         ================================================================ */}
         <section className="py-24 px-6 bg-gray-50/50">
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-6 leading-tight">
-              Un layer informativo
+            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-4 leading-tight">
+              Come funziona
               <br />
-              <span className="text-magenta-500">per la citt&agrave;.</span>
+              <span className="text-magenta-500">per te.</span>
             </h2>
-
-            <p className="font-inter text-lg text-charcoal-300 max-w-3xl leading-relaxed">
-              Crowdia non &egrave; un altro social network da gestire, ma
-              un&apos;infrastruttura intelligente che intercetta l&apos;utente
-              nel momento della scoperta. Funzioniamo come un layer informativo
-              sopra i canali che gi&agrave; usi, ottimizzando il percorso che
-              porta il pubblico dalla mappa al tuo evento.
+            <p className="font-inter text-lg text-charcoal-300 max-w-2xl leading-relaxed mb-16">
+              Tre passi per portare il tuo spazio o il tuo evento al centro
+              della scena digitale palermitana.
             </p>
+
+            <div className="grid md:grid-cols-3 gap-8">
+              {/* Step 1 */}
+              <div className="relative">
+                <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4 leading-none">
+                  01
+                </div>
+                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
+                  Carica la tua programmazione
+                </h3>
+                <p className="font-inter text-charcoal-300 leading-relaxed">
+                  Pubblica i tuoi eventi, serate e offerte direttamente dalla
+                  dashboard in pochi minuti. Gestisci tutto in autonomia, in
+                  tempo reale.
+                </p>
+                <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-magenta-500/20" />
+              </div>
+
+              {/* Step 2 */}
+              <div className="relative">
+                <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4 leading-none">
+                  02
+                </div>
+                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
+                  Crowdia distribuisce per te
+                </h3>
+                <p className="font-inter text-charcoal-300 leading-relaxed">
+                  Il nostro motore AI intercetta gli utenti nel momento giusto
+                  — quando stanno decidendo attivamente dove andare — e porta
+                  la tua offerta davanti ai loro occhi.
+                </p>
+                <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-magenta-500/20" />
+              </div>
+
+              {/* Step 3 */}
+              <div>
+                <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4 leading-none">
+                  03
+                </div>
+                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
+                  Il pubblico ti trova
+                </h3>
+                <p className="font-inter text-charcoal-300 leading-relaxed">
+                  Gli utenti scoprono il tuo spazio, salvano i tuoi eventi e
+                  arrivano direttamente ai tuoi canali o al tuo sistema di
+                  ticketing. Zero commissioni sulle vendite.
+                </p>
+              </div>
+            </div>
           </div>
         </section>
 
@@ -232,6 +282,34 @@ export default function Home() {
                   ben oltre le semplici informazioni tecniche.
                 </p>
               </div>
+            </div>
+          </div>
+        </section>
+
+        {/* ================================================================
+            SECTION 4 — SOCIAL PROOF (partner logos)
+        ================================================================ */}
+        <section className="py-20 px-6 bg-gray-50/50">
+          <div className="max-w-5xl mx-auto text-center">
+            <p className="font-inter text-sm font-semibold text-charcoal-300 uppercase tracking-widest mb-12">
+              Chi sta gi&agrave; accendendo la citt&agrave;
+            </p>
+
+            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 items-center justify-items-center">
+              {[1, 2, 3, 4, 5, 6].map((n) => (
+                <div
+                  key={n}
+                  className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
+                >
+                  <Image
+                    src={`/circuits-logo-${n}.jpg`}
+                    alt={`Partner ${n}`}
+                    fill
+                    className="object-cover"
+                    sizes="80px"
+                  />
+                </div>
+              ))}
             </div>
           </div>
         </section>
