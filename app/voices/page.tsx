@@ -51,7 +51,7 @@ export default function VoicesPage() {
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
         {/* City video background */}
         <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
-          <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
+          <source src="/Voices_Page_Video_Loop.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text legibility */}
         <div className="absolute inset-0 bg-black/65 md:bg-black/70 lg:bg-black/75" />
