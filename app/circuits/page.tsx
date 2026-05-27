@@ -52,7 +52,7 @@ export default function Home() {
         <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
           {/* Hero photo background */}
           <Image
-            src="/circuits-hero-bg.jpg"
+            src="/circuits-hero-new.jpg"
             alt=""
             fill
             className="object-cover"
@@ -129,65 +129,63 @@ export default function Home() {
         </section>
 
         {/* ================================================================
-            SECTION 2 — HOW IT WORKS
+            SECTION 2 — THE SOLUTION (Infrastructure Bento Grid)
         ================================================================ */}
         <section className="py-24 px-6 bg-gray-50/50">
           <div className="max-w-5xl mx-auto">
-            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-4 leading-tight">
-              Come funziona
-              <br />
-              <span className="text-magenta-500">per te.</span>
+            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-16 leading-tight">
+              Pi&ugrave; di una vetrina.{" "}
+              <span className="text-magenta-500">Un&apos;infrastruttura.</span>
             </h2>
-            <p className="font-inter text-lg text-charcoal-300 max-w-2xl leading-relaxed mb-16">
-              Tre passi per portare il tuo spazio o il tuo evento al centro
-              della scena digitale palermitana.
-            </p>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              {/* Step 1 */}
-              <div className="relative">
-                <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4 leading-none">
-                  01
+            <div className="grid md:grid-cols-3 gap-6">
+              {/* Card 1 — Analisi del territorio */}
+              <div className="group relative p-8 rounded-2xl border border-gray-200/60 bg-white/70 backdrop-blur-sm shadow-sm hover:border-magenta-300 hover:shadow-lg hover:shadow-magenta-500/8 transition-all duration-500">
+                <div className="w-10 h-10 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
+                  <span className="text-magenta-500 text-sm font-montserrat font-bold">01</span>
                 </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Carica la tua programmazione
+                <h3 className="font-montserrat text-base font-bold text-charcoal-500 mb-3 uppercase tracking-wide">
+                  Analisi del Territorio
                 </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Pubblica i tuoi eventi, serate e offerte direttamente dalla
-                  dashboard in pochi minuti. Gestisci tutto in autonomia, in
-                  tempo reale.
+                <p className="font-inter text-sm text-charcoal-300 leading-relaxed">
+                  Comprendi l&apos;impatto reale della tua programmazione.
+                  Accedi a metriche chiare sui flussi urbani e sulle preferenze
+                  del pubblico per ottimizzare i tuoi eventi e intercettare il
+                  target perfetto sul territorio.
                 </p>
-                <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-magenta-500/20" />
               </div>
 
-              {/* Step 2 */}
-              <div className="relative">
-                <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4 leading-none">
-                  02
+              {/* Card 2 — Accesso al Circuito */}
+              <div className="group relative p-8 rounded-2xl border border-gray-200/60 bg-white/70 backdrop-blur-sm shadow-sm hover:border-magenta-300 hover:shadow-lg hover:shadow-magenta-500/8 transition-all duration-500">
+                <div className="w-10 h-10 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
+                  <span className="text-magenta-500 text-sm font-montserrat font-bold">02</span>
                 </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Crowdia distribuisce per te
+                <h3 className="font-montserrat text-base font-bold text-charcoal-500 mb-3 uppercase tracking-wide">
+                  Accesso al Circuito
                 </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Il nostro motore AI intercetta gli utenti nel momento giusto
-                  — quando stanno decidendo attivamente dove andare — e porta
-                  la tua offerta davanti ai loro occhi.
+                <p className="font-inter text-sm text-charcoal-300 leading-relaxed">
+                  Gestisci la tua visibilit&agrave; in totale autonomia e senza
+                  algoritmi penalizzanti. Pubblica i tuoi contenuti in tempo
+                  reale all&apos;interno di un ecosistema meritocratico
+                  progettato per portare il pubblico direttamente ai tuoi
+                  canali ufficiali o ai tuoi sistemi di ticketing.
                 </p>
-                <div className="hidden md:block absolute top-8 -right-4 w-8 h-0.5 bg-magenta-500/20" />
               </div>
 
-              {/* Step 3 */}
-              <div>
-                <div className="text-6xl font-montserrat font-bold text-magenta-500/10 mb-4 leading-none">
-                  03
+              {/* Card 3 — Posizionamento Strategico */}
+              <div className="group relative p-8 rounded-2xl border border-gray-200/60 bg-white/70 backdrop-blur-sm shadow-sm hover:border-magenta-300 hover:shadow-lg hover:shadow-magenta-500/8 transition-all duration-500">
+                <div className="w-10 h-10 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
+                  <span className="text-magenta-500 text-sm font-montserrat font-bold">03</span>
                 </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Il pubblico ti trova
+                <h3 className="font-montserrat text-base font-bold text-charcoal-500 mb-3 uppercase tracking-wide">
+                  Posizionamento Strategico
                 </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Gli utenti scoprono il tuo spazio, salvano i tuoi eventi e
-                  arrivano direttamente ai tuoi canali o al tuo sistema di
-                  ticketing. Zero commissioni sulle vendite.
+                <p className="font-inter text-sm text-charcoal-300 leading-relaxed">
+                  Illumina la tua realt&agrave; sulla Social Discovery Map di
+                  Crowdia. Ottieni una presenza prioritaria nei punti nevralgici
+                  del network nel momento esatto della scoperta digitale,
+                  trasformando l&apos;interesse degli utenti in affluenza fisica
+                  reale nel tuo spazio.
                 </p>
               </div>
             </div>
@@ -287,29 +285,72 @@ export default function Home() {
         </section>
 
         {/* ================================================================
-            SECTION 4 — SOCIAL PROOF (partner logos)
+            SECTION 4 — SOCIAL PROOF (circuit stats + overlapping logo stack)
         ================================================================ */}
         <section className="py-20 px-6 bg-gray-50/50">
-          <div className="max-w-5xl mx-auto text-center">
-            <p className="font-inter text-sm font-semibold text-charcoal-300 uppercase tracking-widest mb-12">
-              Chi sta gi&agrave; accendendo la citt&agrave;
-            </p>
-
-            <div className="grid grid-cols-3 md:grid-cols-6 gap-6 items-center justify-items-center">
-              {[1, 2, 3, 4, 5, 6].map((n) => (
-                <div
-                  key={n}
-                  className="relative w-20 h-20 rounded-2xl overflow-hidden bg-white border border-gray-100 shadow-sm hover:shadow-md transition-shadow duration-300"
-                >
-                  <Image
-                    src={`/circuits-logo-${n}.jpg`}
-                    alt={`Partner ${n}`}
-                    fill
-                    className="object-cover"
-                    sizes="80px"
-                  />
+          <div className="max-w-5xl mx-auto">
+            {/* Circuit stats */}
+            <div className="grid grid-cols-3 gap-6 mb-14 text-center">
+              <div>
+                <div className="font-montserrat text-4xl md:text-5xl font-bold text-charcoal-500 mb-1">
+                  23
                 </div>
-              ))}
+                <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
+                  Spazi Convenzionati
+                </div>
+              </div>
+              <div>
+                <div className="font-montserrat text-4xl md:text-5xl font-bold text-charcoal-500 mb-1">
+                  16
+                </div>
+                <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
+                  Organizzazioni Attive
+                </div>
+              </div>
+              <div>
+                <div className="font-montserrat text-4xl md:text-5xl font-bold text-charcoal-500 mb-1">
+                  2.417
+                </div>
+                <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
+                  Utenti in lista d&apos;attesa
+                </div>
+              </div>
+            </div>
+
+            {/* Avatar-group logo stack + label */}
+            <div className="flex items-center gap-5">
+              {/* Overlapping circles */}
+              <div className="flex items-center">
+                {[1, 2, 3, 4, 5, 6].map((n, i) => (
+                  <div
+                    key={n}
+                    className="relative w-14 h-14 rounded-full overflow-hidden border-2 border-white shadow-md grayscale hover:grayscale-0 transition-all duration-300 shrink-0"
+                    style={{ marginLeft: i === 0 ? 0 : -14, zIndex: 6 - i }}
+                  >
+                    <Image
+                      src={`/circuits-logo-${n}.jpg`}
+                      alt={`Partner ${n}`}
+                      fill
+                      className="object-cover"
+                      sizes="56px"
+                    />
+                  </div>
+                ))}
+                {/* +17 magenta circle */}
+                <div
+                  className="relative w-14 h-14 rounded-full bg-magenta-500 border-2 border-white shadow-md flex items-center justify-center shrink-0"
+                  style={{ marginLeft: -14, zIndex: 0 }}
+                >
+                  <span className="font-montserrat text-xs font-bold text-white">
+                    +17
+                  </span>
+                </div>
+              </div>
+
+              {/* Label */}
+              <p className="font-inter text-base font-semibold text-charcoal-500 leading-snug">
+                16+ Spazi ed Organizzazioni gi&agrave; nel Circuito.
+              </p>
             </div>
           </div>
         </section>
