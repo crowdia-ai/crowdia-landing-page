@@ -136,10 +136,10 @@ export default function NexusPage() {
 
         {/* HERO */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
-          <div className="absolute inset-0 bg-gradient-to-br from-amber-50/80 via-white to-rose-50/60" />
+          <div className="absolute inset-0 bg-gradient-to-br from-amber-50/75 via-white to-rose-50/55" />
           <video
             ref={videoRef}
-            className="absolute inset-0 w-full h-full object-cover opacity-45"
+            className="absolute inset-0 w-full h-full object-cover opacity-50"
             autoPlay
             muted
             loop
@@ -149,7 +149,7 @@ export default function NexusPage() {
           >
             <source src="/vid-bckgrnd-nexus.mp4" type="video/mp4" />
           </video>
-          <div className="absolute inset-0 bg-gradient-to-br from-white/65 via-white/55 to-amber-50/65" />
+          <div className="absolute inset-0 bg-gradient-to-br from-white/60 via-white/50 to-amber-50/60" />
           <div
             className="absolute inset-0 opacity-[0.03]"
             style={{
