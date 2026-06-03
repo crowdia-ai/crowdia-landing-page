@@ -39,7 +39,7 @@ interface WaitlistFormProps {
   emailOnly?: boolean;
 }
 
-export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", source = "main", glowButton = false, emailOnly = false }: WaitlistFormProps) {
+export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", source = "USERS", glowButton = false, emailOnly = false }: WaitlistFormProps) {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
   const [error, setError] = useState<string | null>(null);

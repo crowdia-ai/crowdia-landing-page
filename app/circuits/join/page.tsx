@@ -78,7 +78,7 @@ export default function CircuitsJoinPage() {
         body: JSON.stringify({
           email: values.email,
           name: values.nomeRealta,
-          source: "orgs-funnel",
+          source: "ORGS",
           metadata: {
             instagram: values.instagram,
             type: values.type,

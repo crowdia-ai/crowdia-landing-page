@@ -68,7 +68,7 @@ export default function NexusPage() {
         body: JSON.stringify({
           email: data.email,
           name: data.fullName,
-          source: "nexus-funnel",
+          source: "NEXUS",
           metadata: {
             company: data.company,
             sector: data.sector,

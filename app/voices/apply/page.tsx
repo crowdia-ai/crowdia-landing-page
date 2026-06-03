@@ -68,7 +68,7 @@ export default function VoicesApplyPage() {
         body: JSON.stringify({
           email: values.email,
           name: null,
-          source: "voices-funnel",
+          source: "VOICES",
           metadata: {
             socials: values.socials,
             roles: values.roles,

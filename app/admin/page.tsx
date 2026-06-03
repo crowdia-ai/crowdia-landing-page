@@ -13,11 +13,20 @@ interface WaitlistEntry {
 }
 
 export default function AdminPage() {
+  const SOURCE_CONFIG: Record<string, { label: string; color: string }> = {
+    USERS: { label: "Users", color: "bg-blue-500/20 text-blue-400" },
+    VOICES: { label: "Voices", color: "bg-green-500/20 text-green-400" },
+    ORGS: { label: "Orgs", color: "bg-orange-500/20 text-orange-400" },
+    NEXUS: { label: "Nexus", color: "bg-purple-500/20 text-purple-400" },
+    PARTNERS: { label: "Partners", color: "bg-yellow-500/20 text-yellow-400" },
+  };
+
   const [password, setPassword] = useState("");
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState("");
   const [entries, setEntries] = useState<WaitlistEntry[]>([]);
+  const [sourceFilter, setSourceFilter] = useState<string>("ALL");
 
   const handleLogin = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -176,14 +185,40 @@ export default function AdminPage() {
           </div>
         </div>
 
+        <div className="flex flex-wrap gap-2 mb-4">
+          {["ALL", "USERS", "VOICES", "ORGS", "NEXUS", "PARTNERS"].map((src) => {
+            const cfg = SOURCE_CONFIG[src];
+            const count = src === "ALL" ? entries.length : entries.filter(e => e.source === src).length;
+            return (
+              <button
+                key={src}
+                onClick={() => setSourceFilter(src)}
+                className={`px-3 py-1.5 rounded-full text-sm font-medium transition-all border ${
+                  sourceFilter === src
+                    ? src === "ALL"
+                      ? "bg-white/20 text-white border-white/40"
+                      : `${cfg.color} border-current`
+                    : "bg-charcoal-800 text-gray-400 border-white/10 hover:border-white/30"
+                }`}
+              >
+                {src === "ALL" ? "Tutti" : cfg.label} ({count})
+              </button>
+            );
+          })}
+        </div>
+
         <div className="bg-charcoal-800 rounded-2xl border border-white/10 overflow-hidden">
           <div className="p-4 border-b border-white/10">
             <p className="text-gray-400">
-              Totale: <span className="text-white font-semibold">{entries.length}</span> iscrizioni
+              {sourceFilter === "ALL" ? "Totale" : SOURCE_CONFIG[sourceFilter]?.label}:{" "}
+              <span className="text-white font-semibold">
+                {sourceFilter === "ALL" ? entries.length : entries.filter(e => e.source === sourceFilter).length}
+              </span>{" "}
+              iscrizioni
             </p>
           </div>
 
-          {entries.length === 0 ? (
+          {entries.filter(e => sourceFilter === "ALL" || e.source === sourceFilter).length === 0 ? (
             <div className="p-12 text-center">
               <p className="text-gray-400">Nessuna iscrizione ancora</p>
             </div>
@@ -200,7 +235,7 @@ export default function AdminPage() {
                   </tr>
                 </thead>
                 <tbody>
-                  {entries.map((entry) => (
+                  {entries.filter(e => sourceFilter === "ALL" || e.source === sourceFilter).map((entry) => (
                     <tr key={entry.id} className="border-b border-white/5 hover:bg-white/5">
                       <td className="p-4 text-gray-300 whitespace-nowrap">
                         {formatDate(entry.created_at)}
@@ -208,8 +243,8 @@ export default function AdminPage() {
                       <td className="p-4 text-white">{entry.email}</td>
                       <td className="p-4 text-gray-300">{entry.name || "-"}</td>
                       <td className="p-4">
-                        <span className="px-2 py-1 bg-primary/20 text-primary text-sm rounded-full">
-                          {entry.source}
+                        <span className={`px-2 py-1 text-sm rounded-full ${SOURCE_CONFIG[entry.source]?.color ?? "bg-primary/20 text-primary"}`}>
+                          {SOURCE_CONFIG[entry.source]?.label ?? entry.source}
                         </span>
                       </td>
                       <td className="p-4 text-gray-400 text-sm max-w-xs truncate">

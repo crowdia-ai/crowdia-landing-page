@@ -11,7 +11,7 @@ export async function POST(request: NextRequest) {
     // Validate email (optional)
     const email = body.email ? emailSchema.parse(body.email) : null;
     const name = typeof body.name === 'string' ? body.name : null;
-    const source = typeof body.source === 'string' ? body.source : 'landing-page';
+    const source = typeof body.source === 'string' ? body.source : 'USERS';
     const metadata = body.metadata && typeof body.metadata === 'object' ? body.metadata : null;
     
     // Insert into Supabase

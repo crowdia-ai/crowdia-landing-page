@@ -27,7 +27,7 @@ export default function PartnersPage() {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          source: "partners",
+          source: "PARTNERS",
           metadata: {
             organizationName: formData.organizationName,
             instagramLink: formData.instagramLink,
