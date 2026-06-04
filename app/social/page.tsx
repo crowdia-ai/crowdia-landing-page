@@ -289,7 +289,7 @@ export default function SocialPage() {
           <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
             <WaitlistForm
               buttonText="Ottieni l'accesso"
-              source="social"
+              source="USERS"
               glowButton={true}
               emailOnly={true}
             />

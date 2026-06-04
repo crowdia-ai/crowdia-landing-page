@@ -18,7 +18,6 @@ export default function AdminPage() {
     VOICES: { label: "Voices", color: "bg-green-500/20 text-green-400" },
     ORGS: { label: "Orgs", color: "bg-orange-500/20 text-orange-400" },
     NEXUS: { label: "Nexus", color: "bg-purple-500/20 text-purple-400" },
-    PARTNERS: { label: "Partners", color: "bg-yellow-500/20 text-yellow-400" },
   };
 
   const [password, setPassword] = useState("");
