@@ -11,6 +11,18 @@ const nextConfig: NextConfig = {
       headers: [{ key: "Content-Language", value: "it" }],
     },
   ],
+  redirects: async () => [
+    {
+      source: "/partners",
+      destination: "/circuits",
+      permanent: true,
+    },
+    {
+      source: "/partners/:path*",
+      destination: "/circuits",
+      permanent: true,
+    },
+  ],
 };
 
 export default nextConfig;
