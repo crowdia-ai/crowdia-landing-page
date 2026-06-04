@@ -1,225 +1,544 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, Sparkles, Zap, Mic2, Building2 } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+import {
+  Sparkles,
+  Zap,
+  Mic2,
+  Building2,
+  Landmark,
+  ChevronRight,
+  ArrowDown,
+  Instagram,
+  Linkedin,
+  Menu,
+  X,
+} from "lucide-react";
+
+function CursorGlow() {
+  const ref = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    const move = (e: MouseEvent) => {
+      if (ref.current) {
+        ref.current.style.left = `${e.clientX}px`;
+        ref.current.style.top = `${e.clientY}px`;
+      }
+    };
+    window.addEventListener("mousemove", move);
+    return () => window.removeEventListener("mousemove", move);
+  }, []);
+  return (
+    <div
+      ref={ref}
+      className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full"
+      style={{
+        background:
+          "radial-gradient(circle, rgba(255,0,255,0.06) 0%, transparent 70%)",
+        transition: "left 0.08s ease, top 0.08s ease",
+      }}
+    />
+  );
+}
 
 export default function Home() {
+  const [menuOpen, setMenuOpen] = useState(false);
+
+  const scrollTo = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
+    setMenuOpen(false);
+  };
+
   return (
-    <main className="min-h-screen bg-zinc-950 text-white">
+    <main className="min-h-screen bg-zinc-950 text-white overflow-x-hidden">
+      <CursorGlow />
+
       {/* ================================================================
-          NAVIGATION
+          MODULE A — NAVIGATION
       ================================================================ */}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/80 backdrop-blur-md border-b border-white/5">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center">
-          <div className="flex items-center gap-2">
-            <div className="relative w-8 h-8">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          {/* Logo */}
+          <button
+            onClick={() => scrollTo("home")}
+            className="flex items-center gap-2 group"
+          >
+            <div className="relative w-7 h-7">
               <Image
                 src="/crowdia-logo-icon-transparent.png"
-                alt="CROWDIA Logo"
+                alt="CROWDIA"
                 fill
                 className="object-contain"
-                sizes="32px"
+                sizes="28px"
                 priority
               />
             </div>
             <span
-              className="font-montserrat text-lg font-bold"
+              className="font-montserrat text-base font-bold group-hover:text-magenta-500 transition-colors"
+              translate="no"
+            >
+              CROWDIA
+            </span>
+          </button>
+
+          {/* Desktop nav */}
+          <div className="hidden lg:flex items-center gap-8">
+            <button
+              onClick={() => scrollTo("home")}
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Home
+            </button>
+            <Link
+              href="/social"
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Explore
+            </Link>
+            <Link
+              href="/circuits"
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Circuits
+            </Link>
+            <Link
+              href="/voices"
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Voices
+            </Link>
+            <Link
+              href="/nexus"
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Nexus
+            </Link>
+            <button
+              onClick={() => scrollTo("vision")}
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Vision
+            </button>
+            <button
+              onClick={() => scrollTo("contact")}
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-magenta-500/80 hover:text-magenta-400 transition-colors duration-200"
+            >
+              Contacts
+            </button>
+          </div>
+
+          {/* Mobile burger */}
+          <button
+            className="lg:hidden text-white/60 hover:text-white transition-colors"
+            onClick={() => setMenuOpen((v) => !v)}
+          >
+            {menuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
+        </div>
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="lg:hidden bg-zinc-950/95 border-t border-white/5 px-6 py-6 flex flex-col gap-5">
+            <Link href="/social" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Explore</Link>
+            <Link href="/circuits" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Circuits</Link>
+            <Link href="/voices" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Voices</Link>
+            <Link href="/nexus" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Nexus</Link>
+            <button onClick={() => scrollTo("vision")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Vision</button>
+            <button onClick={() => scrollTo("contact")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-magenta-500/80">Contacts</button>
+          </div>
+        )}
+      </nav>
+
+      {/* ================================================================
+          MODULE B — HERO
+      ================================================================ */}
+      <section
+        id="home"
+        className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      >
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src="/home-hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-zinc-950/50 to-zinc-950" />
+        <div
+          className="absolute inset-0 opacity-[0.025]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
+            backgroundSize: "36px 36px",
+          }}
+        />
+        <div className="absolute -top-24 -right-24 w-[500px] h-[500px] bg-magenta-500/8 rounded-full blur-[150px]" />
+        <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-magenta-500/5 rounded-full blur-[120px]" />
+
+        <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-magenta-500/10 border border-magenta-500/20 text-magenta-400 text-xs font-inter font-semibold tracking-widest uppercase mb-10">
+            <Sparkles className="w-3.5 h-3.5" />
+            Urban Intelligence Layer — Palermo
+          </div>
+
+          <h1 className="font-montserrat text-[clamp(4rem,12vw,9rem)] font-black leading-none tracking-tighter mb-4">
+            CROWDIA
+          </h1>
+
+          <h2 className="font-montserrat text-xl md:text-2xl lg:text-3xl font-bold text-white/80 mb-3">
+            The Platform with Urban Intelligence
+          </h2>
+
+          <h3 className="font-montserrat text-lg md:text-xl font-semibold text-magenta-500 tracking-widest uppercase mb-10">
+            LIGHT UP THE CITY.
+          </h3>
+
+          <p className="font-inter text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-12">
+            Crowdia is the urban operating system. An ecosystem where human
+            energy and the solidity of physical spaces merge into an integrated
+            digital circuit. We unite people, creativity, and governance to
+            evolve Palermo into a Social-Smart City.
+          </p>
+
+          <button
+            onClick={() => scrollTo("gateway")}
+            className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-magenta-500 hover:bg-magenta-400 text-white font-inter font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:shadow-[0_0_30px_rgba(255,0,255,0.3)]"
+          >
+            ENTER THE ECOSYSTEM
+            <ArrowDown className="w-4 h-4" />
+          </button>
+        </div>
+      </section>
+
+      {/* ================================================================
+          MODULE C — SELECTION GATEWAY (Bento Ecosystem)
+      ================================================================ */}
+      <section id="gateway" className="py-24 px-6">
+        <div className="max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-4">
+              Selection Gateway
+            </p>
+            <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-3">
+              Choose Your Access Point
+            </h2>
+            <p className="font-inter text-white/40 text-sm max-w-lg mx-auto">
+              Every part of the ecosystem has its own entry. Select your path.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[220px]">
+            {/* 01 EXPLORE — spans 2 cols */}
+            <Link
+              href="/social"
+              className="group relative lg:col-span-2 p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
+              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-4">
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">01</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For those who live the city</span>
+                </div>
+                <div className="w-10 h-10 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-4">
+                  <Sparkles className="w-5 h-5 text-magenta-400" />
+                </div>
+                <h3 className="font-montserrat text-3xl font-black mb-2">EXPLORE</h3>
+                <p className="font-inter text-sm text-white/50 leading-relaxed max-w-md">
+                  Discover the heartbeat of the territory. Navigate events and places in real time.
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center gap-2 text-magenta-400 text-sm font-inter font-semibold">
+                Enter the city
+                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </div>
+            </Link>
+
+            {/* 02 VOICES */}
+            <Link
+              href="/voices"
+              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
+              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-3">
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">02</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For creators</span>
+                </div>
+                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
+                  <Mic2 className="w-4 h-4 text-magenta-400" />
+                </div>
+                <h3 className="font-montserrat text-2xl font-black mb-1.5">VOICES</h3>
+                <p className="font-inter text-xs text-white/50 leading-relaxed">
+                  Become the face of urban storytelling. Amplify your influence within the circuit.
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
+                Amplify your voice
+                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+
+            {/* 03 CIRCUITS */}
+            <Link
+              href="/circuits"
+              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
+              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-3">
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">03</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For orgs &amp; venues</span>
+                </div>
+                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
+                  <Zap className="w-4 h-4 text-magenta-400" />
+                </div>
+                <h3 className="font-montserrat text-2xl font-black mb-1.5">CIRCUITS</h3>
+                <p className="font-inter text-xs text-white/50 leading-relaxed">
+                  Turn on your node. The infrastructure to manage locations and plan experiences.
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
+                Enter the circuit
+                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+
+            {/* 04 NEXUS */}
+            <Link
+              href="/nexus"
+              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
+              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-3">
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">04</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For tourism &amp; business</span>
+                </div>
+                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
+                  <Building2 className="w-4 h-4 text-magenta-400" />
+                </div>
+                <h3 className="font-montserrat text-2xl font-black mb-1.5">NEXUS</h3>
+                <p className="font-inter text-xs text-white/50 leading-relaxed">
+                  Connect hospitality. Integrated solutions for the local economy.
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
+                Connect your guests
+                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </Link>
+
+            {/* 05 INSTITUTIONAL */}
+            <button
+              onClick={() => scrollTo("contact")}
+              className="group relative p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-magenta-500/40 hover:bg-white/[0.05] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
+            >
+              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
+              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="relative z-10">
+                <div className="flex items-start justify-between mb-3">
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/20">05</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/20">For institutions</span>
+                </div>
+                <div className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center mb-3">
+                  <Landmark className="w-4 h-4 text-white/40" />
+                </div>
+                <h3 className="font-montserrat text-2xl font-black mb-1.5 text-white/70">INSTITUTIONAL</h3>
+                <p className="font-inter text-xs text-white/35 leading-relaxed">
+                  Govern innovation. Data and tools for Smart City development.
+                </p>
+              </div>
+              <div className="relative z-10 flex items-center gap-1.5 text-white/30 text-xs font-inter font-semibold">
+                Get in touch
+                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
+              </div>
+            </button>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          MODULE D — THE VISION (Social-Smart Manifesto)
+      ================================================================ */}
+      <section id="vision" className="py-24 px-6 border-t border-white/[0.06]">
+        <div className="max-w-5xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-16 items-center">
+            <div>
+              <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-6">
+                Our Vision
+              </p>
+              <h2 className="font-montserrat text-3xl md:text-4xl font-bold leading-tight mb-8">
+                Social-Smart City
+                <br />
+                <span className="text-white/40">Infrastructure.</span>
+              </h2>
+              <p className="font-inter text-base text-white/60 leading-relaxed">
+                Crowdia is the intersection of technological innovation and the
+                human fabric of the territory. We transform the province of
+                Palermo into a Social-Smart City: an ecosystem where every
+                interaction generates value and every physical space becomes an
+                intelligent node. We don&apos;t just build software; we build
+                the infrastructure for the city of the future.
+              </p>
+            </div>
+
+            <div className="relative h-64 lg:h-80 flex items-center justify-center">
+              <div className="absolute inset-0 rounded-2xl border border-white/[0.06] overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
+                <svg
+                  viewBox="0 0 400 320"
+                  className="w-full h-full opacity-30"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <line x1="200" y1="160" x2="80" y2="80" stroke="#FF00FF" strokeWidth="0.5" strokeDasharray="4 4" />
+                  <line x1="200" y1="160" x2="320" y2="80" stroke="#FF00FF" strokeWidth="0.5" strokeDasharray="4 4" />
+                  <line x1="200" y1="160" x2="80" y2="240" stroke="#FF00FF" strokeWidth="0.5" strokeDasharray="4 4" />
+                  <line x1="200" y1="160" x2="320" y2="240" stroke="#FF00FF" strokeWidth="0.5" strokeDasharray="4 4" />
+                  <line x1="200" y1="160" x2="200" y2="40" stroke="#FF00FF" strokeWidth="0.5" strokeDasharray="4 4" />
+                  <line x1="80" y1="80" x2="320" y2="80" stroke="white" strokeWidth="0.3" strokeDasharray="2 6" />
+                  <line x1="80" y1="240" x2="320" y2="240" stroke="white" strokeWidth="0.3" strokeDasharray="2 6" />
+                  <circle cx="200" cy="160" r="18" fill="#FF00FF" fillOpacity="0.15" stroke="#FF00FF" strokeWidth="1" />
+                  <circle cx="200" cy="160" r="6" fill="#FF00FF" fillOpacity="0.8" />
+                  <circle cx="80" cy="80" r="8" fill="white" fillOpacity="0.08" stroke="white" strokeWidth="0.5" />
+                  <circle cx="80" cy="80" r="3" fill="white" fillOpacity="0.4" />
+                  <circle cx="320" cy="80" r="8" fill="white" fillOpacity="0.08" stroke="white" strokeWidth="0.5" />
+                  <circle cx="320" cy="80" r="3" fill="white" fillOpacity="0.4" />
+                  <circle cx="80" cy="240" r="8" fill="white" fillOpacity="0.08" stroke="white" strokeWidth="0.5" />
+                  <circle cx="80" cy="240" r="3" fill="white" fillOpacity="0.4" />
+                  <circle cx="320" cy="240" r="8" fill="white" fillOpacity="0.08" stroke="white" strokeWidth="0.5" />
+                  <circle cx="320" cy="240" r="3" fill="white" fillOpacity="0.4" />
+                  <circle cx="200" cy="40" r="6" fill="white" fillOpacity="0.08" stroke="white" strokeWidth="0.5" />
+                  <circle cx="200" cy="40" r="2.5" fill="white" fillOpacity="0.4" />
+                  <text x="50" y="76" fill="white" fillOpacity="0.3" fontSize="8" fontFamily="monospace">EXPLORE</text>
+                  <text x="325" y="76" fill="white" fillOpacity="0.3" fontSize="8" fontFamily="monospace">VOICES</text>
+                  <text x="46" y="256" fill="white" fillOpacity="0.3" fontSize="8" fontFamily="monospace">CIRCUITS</text>
+                  <text x="322" y="256" fill="white" fillOpacity="0.3" fontSize="8" fontFamily="monospace">NEXUS</text>
+                  <text x="175" y="32" fill="white" fillOpacity="0.3" fontSize="8" fontFamily="monospace">INST.</text>
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          MODULE E — THE PULSE (Social Proof & Network Status)
+      ================================================================ */}
+      <section className="py-20 px-6 bg-white/[0.015] border-y border-white/[0.06]">
+        <div className="max-w-5xl mx-auto">
+          <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 text-center mb-12">
+            The Pulse — Network Status
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            {[
+              { value: "2,417", label: "New Users on the Waitlist" },
+              { value: "16", label: "Active Organizations" },
+              { value: "23", label: "Partner Venues" },
+              { value: "11", label: "Creators in the Network" },
+            ].map((stat) => (
+              <div key={stat.label} className="text-center">
+                <div className="font-montserrat text-4xl md:text-5xl font-black text-white mb-2">
+                  {stat.value}
+                </div>
+                <div className="font-inter text-xs text-white/40 uppercase tracking-widest leading-tight">
+                  {stat.label}
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          MODULE F — CONTACT & FINAL CONVERSION HUB
+      ================================================================ */}
+      <section id="contact" className="py-24 px-6">
+        <div className="max-w-4xl mx-auto text-center">
+          <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-6">
+            Join The Circuit
+          </p>
+          <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">
+            Your node in the network{" "}
+            <span className="text-white/40">is ready.</span>
+          </h2>
+          <p className="font-inter text-base text-white/55 max-w-2xl mx-auto leading-relaxed mb-10">
+            Whether you are an institution, an organization, or a creator, your
+            place in the network is ready. Contact us to activate your node and
+            light up the city.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
+            <a
+              href="mailto:info@crowdia.app"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/15 hover:border-white/30 text-white/70 hover:text-white font-inter text-sm font-medium transition-all duration-200"
+            >
+              info@crowdia.app
+            </a>
+            <button
+              onClick={() => scrollTo("gateway")}
+              className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-magenta-500 hover:bg-magenta-400 text-white font-inter font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:shadow-[0_0_20px_rgba(255,0,255,0.25)]"
+            >
+              ENTER THE ECOSYSTEM
+            </button>
+          </div>
+
+          <div className="flex items-center justify-center gap-6">
+            <a
+              href="https://instagram.com/crowdia.ai"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/30 hover:text-white/70 transition-colors"
+            >
+              <Instagram className="w-5 h-5" />
+            </a>
+            <a
+              href="https://linkedin.com/company/crowdia"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white/30 hover:text-white/70 transition-colors"
+            >
+              <Linkedin className="w-5 h-5" />
+            </a>
+          </div>
+        </div>
+      </section>
+
+      {/* ================================================================
+          MODULE G — INSTITUTIONAL FOOTER
+      ================================================================ */}
+      <footer className="py-10 px-6 border-t border-white/[0.06]">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6">
+          <div className="flex items-center gap-2">
+            <div className="relative w-6 h-6">
+              <Image
+                src="/crowdia-logo-icon-transparent.png"
+                alt="CROWDIA"
+                fill
+                className="object-contain"
+                sizes="24px"
+              />
+            </div>
+            <span
+              className="font-montserrat text-sm font-bold text-white/50"
               translate="no"
             >
               CROWDIA
             </span>
           </div>
-        </div>
-      </nav>
-
-      {/* ================================================================
-          HERO — L'ecosistema della città viva.
-      ================================================================ */}
-      <section className="relative min-h-[85vh] flex items-center overflow-hidden pt-20">
-        <Image
-          src="/circuits-hero-bg.jpg"
-          alt=""
-          fill
-          className="object-cover"
-          priority
-          aria-hidden="true"
-        />
-        <div className="absolute inset-0 bg-black/78" />
-        <div
-          className="absolute inset-0 opacity-[0.03]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 1px 1px, white 1px, transparent 0)`,
-            backgroundSize: "32px 32px",
-          }}
-        />
-        <div className="absolute -top-32 -right-32 w-96 h-96 bg-magenta-500/10 rounded-full blur-[120px]" />
-        <div className="absolute -bottom-48 -left-48 w-[500px] h-[500px] bg-magenta-500/6 rounded-full blur-[150px]" />
-
-        <div className="relative z-10 max-w-5xl mx-auto px-6 py-20 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-magenta-500/10 border border-magenta-500/20 text-magenta-400 text-sm font-inter font-medium mb-8">
-            <Sparkles className="w-4 h-4" />
-            Palermo, viva e connessa.
-          </div>
-
-          <h1 className="font-montserrat text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.05] mb-6">
-            L&apos;ecosistema della{" "}
-            <span className="text-magenta-500">città viva.</span>
-          </h1>
-
-          <p className="font-inter text-lg md:text-xl text-white/70 max-w-2xl mx-auto leading-relaxed">
-            Crowdia connette chi vive la città, chi la anima e chi
-            l&apos;accoglie. Scegli il tuo accesso.
+          <p className="font-inter text-xs text-white/25 text-center">
+            CROWDIA: Urban Intelligence Layer for the development of Palermo and
+            its Metropolitan Area.
+          </p>
+          <p className="font-inter text-xs text-white/20">
+            &copy; {new Date().getFullYear()} Crowdia. All rights reserved.
           </p>
         </div>
-      </section>
-
-      {/* ================================================================
-          HUB — Scegli il tuo punto di accesso
-      ================================================================ */}
-      <section className="py-24 px-6">
-        <div className="max-w-6xl mx-auto">
-          <h2 className="font-montserrat text-2xl md:text-3xl font-bold text-center mb-3">
-            Scegli il tuo punto di accesso
-          </h2>
-          <p className="font-inter text-white/50 text-center mb-16 text-sm">
-            Ogni parte dell&apos;ecosistema ha la sua porta.
-          </p>
-
-          <div className="grid md:grid-cols-2 gap-6">
-            {/* CROWDIA APP — for users */}
-            <Link
-              href="/social"
-              className="group relative p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/40 hover:bg-white/[0.06] transition-all duration-300"
-            >
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-xl bg-magenta-500/10 flex items-center justify-center">
-                  <Sparkles className="w-6 h-6 text-magenta-400" />
-                </div>
-                <span className="text-xs font-inter font-medium text-white/30 uppercase tracking-widest">
-                  Per gli utenti
-                </span>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold mb-3">
-                Crowdia App
-              </h3>
-              <p className="font-inter text-sm text-white/60 leading-relaxed mb-6">
-                Scopri eventi, nightlife e cultura a Palermo guidato
-                dall&apos;AI. La città al tuo ritmo.
-              </p>
-              <div className="flex items-center gap-2 text-magenta-400 text-sm font-inter font-medium">
-                Scopri la città
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            {/* CIRCUITS — for organizers */}
-            <Link
-              href="/circuits"
-              className="group relative p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/40 hover:bg-white/[0.06] transition-all duration-300"
-            >
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-xl bg-magenta-500/10 flex items-center justify-center">
-                  <Zap className="w-6 h-6 text-magenta-400" />
-                </div>
-                <span className="text-xs font-inter font-medium text-white/30 uppercase tracking-widest">
-                  Per gli organizzatori
-                </span>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold mb-3">
-                Circuits
-              </h3>
-              <p className="font-inter text-sm text-white/60 leading-relaxed mb-6">
-                Porta il tuo locale o evento sulla mappa. Distribuisci la tua
-                agenda a migliaia di persone.
-              </p>
-              <div className="flex items-center gap-2 text-magenta-400 text-sm font-inter font-medium">
-                Entra nel circuito
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            {/* VOICES — for creators */}
-            <Link
-              href="/voices"
-              className="group relative p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/40 hover:bg-white/[0.06] transition-all duration-300"
-            >
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-xl bg-magenta-500/10 flex items-center justify-center">
-                  <Mic2 className="w-6 h-6 text-magenta-400" />
-                </div>
-                <span className="text-xs font-inter font-medium text-white/30 uppercase tracking-widest">
-                  Per i creators
-                </span>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold mb-3">
-                Voices
-              </h3>
-              <p className="font-inter text-sm text-white/60 leading-relaxed mb-6">
-                Diventa il punto di riferimento della scena locale. La tua
-                influenza ha un nuovo centro.
-              </p>
-              <div className="flex items-center gap-2 text-magenta-400 text-sm font-inter font-medium">
-                Amplifica la tua voce
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            {/* NEXUS — for hospitality */}
-            <Link
-              href="/nexus"
-              className="group relative p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/40 hover:bg-white/[0.06] transition-all duration-300"
-            >
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="flex items-start justify-between mb-6">
-                <div className="w-12 h-12 rounded-xl bg-magenta-500/10 flex items-center justify-center">
-                  <Building2 className="w-6 h-6 text-magenta-400" />
-                </div>
-                <span className="text-xs font-inter font-medium text-white/30 uppercase tracking-widest">
-                  Per l&apos;hospitality
-                </span>
-              </div>
-              <h3 className="font-montserrat text-2xl font-bold mb-3">
-                Nexus
-              </h3>
-              <p className="font-inter text-sm text-white/60 leading-relaxed mb-6">
-                AI al servizio dell&apos;accoglienza. Per hotel, taxi e tour
-                operator che vogliono connettere i loro ospiti alla città.
-              </p>
-              <div className="flex items-center gap-2 text-magenta-400 text-sm font-inter font-medium">
-                Connetti i tuoi ospiti
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ================================================================
-          FOOTER
-      ================================================================ */}
-      <footer className="py-8 px-6 border-t border-white/5 text-center">
-        <div className="flex items-center justify-center gap-2 mb-3">
-          <div className="relative w-6 h-6">
-            <Image
-              src="/crowdia-logo-icon-transparent.png"
-              alt="CROWDIA"
-              fill
-              className="object-contain"
-              sizes="24px"
-            />
-          </div>
-          <span
-            className="font-montserrat text-sm font-bold text-white/50"
-            translate="no"
-          >
-            CROWDIA
-          </span>
-        </div>
-        <p className="font-inter text-xs text-white/25">
-          &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti riservati.
-        </p>
       </footer>
     </main>
   );
