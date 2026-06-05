@@ -94,7 +94,7 @@ export default function Home() {
               href="/social"
               className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
             >
-              Explore
+              Esplora
             </Link>
             <Link
               href="/circuits"
@@ -114,17 +114,23 @@ export default function Home() {
             >
               Nexus
             </Link>
+            <Link
+              href="/istituzionale"
+              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
+            >
+              Istituzionale
+            </Link>
             <button
               onClick={() => scrollTo("vision")}
               className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
             >
-              Vision
+              Visione
             </button>
             <button
               onClick={() => scrollTo("contact")}
               className="text-xs font-inter font-semibold tracking-widest uppercase text-magenta-500/80 hover:text-magenta-400 transition-colors duration-200"
             >
-              Contacts
+              Contatti
             </button>
           </div>
 
@@ -140,12 +146,13 @@ export default function Home() {
         {/* Mobile menu */}
         {menuOpen && (
           <div className="lg:hidden bg-zinc-950/95 border-t border-white/5 px-6 py-6 flex flex-col gap-5">
-            <Link href="/social" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Explore</Link>
+            <Link href="/social" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Esplora</Link>
             <Link href="/circuits" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Circuits</Link>
             <Link href="/voices" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Voices</Link>
             <Link href="/nexus" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Nexus</Link>
-            <button onClick={() => scrollTo("vision")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Vision</button>
-            <button onClick={() => scrollTo("contact")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-magenta-500/80">Contacts</button>
+            <Link href="/istituzionale" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Istituzionale</Link>
+            <button onClick={() => scrollTo("vision")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Visione</button>
+            <button onClick={() => scrollTo("contact")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-magenta-500/80">Contatti</button>
           </div>
         )}
       </nav>
@@ -162,11 +169,11 @@ export default function Home() {
           muted
           loop
           playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-40"
+          className="absolute inset-0 w-full h-full object-cover opacity-30"
         >
           <source src="/home-hero-bg.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/60 via-zinc-950/50 to-zinc-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/40 to-zinc-950" />
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
@@ -188,25 +195,25 @@ export default function Home() {
           </h1>
 
           <h2 className="font-montserrat text-xl md:text-2xl lg:text-3xl font-bold text-white/80 mb-3">
-            The Platform with Urban Intelligence
+            La Piattaforma con Intelligenza Urbana
           </h2>
 
           <h3 className="font-montserrat text-lg md:text-xl font-semibold text-magenta-500 tracking-widest uppercase mb-10">
-            LIGHT UP THE CITY.
+            ACCENDI LA CITTÀ.
           </h3>
 
           <p className="font-inter text-base md:text-lg text-white/60 max-w-2xl mx-auto leading-relaxed mb-12">
-            Crowdia is the urban operating system. An ecosystem where human
-            energy and the solidity of physical spaces merge into an integrated
-            digital circuit. We unite people, creativity, and governance to
-            evolve Palermo into a Social-Smart City.
+            Crowdia è il sistema operativo urbano. Un ecosistema in cui
+            l&apos;energia umana e la solidità degli spazi fisici si fondono in
+            un circuito digitale integrato. Uniamo persone, creatività e
+            governance per evolvere Palermo in una Città Social-Smart.
           </p>
 
           <button
             onClick={() => scrollTo("gateway")}
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-magenta-500 hover:bg-magenta-400 text-white font-inter font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:shadow-[0_0_30px_rgba(255,0,255,0.3)]"
           >
-            ENTER THE ECOSYSTEM
+            ENTRA NELL&apos;ECOSISTEMA
             <ArrowDown className="w-4 h-4" />
           </button>
         </div>
@@ -219,13 +226,13 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
             <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-4">
-              Selection Gateway
+              Gateway di Selezione
             </p>
             <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-3">
-              Choose Your Access Point
+              Scegli il tuo Punto di Accesso
             </h2>
             <p className="font-inter text-white/40 text-sm max-w-lg mx-auto">
-              Every part of the ecosystem has its own entry. Select your path.
+              Ogni parte dell&apos;ecosistema ha il suo accesso. Seleziona il tuo percorso.
             </p>
           </div>
 
@@ -240,18 +247,18 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
                   <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">01</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For those who live the city</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per chi vive la città</span>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-4">
                   <Sparkles className="w-5 h-5 text-magenta-400" />
                 </div>
                 <h3 className="font-montserrat text-3xl font-black mb-2">EXPLORE</h3>
                 <p className="font-inter text-sm text-white/50 leading-relaxed max-w-md">
-                  Discover the heartbeat of the territory. Navigate events and places in real time.
+                  Scopri il battito del territorio. Naviga eventi e luoghi in tempo reale.
                 </p>
               </div>
               <div className="relative z-10 flex items-center gap-2 text-magenta-400 text-sm font-inter font-semibold">
-                Enter the city
+                Entra in città
                 <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </div>
             </Link>
@@ -266,18 +273,18 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">02</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For creators</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per i creator</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Mic2 className="w-4 h-4 text-magenta-400" />
                 </div>
                 <h3 className="font-montserrat text-2xl font-black mb-1.5">VOICES</h3>
                 <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Become the face of urban storytelling. Amplify your influence within the circuit.
+                  Diventa il volto dello storytelling urbano. Amplifica la tua influenza nel circuito.
                 </p>
               </div>
               <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Amplify your voice
+                Amplifica la tua voce
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </Link>
@@ -292,18 +299,18 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">03</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For orgs &amp; venues</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per organizzazioni e venue</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Zap className="w-4 h-4 text-magenta-400" />
                 </div>
                 <h3 className="font-montserrat text-2xl font-black mb-1.5">CIRCUITS</h3>
                 <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Turn on your node. The infrastructure to manage locations and plan experiences.
+                  Attiva il tuo nodo. L&apos;infrastruttura per gestire location e pianificare esperienze.
                 </p>
               </div>
               <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Enter the circuit
+                Entra nel circuito
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </Link>
@@ -318,25 +325,25 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">04</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">For tourism &amp; business</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per il turismo e il business</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Building2 className="w-4 h-4 text-magenta-400" />
                 </div>
                 <h3 className="font-montserrat text-2xl font-black mb-1.5">NEXUS</h3>
                 <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Connect hospitality. Integrated solutions for the local economy.
+                  Connetti l&apos;ospitalità. Soluzioni integrate per l&apos;economia locale.
                 </p>
               </div>
               <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Connect your guests
+                Connetti i tuoi ospiti
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
             </Link>
 
             {/* 05 INSTITUTIONAL */}
-            <button
-              onClick={() => scrollTo("contact")}
+            <Link
+              href="/istituzionale"
               className="group relative p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-magenta-500/40 hover:bg-white/[0.05] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
@@ -344,21 +351,21 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/20">05</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/20">For institutions</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/20">Per le istituzioni</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center mb-3">
                   <Landmark className="w-4 h-4 text-white/40" />
                 </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5 text-white/70">INSTITUTIONAL</h3>
+                <h3 className="font-montserrat text-2xl font-black mb-1.5 text-white/70">ISTITUZIONALE</h3>
                 <p className="font-inter text-xs text-white/35 leading-relaxed">
-                  Govern innovation. Data and tools for Smart City development.
+                  Governa l&apos;innovazione. Dati e strumenti per lo sviluppo della Smart City.
                 </p>
               </div>
               <div className="relative z-10 flex items-center gap-1.5 text-white/30 text-xs font-inter font-semibold">
-                Get in touch
+                Vai alla pagina
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </section>
@@ -371,20 +378,20 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div>
               <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-6">
-                Our Vision
+                La nostra visione
               </p>
               <h2 className="font-montserrat text-3xl md:text-4xl font-bold leading-tight mb-8">
-                Social-Smart City
+                Infrastruttura
                 <br />
-                <span className="text-white/40">Infrastructure.</span>
+                <span className="text-white/40">Social-Smart City.</span>
               </h2>
               <p className="font-inter text-base text-white/60 leading-relaxed">
-                Crowdia is the intersection of technological innovation and the
-                human fabric of the territory. We transform the province of
-                Palermo into a Social-Smart City: an ecosystem where every
-                interaction generates value and every physical space becomes an
-                intelligent node. We don&apos;t just build software; we build
-                the infrastructure for the city of the future.
+                Crowdia è l&apos;intersezione tra innovazione tecnologica e
+                tessuto umano del territorio. Trasformiamo la provincia di
+                Palermo in una Social-Smart City: un ecosistema in cui ogni
+                interazione genera valore e ogni spazio fisico diventa un nodo
+                intelligente. Non costruiamo solo software; costruiamo
+                l&apos;infrastruttura della città del futuro.
               </p>
             </div>
 
@@ -433,14 +440,14 @@ export default function Home() {
       <section className="py-20 px-6 bg-white/[0.015] border-y border-white/[0.06]">
         <div className="max-w-5xl mx-auto">
           <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 text-center mb-12">
-            The Pulse — Network Status
+            The Pulse — Stato della Rete
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "2,417", label: "New Users on the Waitlist" },
-              { value: "16", label: "Active Organizations" },
-              { value: "23", label: "Partner Venues" },
-              { value: "11", label: "Creators in the Network" },
+              { value: "2.417", label: "Nuovi Utenti in Lista d'Attesa" },
+              { value: "16", label: "Organizzazioni Attive" },
+              { value: "23", label: "Venue Partner" },
+              { value: "11", label: "Creator nella Rete" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
                 <div className="font-montserrat text-4xl md:text-5xl font-black text-white mb-2">
@@ -461,30 +468,30 @@ export default function Home() {
       <section id="contact" className="py-24 px-6">
         <div className="max-w-4xl mx-auto text-center">
           <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-6">
-            Join The Circuit
+            Entra nel Circuito
           </p>
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">
-            Your node in the network{" "}
-            <span className="text-white/40">is ready.</span>
+            Il tuo nodo nella rete{" "}
+            <span className="text-white/40">è pronto.</span>
           </h2>
           <p className="font-inter text-base text-white/55 max-w-2xl mx-auto leading-relaxed mb-10">
-            Whether you are an institution, an organization, or a creator, your
-            place in the network is ready. Contact us to activate your node and
-            light up the city.
+            Che tu sia un&apos;istituzione, un&apos;organizzazione o un creator,
+            il tuo posto nella rete è pronto. Contattaci per attivare il tuo
+            nodo e accendere la città.
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
             <a
-              href="mailto:info@crowdia.app"
+              href="mailto:info@crowdia.ai"
               className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-white/15 hover:border-white/30 text-white/70 hover:text-white font-inter text-sm font-medium transition-all duration-200"
             >
-              info@crowdia.app
+              info@crowdia.ai
             </a>
             <button
               onClick={() => scrollTo("gateway")}
               className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-magenta-500 hover:bg-magenta-400 text-white font-inter font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:shadow-[0_0_20px_rgba(255,0,255,0.25)]"
             >
-              ENTER THE ECOSYSTEM
+              ENTRA NELL&apos;ECOSISTEMA
             </button>
           </div>
 
@@ -532,11 +539,11 @@ export default function Home() {
             </span>
           </div>
           <p className="font-inter text-xs text-white/25 text-center">
-            CROWDIA: Urban Intelligence Layer for the development of Palermo and
-            its Metropolitan Area.
+            CROWDIA: Urban Intelligence Layer per lo sviluppo di Palermo e della
+            sua Area Metropolitana.
           </p>
           <p className="font-inter text-xs text-white/20">
-            &copy; {new Date().getFullYear()} Crowdia. All rights reserved.
+            &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti riservati.
           </p>
         </div>
       </footer>
