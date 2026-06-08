@@ -358,7 +358,7 @@ export function IstituzionalePage() {
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
               <a
-                href="mailto:info@crowdia.app?subject=Richiesta%20Incontro%20Strategico%20-%20Crowdia"
+                href="mailto:info@crowdia.ai?subject=Richiesta%20Incontro%20Strategico%20-%20Crowdia"
                 className="inline-flex items-center justify-center gap-3 px-8 py-4 bg-magenta-500 text-white font-inter font-semibold rounded-xl hover:bg-magenta-400 transition-all duration-300 shadow-lg shadow-magenta-500/30 hover:shadow-xl hover:shadow-magenta-500/40 hover:-translate-y-0.5"
               >
                 <Mail className="w-5 h-5" />
@@ -369,11 +369,11 @@ export function IstituzionalePage() {
             <div className="flex flex-col sm:flex-row gap-8 justify-center text-sm text-white/50">
               <div className="flex items-center gap-2">
                 <Mail className="w-4 h-4" />
-                <span className="font-inter">info@crowdia.app</span>
+                <span className="font-inter">info@crowdia.ai</span>
               </div>
               <div className="flex items-center gap-2">
                 <Globe className="w-4 h-4" />
-                <span className="font-inter">crowdia.app</span>
+                <span className="font-inter">crowdia.ai</span>
               </div>
             </div>
           </div>
