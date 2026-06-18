@@ -173,7 +173,7 @@ export default function Home() {
         >
           <source src="/home-hero-bg.mp4" type="video/mp4" />
         </video>
-        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/50 via-zinc-950/40 to-zinc-950" />
+        <div className="absolute inset-0 bg-gradient-to-b from-zinc-950/30 via-zinc-950/20 to-zinc-950/80" />
         <div
           className="absolute inset-0 opacity-[0.025]"
           style={{
