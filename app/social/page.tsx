@@ -45,6 +45,16 @@ export default function SocialPage() {
           HERO — Accendi Palermo.
       ================================================================ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20 bg-zinc-950">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover opacity-40"
+        >
+          <source src="/social-hero-bg.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/60" />
         <div
           className="absolute inset-0 opacity-[0.05]"
           style={{
