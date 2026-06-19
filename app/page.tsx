@@ -35,7 +35,7 @@ function CursorGlow() {
       className="pointer-events-none fixed z-[9999] -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full"
       style={{
         background:
-          "radial-gradient(circle, rgba(255,0,255,0.06) 0%, transparent 70%)",
+          "radial-gradient(circle, rgba(255,0,255,0.26) 0%, transparent 70%)",
         transition: "left 0.08s ease, top 0.08s ease",
       }}
     />
