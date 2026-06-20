@@ -218,8 +218,8 @@ export default function SocialPage() {
       <section className="py-24 px-6 bg-slate-100/60 dark:bg-zinc-900/40">
         <div className="max-w-6xl mx-auto">
           <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-16 leading-tight">
-            Palermo come non{" "}
-            <span className="text-magenta-500">l&apos;hai mai vista.</span>
+            Vivi la tua città{" "}
+            <span className="text-magenta-500">a pieno.</span>
           </h2>
 
           <div className="space-y-16">
@@ -239,7 +239,7 @@ export default function SocialPage() {
                 </p>
               </div>
               <div className="w-full md:w-1/2">
-                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden rounded-2xl">
                   <Image
                     src="/social-day.jpeg"
                     alt="Art Gallery — Discovery Culturale"
@@ -267,7 +267,7 @@ export default function SocialPage() {
                 </p>
               </div>
               <div className="w-full md:w-1/2">
-                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden rounded-2xl">
                   <Image
                     src="/social-sunset.jpeg"
                     alt="Park Concert — Spazi Condivisi"
@@ -295,7 +295,7 @@ export default function SocialPage() {
                 </p>
               </div>
               <div className="w-full md:w-1/2">
-                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden rounded-2xl">
                   <Image
                     src="/social-night.jpeg"
                     alt="Underground Club — Vibes Notturne"
