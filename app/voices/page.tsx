@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronRight,
-  ArrowLeft,
-  BadgeCheck,
-  Sparkles,
-  Lock,
-} from "lucide-react";
+import { ChevronRight, ArrowLeft } from "lucide-react";
 
 export default function VoicesPage() {
   return (
@@ -159,51 +153,87 @@ export default function VoicesPage() {
             </span>
           </h2>
 
-          <div className="grid md:grid-cols-3 gap-6">
-            {/* Status & Badge */}
-            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <BadgeCheck className="w-6 h-6 text-magenta-500" />
+          <div className="space-y-16">
+            {/* Row 1: Text Left | Image Right */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="font-mono text-xs text-magenta-500 tracking-[0.25em] uppercase">
+                  01
+                </span>
+                <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                  Status &amp; Badge
+                </h3>
+                <p className="font-inter text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Un profilo certificato che ti distingue come autorit&agrave;
+                  della citt&agrave; e membro del nucleo fondatore.
+                </p>
               </div>
-              <h3 className="font-montserrat text-lg font-bold mb-3">
-                Status &amp; Badge
-              </h3>
-              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Un profilo certificato che ti distingue come autorit&agrave;
-                della citt&agrave; e membro del nucleo fondatore.
-              </p>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/voices-status-badge.jpeg"
+                    alt="Creator Pro verified badge — Status & Badge"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Lumio Integration */}
-            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <Sparkles className="w-6 h-6 text-magenta-500" />
+            {/* Row 2: Image Left | Text Right */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="font-mono text-xs text-magenta-500 tracking-[0.25em] uppercase">
+                  02
+                </span>
+                <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                  Lumio Integration
+                </h3>
+                <p className="font-inter text-slate-600 dark:text-slate-400 leading-relaxed">
+                  I tuoi contenuti e i tuoi suggerimenti istruiranno la nostra
+                  AI, rendendo la tua &quot;voce&quot; la fonte primaria per
+                  migliaia di utenti.
+                </p>
               </div>
-              <h3 className="font-montserrat text-lg font-bold mb-3">
-                Lumio Integration
-              </h3>
-              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                I tuoi contenuti e i tuoi suggerimenti istruiranno la nostra
-                AI, rendendo la tua &quot;voce&quot; la fonte primaria per
-                migliaia di utenti.
-              </p>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/voices-lumio-integration.jpeg"
+                    alt="Lumio AI conversational interface — Lumio Integration"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
             </div>
 
-            {/* Early Access */}
-            <div className="group relative p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800 hover:border-magenta-300 dark:hover:border-magenta-500/40 transition-all duration-500 hover:shadow-lg hover:shadow-magenta-500/5">
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="w-12 h-12 rounded-xl bg-magenta-50 dark:bg-magenta-500/10 flex items-center justify-center mb-6">
-                <Lock className="w-6 h-6 text-magenta-500" />
+            {/* Row 3: Text Left | Image Right */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="font-mono text-xs text-magenta-500 tracking-[0.25em] uppercase">
+                  03
+                </span>
+                <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                  Early Access
+                </h3>
+                <p className="font-inter text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Accedi in anteprima alle funzioni PRO dell&apos;app e agli
+                  eventi pi&ugrave; esclusivi del Circuito.
+                </p>
               </div>
-              <h3 className="font-montserrat text-lg font-bold mb-3">
-                Early Access
-              </h3>
-              <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Accedi in anteprima alle funzioni PRO dell&apos;app e agli
-                eventi pi&ugrave; esclusivi del Circuito.
-              </p>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden rounded-2xl">
+                  <Image
+                    src="/voices-early-access.jpeg"
+                    alt="Urban Press Credential at festival gate — Early Access"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </div>
