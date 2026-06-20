@@ -216,16 +216,97 @@ export default function SocialPage() {
           SECTION 4 — L'ESPERIENZA
       ================================================================ */}
       <section className="py-24 px-6 bg-slate-100/60 dark:bg-zinc-900/40">
-        <div className="max-w-5xl mx-auto">
-          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold mb-16 leading-tight">
             Palermo come non{" "}
             <span className="text-magenta-500">l&apos;hai mai vista.</span>
           </h2>
-          <p className="font-inter text-lg text-slate-600 dark:text-slate-400 max-w-3xl leading-relaxed">
-            Dai vicoli storici ai litorali, riprenditi la scena. Naviga il
-            territorio con una consapevolezza nuova e scopri il potenziale
-            nascosto intorno a te.
-          </p>
+
+          <div className="space-y-16">
+            {/* Row 1: Text Left | Image Right */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="font-mono text-xs text-magenta-500 tracking-[0.25em] uppercase">
+                  01
+                </span>
+                <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                  Discovery Culturale
+                </h3>
+                <p className="font-inter text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Gallerie, musei, installazioni d&apos;arte temporanee: Crowdia
+                  mappa tutta la scena culturale di Palermo e ti porta dove
+                  l&apos;arte incontra la vita quotidiana.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden">
+                  <Image
+                    src="/social-day.jpeg"
+                    alt="Art Gallery — Discovery Culturale"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Row 2: Image Left | Text Right (reversed on desktop via flex-row-reverse) */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="font-mono text-xs text-magenta-500 tracking-[0.25em] uppercase">
+                  02
+                </span>
+                <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                  Spazi Condivisi
+                </h3>
+                <p className="font-inter text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Concerti al parco, sagre di quartiere, performance
+                  all&apos;aperto: scopri gli spazi condivisi dove la città si
+                  ritrova, respira e celebra sé stessa.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden">
+                  <Image
+                    src="/social-sunset.jpeg"
+                    alt="Park Concert — Spazi Condivisi"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Row 3: Text Left | Image Right */}
+            <div className="flex flex-col md:flex-row items-center gap-8 md:gap-16">
+              <div className="w-full md:w-1/2 space-y-4">
+                <span className="font-mono text-xs text-magenta-500 tracking-[0.25em] uppercase">
+                  03
+                </span>
+                <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-slate-900 dark:text-white">
+                  Vibes Notturne
+                </h3>
+                <p className="font-inter text-slate-600 dark:text-slate-400 leading-relaxed">
+                  Club underground, after, serate a tema: Crowdia tiene il
+                  polso del nightlife palermitano e ti porta al posto giusto nel
+                  momento esatto in cui sei pronto a uscire.
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video border border-[#2E2E2E] overflow-hidden">
+                  <Image
+                    src="/social-night.jpeg"
+                    alt="Underground Club — Vibes Notturne"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 
