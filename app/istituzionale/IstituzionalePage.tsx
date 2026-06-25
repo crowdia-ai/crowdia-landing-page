@@ -138,12 +138,12 @@ export function IstituzionalePage() {
                   Urban Vitality
                 </p>
                 <p className="font-inter text-charcoal-300 text-lg leading-relaxed">
-                  &ldquo;La frammentazione dei legami post-COVID richiede
+                  La frammentazione dei legami post-COVID richiede
                   risposte infrastrutturali. Crowdia canalizza
                   l&apos;attenzione dei giovani verso il territorio,
                   trasformando la scoperta degli eventi in aggregazione
                   spontanea per ripopolare lo spazio pubblico e le piazze
-                  della citt&agrave;.&rdquo;
+                  della citt&agrave;.
                 </p>
               </div>
               <div className="w-full md:w-1/2">
@@ -169,12 +169,12 @@ export function IstituzionalePage() {
                   Territorial Equity
                 </p>
                 <p className="font-inter text-charcoal-300 text-lg leading-relaxed">
-                  &ldquo;Abbattiamo l&apos;isolamento informativo delle aree
+                  Abbattiamo l&apos;isolamento informativo delle aree
                   decentrate democratizzando la visibilit&agrave;. Grazie
                   all&apos;Urban Intelligence Engine, ogni borgo e sagra
                   locale ottiene la stessa dignit&agrave; visiva dei grandi
                   eventi, valorizzando l&apos;economia e il turismo di
-                  prossimit&agrave;.&rdquo;
+                  prossimit&agrave;.
                 </p>
               </div>
               <div className="w-full md:w-1/2">
@@ -200,12 +200,12 @@ export function IstituzionalePage() {
                   Data-as-a-Service
                 </p>
                 <p className="font-inter text-charcoal-300 text-lg leading-relaxed">
-                  &ldquo;Convertiamo la partecipazione urbana in dati
+                  Convertiamo la partecipazione urbana in dati
                   aggregati e anonimi per la pubblica amministrazione.
                   L&apos;Engine fornisce uno strumento di governance
                   predittiva per monitorare l&apos;impatto delle iniziative
                   culturali e pianificare lo sviluppo locale su evidenze
-                  reali.&rdquo;
+                  reali.
                 </p>
               </div>
               <div className="w-full md:w-1/2">
