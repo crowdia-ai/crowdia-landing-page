@@ -5,9 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import {
   ArrowLeft,
-  Users,
   Globe,
-  MapPin,
   Compass,
   CalendarCheck,
   Mail,
@@ -155,43 +153,103 @@ export function IstituzionalePage() {
               <span className="text-magenta-500">Riscoprire le Piazze.</span>
             </h2>
 
-            <p className="font-inter text-lg text-charcoal-300 max-w-3xl leading-relaxed mb-16">
+            <p className="font-inter text-lg text-charcoal-300 max-w-3xl leading-relaxed mb-20">
               Lo stile di vita moderno e l&apos;eredit&agrave; del periodo
               post-covid hanno frammentato i legami fisici, trasformando le
               nostre citt&agrave; in spazi spesso silenziosi. Crowdia inverte
               questa rotta.
             </p>
 
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* Riconnessione Sociale */}
-              <div className="group p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 hover:border-magenta-200 hover:shadow-lg hover:shadow-magenta-500/5 transition-all duration-500">
-                <div className="w-12 h-12 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <Users className="w-6 h-6 text-magenta-500" />
-                </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Riconnessione Sociale
-                </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Usiamo la tecnologia per incentivare il ritorno alla
-                  partecipazione fisica, premiando i cittadini che scelgono di
-                  vivere attivamente gli spazi urbani.
+            {/* Row 1: Text Left | Image Right */}
+            <div className="flex flex-col md:flex-row items-center gap-12 mb-20">
+              <div className="w-full md:w-1/2">
+                <p className="font-inter text-xs font-semibold text-magenta-500 tracking-widest uppercase mb-2">
+                  01 / Riconnessione Sociale
+                </p>
+                <p className="font-inter text-xs text-charcoal-300/60 uppercase tracking-widest mb-5">
+                  Urban Vitality
+                </p>
+                <p className="font-inter text-charcoal-300 text-lg leading-relaxed">
+                  &ldquo;La frammentazione dei legami post-COVID richiede
+                  risposte infrastrutturali. Crowdia canalizza
+                  l&apos;attenzione dei giovani verso il territorio,
+                  trasformando la scoperta degli eventi in aggregazione
+                  spontanea per ripopolare lo spazio pubblico e le piazze
+                  della citt&agrave;.&rdquo;
                 </p>
               </div>
-
-              {/* Voce ai Piccoli Centri */}
-              <div className="group p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 hover:border-magenta-200 hover:shadow-lg hover:shadow-magenta-500/5 transition-all duration-500">
-                <div className="w-12 h-12 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <MapPin className="w-6 h-6 text-magenta-500" />
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-[#2E2E2E]">
+                  <Image
+                    src="/istituzionale-row1.jpeg"
+                    alt="Riconnessione Sociale"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Voce ai Piccoli Centri
-                </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Democratizziamo la visibilit&agrave;. Ogni borgo e ogni
-                  periferia acquisisce la stessa forza comunicativa dei grandi
-                  centri, garantendo che nessuna eccellenza locale resti
-                  invisibile.
+              </div>
+            </div>
+
+            {/* Row 2: Image Left | Text Right */}
+            <div className="flex flex-col md:flex-row-reverse items-center gap-12 mb-20">
+              <div className="w-full md:w-1/2">
+                <p className="font-inter text-xs font-semibold text-magenta-500 tracking-widest uppercase mb-2">
+                  02 / Voce ai Piccoli Centri
                 </p>
+                <p className="font-inter text-xs text-charcoal-300/60 uppercase tracking-widest mb-5">
+                  Territorial Equity
+                </p>
+                <p className="font-inter text-charcoal-300 text-lg leading-relaxed">
+                  &ldquo;Abbattiamo l&apos;isolamento informativo delle aree
+                  decentrate democratizzando la visibilit&agrave;. Grazie
+                  all&apos;Urban Intelligence Engine, ogni borgo e sagra
+                  locale ottiene la stessa dignit&agrave; visiva dei grandi
+                  eventi, valorizzando l&apos;economia e il turismo di
+                  prossimit&agrave;.&rdquo;
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-[#2E2E2E]">
+                  <Image
+                    src="/istituzionale-row2.jpeg"
+                    alt="Voce ai Piccoli Centri"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
+              </div>
+            </div>
+
+            {/* Row 3: Text Left | Image Right */}
+            <div className="flex flex-col md:flex-row items-center gap-12">
+              <div className="w-full md:w-1/2">
+                <p className="font-inter text-xs font-semibold text-magenta-500 tracking-widest uppercase mb-2">
+                  03 / Intelligence Territoriale
+                </p>
+                <p className="font-inter text-xs text-charcoal-300/60 uppercase tracking-widest mb-5">
+                  Data-as-a-Service
+                </p>
+                <p className="font-inter text-charcoal-300 text-lg leading-relaxed">
+                  &ldquo;Convertiamo la partecipazione urbana in dati
+                  aggregati e anonimi per la pubblica amministrazione.
+                  L&apos;Engine fornisce uno strumento di governance
+                  predittiva per monitorare l&apos;impatto delle iniziative
+                  culturali e pianificare lo sviluppo locale su evidenze
+                  reali.&rdquo;
+                </p>
+              </div>
+              <div className="w-full md:w-1/2">
+                <div className="relative aspect-video rounded-2xl overflow-hidden border border-[#2E2E2E]">
+                  <Image
+                    src="/istituzionale-row3.jpeg"
+                    alt="Intelligence Territoriale"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
