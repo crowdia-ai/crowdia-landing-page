@@ -11,7 +11,7 @@ import {
 export default function Home() {
   return (
     <div className="light" data-theme="light">
-      <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700">
+      <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700 overflow-x-hidden">
         {/* ================================================================
             NAVIGATION BAR
         ================================================================ */}
@@ -318,9 +318,9 @@ export default function Home() {
             </div>
 
             {/* Avatar-group logo stack + label */}
-            <div className="flex items-center gap-5">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
               {/* Overlapping circles */}
-              <div className="flex items-center">
+              <div className="flex items-center flex-shrink-0">
                 {[1, 2, 3, 4, 5, 6].map((n, i) => (
                   <div
                     key={n}
