@@ -236,7 +236,7 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[220px]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(220px,auto)]">
             {/* 01 EXPLORE — spans 2 cols */}
             <Link
               href="/social"
@@ -252,7 +252,7 @@ export default function Home() {
                 <div className="w-10 h-10 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-4">
                   <Sparkles className="w-5 h-5 text-magenta-400" />
                 </div>
-                <h3 className="font-montserrat text-3xl font-black mb-2">EXPLORE</h3>
+                <h3 className="font-montserrat text-3xl font-black mb-2">ESPLORA</h3>
                 <p className="font-inter text-sm text-white/50 leading-relaxed max-w-md">
                   Scopri il battito del territorio. Naviga eventi e luoghi in tempo reale.
                 </p>
@@ -344,24 +344,24 @@ export default function Home() {
             {/* 05 INSTITUTIONAL */}
             <Link
               href="/istituzionale"
-              className="group relative p-7 rounded-2xl bg-white/[0.02] border border-white/[0.06] hover:border-magenta-500/40 hover:bg-white/[0.05] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
+              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/20">05</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/20">Per le istituzioni</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">05</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per le istituzioni</span>
                 </div>
-                <div className="w-9 h-9 rounded-xl bg-white/[0.06] flex items-center justify-center mb-3">
-                  <Landmark className="w-4 h-4 text-white/40" />
+                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
+                  <Landmark className="w-4 h-4 text-magenta-400" />
                 </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5 text-white/70">ISTITUZIONALE</h3>
-                <p className="font-inter text-xs text-white/35 leading-relaxed">
+                <h3 className="font-montserrat text-2xl font-black mb-1.5">ISTITUZIONALE</h3>
+                <p className="font-inter text-xs text-white/50 leading-relaxed">
                   Governa l&apos;innovazione. Dati e strumenti per lo sviluppo della Smart City.
                 </p>
               </div>
-              <div className="relative z-10 flex items-center gap-1.5 text-white/30 text-xs font-inter font-semibold">
+              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
                 Vai alla pagina
                 <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
               </div>
@@ -383,7 +383,7 @@ export default function Home() {
               <h2 className="font-montserrat text-3xl md:text-4xl font-bold leading-tight mb-8">
                 Infrastruttura
                 <br />
-                <span className="text-white/40">Social-Smart City.</span>
+                <span className="text-magenta-500">Social-Smart City.</span>
               </h2>
               <p className="font-inter text-base text-white/60 leading-relaxed">
                 Crowdia è l&apos;intersezione tra innovazione tecnologica e
@@ -472,7 +472,7 @@ export default function Home() {
           </p>
           <h2 className="font-montserrat text-4xl md:text-5xl font-bold mb-6">
             Il tuo nodo nella rete{" "}
-            <span className="text-white/40">è pronto.</span>
+            <span className="text-magenta-500">è pronto.</span>
           </h2>
           <p className="font-inter text-base text-white/55 max-w-2xl mx-auto leading-relaxed mb-10">
             Che tu sia un&apos;istituzione, un&apos;organizzazione o un creator,
