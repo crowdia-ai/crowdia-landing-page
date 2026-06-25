@@ -185,11 +185,6 @@ export default function Home() {
         <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-magenta-500/5 rounded-full blur-[120px]" />
 
         <div className="relative z-10 max-w-5xl mx-auto px-6 py-32 text-center">
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-magenta-500/10 border border-magenta-500/20 text-magenta-400 text-xs font-inter font-semibold tracking-widest uppercase mb-10">
-            <Sparkles className="w-3.5 h-3.5" />
-            Urban Intelligence Layer — Palermo
-          </div>
-
           <h1 className="font-montserrat text-[clamp(4rem,12vw,9rem)] font-black leading-none tracking-tighter mb-4">
             CROWDIA
           </h1>
