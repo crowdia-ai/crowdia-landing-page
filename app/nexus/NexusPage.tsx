@@ -11,9 +11,6 @@ import {
   Brain,
   Bot,
   Zap,
-  Building2,
-  Car,
-  Plane,
   CheckCircle2,
   ChevronRight,
   Loader2,
@@ -271,10 +268,10 @@ export default function NexusPage() {
           </div>
         </section>
 
-        {/* NEXUS BRANCHES */}
+        {/* NEXUS BRANCHES — Alternating Scroll Stack */}
         <section className="py-24 px-6 bg-white">
           <div className="max-w-6xl mx-auto">
-            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-16 leading-tight">
+            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-20 leading-tight">
               I tre rami del{" "}
               <span className="text-magenta-500" translate="no">
                 Programma Nexus
@@ -282,65 +279,94 @@ export default function NexusPage() {
               .
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-8">
-              <div className="relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-amber-50/40 hover:border-magenta-200 hover:shadow-xl hover:shadow-magenta-500/10 transition-all duration-500 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-magenta-500/5 rounded-full blur-3xl" />
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-magenta-50 flex items-center justify-center mb-6">
-                    <Building2 className="w-7 h-7 text-magenta-500" />
-                  </div>
-                  <div className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-500 mb-2" translate="no">
-                    Nexus Stay
-                  </div>
-                  <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-4">
+            <div className="flex flex-col gap-20">
+              {/* Row 1: Nexus Stay — Text Left | Image Right */}
+              <div className="flex flex-col md:flex-row gap-12 items-center">
+                <div className="flex-1">
+                  <p className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-500 mb-3" translate="no">
+                    01 / Nexus Stay
+                  </p>
+                  <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-charcoal-500 mb-5">
                     Accommodation
                   </h3>
-                  <p className="font-inter text-charcoal-300 leading-relaxed">
-                    Per Hotel e <span translate="no">BnB</span>. Offri una
-                    bussola digitale h24 che guida i tuoi ospiti verso le
-                    esperienze pi&ugrave; autentiche di Palermo.
+                  <p className="font-inter text-lg text-charcoal-300 leading-relaxed">
+                    Eleva l&apos;accoglienza della tua struttura. Integra un
+                    servizio di concierge virtuale che connette istantaneamente
+                    i tuoi ospiti con gli eventi pi&ugrave; autentici e la vita
+                    sociale della citt&agrave;, azzerando i tempi di gestione
+                    al check-in.
                   </p>
+                </div>
+                <div className="flex-1 w-full">
+                  <div className="relative w-full aspect-video border border-[#2E2E2E] rounded-2xl overflow-hidden">
+                    <Image
+                      src="/nexus-stay.jpeg"
+                      alt="Nexus Stay — Accommodation"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-amber-50/40 hover:border-magenta-200 hover:shadow-xl hover:shadow-magenta-500/10 transition-all duration-500 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-magenta-500/5 rounded-full blur-3xl" />
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-magenta-50 flex items-center justify-center mb-6">
-                    <Car className="w-7 h-7 text-magenta-500" />
-                  </div>
-                  <div className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-500 mb-2" translate="no">
-                    Nexus Move
-                  </div>
-                  <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-4">
+              {/* Row 2: Nexus Move — Image Left | Text Right */}
+              <div className="flex flex-col md:flex-row-reverse gap-12 items-center">
+                <div className="flex-1">
+                  <p className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-500 mb-3" translate="no">
+                    02 / Nexus Move
+                  </p>
+                  <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-charcoal-500 mb-5">
                     Transport
                   </h3>
-                  <p className="font-inter text-charcoal-300 leading-relaxed">
-                    Per Taxi e <span translate="no">NCC</span>. Trasforma ogni
-                    spostamento in un&apos;opportunit&agrave; di scoperta,
-                    diventando il primo punto di contatto con la vita sociale
-                    urbana.
+                  <p className="font-inter text-lg text-charcoal-300 leading-relaxed">
+                    Arricchisci l&apos;esperienza di viaggio su taxi, van e
+                    pullman. Trasforma ogni spostamento in un punto di scoperta
+                    immediata, offrendo ai passeggeri la bussola della
+                    citt&agrave; in tempo reale al momento esatto del loro
+                    arrivo.
                   </p>
+                </div>
+                <div className="flex-1 w-full">
+                  <div className="relative w-full aspect-video border border-[#2E2E2E] rounded-2xl overflow-hidden">
+                    <Image
+                      src="/nexus-move.jpeg"
+                      alt="Nexus Move — Transport"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
               </div>
 
-              <div className="relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-amber-50/40 hover:border-magenta-200 hover:shadow-xl hover:shadow-magenta-500/10 transition-all duration-500 overflow-hidden">
-                <div className="absolute top-0 right-0 w-32 h-32 bg-magenta-500/5 rounded-full blur-3xl" />
-                <div className="relative">
-                  <div className="w-14 h-14 rounded-xl bg-magenta-50 flex items-center justify-center mb-6">
-                    <Plane className="w-7 h-7 text-magenta-500" />
-                  </div>
-                  <div className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-500 mb-2" translate="no">
-                    Nexus Travel
-                  </div>
-                  <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-4">
+              {/* Row 3: Nexus Travel — Text Left | Image Right */}
+              <div className="flex flex-col md:flex-row gap-12 items-center">
+                <div className="flex-1">
+                  <p className="font-montserrat text-xs font-bold tracking-widest uppercase text-magenta-500 mb-3" translate="no">
+                    03 / Nexus Travel
+                  </p>
+                  <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-charcoal-500 mb-5">
                     Agencies &amp; Operators
                   </h3>
-                  <p className="font-inter text-charcoal-300 leading-relaxed">
-                    Per Tour Operator e Guide. Arricchisci i tuoi pacchetti con
-                    un servizio digitale che accompagna il cliente anche dopo
-                    le attivit&agrave; programmate.
+                  <p className="font-inter text-lg text-charcoal-300 leading-relaxed">
+                    Completa l&apos;offerta di agenzie e tour operator. Fornisci
+                    ai clienti una visione a 360 gradi su ogni evento e
+                    iniziativa in citt&agrave;, integrando i tuoi pacchetti
+                    turistici con una curatela urbana impossibile da replicare
+                    nativamente.
                   </p>
+                </div>
+                <div className="flex-1 w-full">
+                  <div className="relative w-full aspect-video border border-[#2E2E2E] rounded-2xl overflow-hidden">
+                    <Image
+                      src="/nexus-travel.jpeg"
+                      alt="Nexus Travel — Agencies & Operators"
+                      fill
+                      className="object-cover"
+                      sizes="(max-width: 768px) 100vw, 50vw"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
