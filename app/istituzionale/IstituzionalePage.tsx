@@ -107,22 +107,23 @@ export function IstituzionalePage() {
 
           <div className="relative z-10 max-w-5xl mx-auto px-6 py-20">
             <h1 className="font-montserrat text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold leading-[1.1] mb-8 text-charcoal-500">
-              L&apos;Infrastruttura Digitale
-              <br />
-              per la{" "}
+              L&apos;Infrastruttura di{" "}
               <span className="relative inline-block">
                 <span className="relative z-10 text-magenta-500">
-                  Rinascita del Territorio
+                  Urban Intelligence
                 </span>
                 <span className="absolute bottom-1 left-0 right-0 h-3 bg-magenta-500/10 -z-0 rounded" />
               </span>
+              <br />
+              per il Territorio
             </h1>
 
             <p className="font-inter text-lg md:text-xl text-charcoal-300 max-w-2xl leading-relaxed mb-12">
-              Portiamo la vita sociale dei Comuni siciliani nelle mani delle
-              nuove generazioni e dei visitatori internazionali grazie a Lumio,
-              l&apos;intelligenza artificiale che valorizza l&apos;identit&agrave;
-              locale. Una sinergia a costo zero per l&apos;amministrazione.
+              Abilitiamo un ecosistema cooperativo dove organizzatori e
+              istituzioni pubblicano nativamente la propria programmazione.
+              Lumio AI interviene come layer di armonizzazione semantica,
+              azzerando la frammentazione dei dati per connettere le persone
+              alla vita reale della citt&agrave;.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4">
