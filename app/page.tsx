@@ -236,11 +236,11 @@ export default function Home() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[minmax(220px,auto)]">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {/* 01 EXPLORE — spans 2 cols */}
             <Link
               href="/social"
-              className="group relative lg:col-span-2 p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="group relative lg:col-span-2 min-h-[220px] p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
               <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -266,7 +266,7 @@ export default function Home() {
             {/* 02 VOICES */}
             <Link
               href="/voices"
-              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -292,7 +292,7 @@ export default function Home() {
             {/* 03 CIRCUITS */}
             <Link
               href="/circuits"
-              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -318,7 +318,7 @@ export default function Home() {
             {/* 04 NEXUS */}
             <Link
               href="/nexus"
-              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
+              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -344,7 +344,7 @@ export default function Home() {
             {/* 05 INSTITUTIONAL */}
             <Link
               href="/istituzionale"
-              className="group relative p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
+              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
             >
               <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
