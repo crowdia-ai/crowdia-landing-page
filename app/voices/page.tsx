@@ -1,43 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ChevronRight, ArrowLeft } from "lucide-react";
+import { ChevronRight } from "lucide-react";
+import { SubpageNav } from "@/components/ui/subpage-nav";
 
 export default function VoicesPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black text-slate-900 dark:text-slate-100 selection:bg-magenta-100 selection:text-magenta-700 dark:selection:bg-magenta-500/30 dark:selection:text-magenta-100">
-      {/* ================================================================
-          NAVIGATION BAR
-      ================================================================ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-slate-200/60 dark:border-zinc-800/60">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-          <Link
-            href="/"
-            className="flex items-center gap-2 text-slate-500 dark:text-slate-400 hover:text-slate-900 dark:hover:text-slate-100 transition-colors"
-          >
-            <ArrowLeft className="w-4 h-4" />
-            <span className="font-inter text-sm">Home</span>
-          </Link>
-
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8">
-              <Image
-                src="/crowdia-logo-icon-transparent.png"
-                alt="CROWDIA Logo"
-                fill
-                className="object-contain"
-                sizes="32px"
-                priority
-              />
-            </div>
-            <span
-              className="font-montserrat text-lg font-bold group-hover:text-magenta-500 transition-colors"
-              translate="no"
-            >
-              CROWDIA
-            </span>
-          </Link>
-        </div>
-      </nav>
+      <SubpageNav theme="dark" ctaLabel="Unisciti ai Voices" ctaHref="/voices/apply" />
 
       {/* ================================================================
           HERO — La tua influenza ha un nuovo centro.

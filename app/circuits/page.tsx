@@ -7,44 +7,13 @@ import {
   ShieldCheck,
   Sparkles,
 } from "lucide-react";
+import { SubpageNav } from "@/components/ui/subpage-nav";
 
 export default function Home() {
   return (
     <div className="light" data-theme="light">
       <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700 overflow-x-hidden">
-        {/* ================================================================
-            NAVIGATION BAR
-        ================================================================ */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-8 h-8">
-                <Image
-                  src="/crowdia-logo-icon-transparent.png"
-                  alt="CROWDIA Logo"
-                  fill
-                  className="object-contain"
-                  sizes="32px"
-                  priority
-                />
-              </div>
-              <span
-                className="font-montserrat text-lg font-bold text-charcoal-500 group-hover:text-magenta-500 transition-colors"
-                translate="no"
-              >
-                CROWDIA
-              </span>
-            </Link>
-
-            <Link
-              href="/circuits/join"
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-magenta-500 text-white font-inter text-sm font-semibold rounded-lg hover:bg-magenta-600 transition-colors"
-            >
-              Entra nel Circuito
-              <ChevronRight className="w-4 h-4" />
-            </Link>
-          </div>
-        </nav>
+        <SubpageNav theme="light" ctaLabel="Entra nel Circuito" ctaHref="/circuits/join" />
 
         {/* ================================================================
             HERO SECTION — Accendiamo la città.

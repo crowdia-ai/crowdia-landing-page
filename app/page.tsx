@@ -100,7 +100,7 @@ export default function Home() {
               href="/circuits"
               className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
             >
-              Circuits
+              Circuito
             </Link>
             <Link
               href="/voices"
@@ -147,7 +147,7 @@ export default function Home() {
         {menuOpen && (
           <div className="lg:hidden bg-zinc-950/95 border-t border-white/5 px-6 py-6 flex flex-col gap-5">
             <Link href="/social" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Esplora</Link>
-            <Link href="/circuits" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Circuits</Link>
+            <Link href="/circuits" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Circuito</Link>
             <Link href="/voices" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Voices</Link>
             <Link href="/nexus" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Nexus</Link>
             <Link href="/istituzionale" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Istituzionale</Link>
@@ -299,12 +299,12 @@ export default function Home() {
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
                   <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">03</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per organizzazioni e venue</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per organizzazioni e Spazi</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Zap className="w-4 h-4 text-magenta-400" />
                 </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5">CIRCUITS</h3>
+                <h3 className="font-montserrat text-2xl font-black mb-1.5">CIRCUITO</h3>
                 <p className="font-inter text-xs text-white/50 leading-relaxed">
                   Attiva il tuo nodo. L&apos;infrastruttura per gestire location e pianificare esperienze.
                 </p>
@@ -446,7 +446,7 @@ export default function Home() {
             {[
               { value: "2.417", label: "Nuovi Utenti in Lista d'Attesa" },
               { value: "16", label: "Organizzazioni Attive" },
-              { value: "23", label: "Venue Partner" },
+              { value: "23", label: "Spazi Partner" },
               { value: "11", label: "Creator nella Rete" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">

@@ -7,7 +7,6 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
 import {
-  ArrowLeft,
   Brain,
   Bot,
   Zap,
@@ -15,6 +14,7 @@ import {
   ChevronRight,
   Loader2,
 } from "lucide-react";
+import { SubpageNav } from "@/components/ui/subpage-nav";
 
 const formSchema = z.object({
   fullName: z.string().min(2, "Inserisci nome e cognome"),
@@ -94,42 +94,7 @@ export default function NexusPage() {
   return (
     <div className="light" data-theme="light">
       <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700">
-        {/* NAV */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-charcoal-300 hover:text-charcoal-500 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="font-inter text-sm">Home</span>
-            </Link>
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-8 h-8">
-                <Image
-                  src="/crowdia-logo-icon-transparent.png"
-                  alt="CROWDIA Logo"
-                  fill
-                  className="object-contain"
-                  sizes="32px"
-                  priority
-                />
-              </div>
-              <span
-                className="font-montserrat text-lg font-bold text-charcoal-500 group-hover:text-magenta-500 transition-colors"
-                translate="no"
-              >
-                CROWDIA
-              </span>
-            </Link>
-            <button
-              onClick={scrollToForm}
-              className="hidden sm:inline-flex items-center gap-2 px-4 py-2 bg-magenta-500 text-white text-sm font-inter font-semibold rounded-lg hover:bg-magenta-600 transition-colors"
-            >
-              Richiedi Accesso
-            </button>
-          </div>
-        </nav>
+        <SubpageNav theme="light" ctaLabel="Partner Access" ctaHref="#nexus-form" />
 
         {/* HERO */}
         <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">

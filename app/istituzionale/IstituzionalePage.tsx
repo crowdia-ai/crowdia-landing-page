@@ -4,13 +4,13 @@ import { useEffect, useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import {
-  ArrowLeft,
   Globe,
   Compass,
   CalendarCheck,
   Mail,
   ChevronRight,
 } from "lucide-react";
+import { SubpageNav } from "@/components/ui/subpage-nav";
 
 export function IstituzionalePage() {
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -31,39 +31,7 @@ export function IstituzionalePage() {
   return (
     <div className="light" data-theme="light">
       <main className="min-h-screen bg-white text-charcoal-500 selection:bg-magenta-100 selection:text-magenta-700">
-        {/* ================================================================
-            NAVIGATION BAR
-        ================================================================ */}
-        <nav className="fixed top-0 left-0 right-0 z-50 bg-white/80 backdrop-blur-md border-b border-gray-100">
-          <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-between">
-            <Link
-              href="/"
-              className="flex items-center gap-2 text-charcoal-300 hover:text-charcoal-500 transition-colors"
-            >
-              <ArrowLeft className="w-4 h-4" />
-              <span className="font-inter text-sm">Home</span>
-            </Link>
-
-            <Link href="/" className="flex items-center gap-2 group">
-              <div className="relative w-8 h-8">
-                <Image
-                  src="/crowdia-logo-icon-transparent.png"
-                  alt="CROWDIA Logo"
-                  fill
-                  className="object-contain"
-                  sizes="32px"
-                  priority
-                />
-              </div>
-              <span
-                className="font-montserrat text-lg font-bold text-charcoal-500 group-hover:text-magenta-500 transition-colors"
-                translate="no"
-              >
-                CROWDIA
-              </span>
-            </Link>
-          </div>
-        </nav>
+        <SubpageNav theme="light" ctaLabel="Richiedi Accesso" ctaHref="#contatti" />
 
         {/* ================================================================
             HERO SECTION - L'Impatto

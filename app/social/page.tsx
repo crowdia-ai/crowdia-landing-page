@@ -11,35 +11,12 @@ import {
   Trophy,
   ChevronRight,
 } from "lucide-react";
+import { SubpageNav } from "@/components/ui/subpage-nav";
 
 export default function SocialPage() {
   return (
     <main className="min-h-screen bg-gradient-to-b from-slate-50 via-white to-slate-100 dark:from-zinc-950 dark:via-zinc-900 dark:to-black text-slate-900 dark:text-slate-100">
-      {/* ================================================================
-          NAVIGATION BAR
-      ================================================================ */}
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-white/70 dark:bg-zinc-950/70 backdrop-blur-md border-b border-slate-200/60 dark:border-zinc-800/60">
-        <div className="max-w-6xl mx-auto px-6 py-4 flex items-center justify-center">
-          <Link href="/" className="flex items-center gap-2 group">
-            <div className="relative w-8 h-8">
-              <Image
-                src="/crowdia-logo-icon-transparent.png"
-                alt="CROWDIA Logo"
-                fill
-                className="object-contain"
-                sizes="32px"
-                priority
-              />
-            </div>
-            <span
-              className="font-montserrat text-lg font-bold group-hover:text-magenta-500 transition-colors"
-              translate="no"
-            >
-              CROWDIA
-            </span>
-          </Link>
-        </div>
-      </nav>
+      <SubpageNav theme="dark" ctaLabel="Richiedi Accesso" ctaHref="#waitlist" />
 
       {/* ================================================================
           HERO — Accendi Palermo.
