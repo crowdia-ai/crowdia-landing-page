@@ -1,12 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import {
-  ChevronRight,
-  Upload,
-  ExternalLink,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { SubpageNav } from "@/components/ui/subpage-nav";
 
 export default function Home() {
@@ -98,7 +92,7 @@ export default function Home() {
         </section>
 
         {/* ================================================================
-            SECTION 2 — THE SOLUTION (Infrastructure Bento Grid)
+            SECTION 2 — PLATFORM UTILITY (3-row alternating stack)
         ================================================================ */}
         <section className="py-24 px-6 bg-gray-50/50">
           <div className="max-w-5xl mx-auto">
@@ -107,156 +101,110 @@ export default function Home() {
               <span className="text-magenta-500">Un&apos;infrastruttura.</span>
             </h2>
 
-            <div className="grid md:grid-cols-3 gap-6">
-              {/* Card 1 — Analisi del territorio */}
-              <div className="group relative p-8 rounded-2xl border border-gray-200/60 bg-white/70 backdrop-blur-sm shadow-sm hover:border-magenta-300 hover:shadow-lg hover:shadow-magenta-500/8 transition-all duration-500">
-                <div className="w-10 h-10 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <span className="text-magenta-500 text-sm font-montserrat font-bold">01</span>
+            <div className="flex flex-col gap-16">
+              {/* Row 1 — Text Left / Image Right */}
+              <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-center">
+                <div className="flex-1">
+                  <p className="font-inter text-xs font-bold uppercase tracking-widest text-magenta-500 mb-3">
+                    01
+                  </p>
+                  <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-charcoal-500 mb-3 leading-tight">
+                    Il canale per il turismo incoming
+                  </h3>
+                  <p className="font-inter text-base text-magenta-500/80 mb-4 leading-relaxed">
+                    Raggiungi i turisti prima che pianifichino la serata.
+                  </p>
+                  <p className="font-inter text-base text-charcoal-300 leading-relaxed">
+                    Tramite l&apos;ecosistema Nexus, colleghiamo la tua
+                    programmazione con i concierge digitali di hotel, BnB e
+                    vettori di mobilit&agrave; partner sul territorio. Ottieni
+                    cos&igrave; pubblico extra internazionale, ad alta
+                    capacit&agrave; di spesa, a tariffa intera.
+                  </p>
                 </div>
-                <h3 className="font-montserrat text-base font-bold text-charcoal-500 mb-3 uppercase tracking-wide">
-                  Analisi del Territorio
-                </h3>
-                <p className="font-inter text-sm text-charcoal-300 leading-relaxed">
-                  Comprendi l&apos;impatto reale della tua programmazione.
-                  Accedi a metriche chiare sui flussi urbani e sulle preferenze
-                  del pubblico per ottimizzare i tuoi eventi e intercettare il
-                  target perfetto sul territorio.
-                </p>
+                <div className="flex-1 relative aspect-video rounded-2xl overflow-hidden border border-[#2E2E2E]">
+                  <Image
+                    src="/circuits-row1.jpeg"
+                    alt="Turismo incoming"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
 
-              {/* Card 2 — Accesso al Circuito */}
-              <div className="group relative p-8 rounded-2xl border border-gray-200/60 bg-white/70 backdrop-blur-sm shadow-sm hover:border-magenta-300 hover:shadow-lg hover:shadow-magenta-500/8 transition-all duration-500">
-                <div className="w-10 h-10 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <span className="text-magenta-500 text-sm font-montserrat font-bold">02</span>
+              {/* Row 2 — Image Left / Text Right */}
+              <div className="flex flex-col md:flex-row-reverse gap-10 md:gap-14 items-center">
+                <div className="flex-1">
+                  <p className="font-inter text-xs font-bold uppercase tracking-widest text-magenta-500 mb-3">
+                    02
+                  </p>
+                  <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-charcoal-500 mb-3 leading-tight">
+                    I migliori creator ai tuoi eventi
+                  </h3>
+                  <p className="font-inter text-base text-magenta-500/80 mb-4 leading-relaxed">
+                    Porta i creator della citt&agrave; sul campo per attivare
+                    una visibilit&agrave; organica e autentica.
+                  </p>
+                  <p className="font-inter text-base text-charcoal-300 leading-relaxed">
+                    Attraverso il programma Voices, colleghiamo i tuoi eventi a
+                    una squadra selezionata di creator locali. Raccontando
+                    l&apos;esperienza dal vivo, le nostre Voices iniettano
+                    autenticit&agrave; nel racconto culturale, spingendo la
+                    community a partecipare.
+                  </p>
                 </div>
-                <h3 className="font-montserrat text-base font-bold text-charcoal-500 mb-3 uppercase tracking-wide">
-                  Accesso al Circuito
-                </h3>
-                <p className="font-inter text-sm text-charcoal-300 leading-relaxed">
-                  Gestisci la tua visibilit&agrave; in totale autonomia e senza
-                  algoritmi penalizzanti. Pubblica i tuoi contenuti in tempo
-                  reale all&apos;interno di un ecosistema meritocratico
-                  progettato per portare il pubblico direttamente ai tuoi
-                  canali ufficiali o ai tuoi sistemi di ticketing.
-                </p>
+                <div className="flex-1 relative aspect-video rounded-2xl overflow-hidden border border-[#2E2E2E]">
+                  <Image
+                    src="/circuits-row2.jpeg"
+                    alt="Creator network"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                </div>
               </div>
 
-              {/* Card 3 — Posizionamento Strategico */}
-              <div className="group relative p-8 rounded-2xl border border-gray-200/60 bg-white/70 backdrop-blur-sm shadow-sm hover:border-magenta-300 hover:shadow-lg hover:shadow-magenta-500/8 transition-all duration-500">
-                <div className="w-10 h-10 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <span className="text-magenta-500 text-sm font-montserrat font-bold">03</span>
+              {/* Row 3 — Text Left / Image Right */}
+              <div className="flex flex-col md:flex-row gap-10 md:gap-14 items-center">
+                <div className="flex-1">
+                  <p className="font-inter text-xs font-bold uppercase tracking-widest text-magenta-500 mb-3">
+                    03
+                  </p>
+                  <h3 className="font-montserrat text-2xl md:text-3xl font-bold text-charcoal-500 mb-3 leading-tight">
+                    Tutta la citt&agrave; in un unico ecosistema
+                  </h3>
+                  <p className="font-inter text-base text-magenta-500/80 mb-4 leading-relaxed">
+                    Basta con gli eventi dispersi. Unifica la tua offerta dove
+                    le persone la stanno cercando.
+                  </p>
+                  <p className="font-inter text-base text-charcoal-300 leading-relaxed">
+                    Centralizziamo l&apos;intera offerta dentro
+                    un&apos;unica infrastruttura intelligente. Unendo
+                    l&apos;intelligenza artificiale alla curatela umana,
+                    azzeriamo il caos informativo causato dai silos informatici e
+                    mettiamo la tua programmazione a disposizione immediata
+                    dell&apos;utente.
+                  </p>
                 </div>
-                <h3 className="font-montserrat text-base font-bold text-charcoal-500 mb-3 uppercase tracking-wide">
-                  Posizionamento Strategico
-                </h3>
-                <p className="font-inter text-sm text-charcoal-300 leading-relaxed">
-                  Illumina la tua realt&agrave; sulla Social Discovery Map di
-                  Crowdia. Ottieni una presenza prioritaria nei punti nevralgici
-                  del network nel momento esatto della scoperta digitale,
-                  trasformando l&apos;interesse degli utenti in affluenza fisica
-                  reale nel tuo spazio.
-                </p>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        {/* ================================================================
-            SECTION 3 — THE ADVANTAGE (4 numbered cards)
-        ================================================================ */}
-        <section className="py-24 px-6 bg-white">
-          <div className="max-w-6xl mx-auto">
-            <h2 className="font-montserrat text-3xl md:text-4xl lg:text-5xl font-bold text-charcoal-500 mb-16 leading-tight">
-              Piattaforma di promozione
-              <br />
-              <span className="text-magenta-500">social smart.</span>
-            </h2>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {/* 01 — Autonomia di Caricamento */}
-              <div className="group relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 hover:border-magenta-200 hover:shadow-lg hover:shadow-magenta-500/5 transition-all duration-500">
-                <div className="text-5xl font-montserrat font-bold text-magenta-500/10 mb-4">
-                  01
+                <div className="flex-1 relative aspect-video rounded-2xl overflow-hidden border border-[#2E2E2E]">
+                  <Image
+                    src="/circuits-row3.jpeg"
+                    alt="Ecosistema urbano"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
                 </div>
-                <div className="w-12 h-12 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <Upload className="w-6 h-6 text-magenta-500" />
-                </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Autonomia di Caricamento
-                </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Gestisci la tua programmazione in tempo reale con uno
-                  strumento professionale pensato per la dinamicit&agrave;
-                  urbana.
-                </p>
-              </div>
-
-              {/* 02 — Traffico Diretto */}
-              <div className="group relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 hover:border-magenta-200 hover:shadow-lg hover:shadow-magenta-500/5 transition-all duration-500">
-                <div className="text-5xl font-montserrat font-bold text-magenta-500/10 mb-4">
-                  02
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <ExternalLink className="w-6 h-6 text-magenta-500" />
-                </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Traffico Diretto
-                </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Non tratteniamo gli utenti in un &quot;walled garden&quot;.
-                  Portiamo il pubblico direttamente ai tuoi canali ufficiali o
-                  ai tuoi sistemi di ticketing.
-                </p>
-              </div>
-
-              {/* 03 — Piattaforma Transaction-Free */}
-              <div className="group relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 hover:border-magenta-200 hover:shadow-lg hover:shadow-magenta-500/5 transition-all duration-500">
-                <div className="text-5xl font-montserrat font-bold text-magenta-500/10 mb-4">
-                  03
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <ShieldCheck className="w-6 h-6 text-magenta-500" />
-                </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Piattaforma Transaction-Free
-                </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Non siamo un gatekeeper. Il nostro valore &egrave; la
-                  scoperta dell&apos;evento, non la vendita del titolo
-                  d&apos;ingresso. Per questo il nostro ecosistema si integra
-                  sinergicamente con i tuoi strumenti senza trattenere alcuna
-                  percentuale sulle tue vendite.
-                </p>
-              </div>
-
-              {/* 04 — Experience Soul */}
-              <div className="group relative p-8 rounded-2xl border border-gray-100 bg-gradient-to-br from-white to-gray-50/50 hover:border-magenta-200 hover:shadow-lg hover:shadow-magenta-500/5 transition-all duration-500">
-                <div className="text-5xl font-montserrat font-bold text-magenta-500/10 mb-4">
-                  04
-                </div>
-                <div className="w-12 h-12 rounded-xl bg-magenta-50 flex items-center justify-center mb-6 group-hover:bg-magenta-100 transition-colors duration-500">
-                  <Sparkles className="w-6 h-6 text-magenta-500" />
-                </div>
-                <h3 className="font-montserrat text-xl font-bold text-charcoal-500 mb-3">
-                  Experience Soul
-                </h3>
-                <p className="font-inter text-charcoal-300 leading-relaxed">
-                  Diamo modo agli utenti di comprendere a fondo l&apos;essenza
-                  del tuo concept e l&apos;unicit&agrave; dell&apos;esperienza
-                  che proponi. Trasformiamo la tua visione in una percezione
-                  immediata per il pubblico, assicurandoci che l&apos;anima
-                  della tua realt&agrave; venga trasmessa in ogni dettaglio,
-                  ben oltre le semplici informazioni tecniche.
-                </p>
               </div>
             </div>
           </div>
         </section>
 
         {/* ================================================================
-            SECTION 4 — SOCIAL PROOF (circuit stats + overlapping logo stack)
+            SECTION 3 — SOCIAL PROOF (circuit stats + overlapping logo stack)
         ================================================================ */}
-        <section className="py-20 px-6 bg-gray-50/50">
+        <section className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
             {/* Circuit stats */}
             <div className="grid grid-cols-3 gap-6 mb-14 text-center">
@@ -325,7 +273,7 @@ export default function Home() {
         </section>
 
         {/* ================================================================
-            SECTION 5 — THE CALL (The Circuit)
+            SECTION 4 — THE CALL (The Circuit)
         ================================================================ */}
         <section className="py-24 px-6 bg-charcoal-500 text-white relative overflow-hidden">
           {/* Magenta accent glow */}
