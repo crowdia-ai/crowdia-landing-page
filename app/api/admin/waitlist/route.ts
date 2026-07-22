@@ -1,8 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 
-const ADMIN_PASSWORD = 'crowdia2025';
-
 function getSupabaseAdmin() {
   return createClient(
     process.env.NEXT_PUBLIC_SUPABASE_URL!,
@@ -12,9 +10,10 @@ function getSupabaseAdmin() {
 }
 
 export async function GET(request: NextRequest) {
+  const adminSecret = process.env.WAITLIST_ADMIN_SECRET;
   const authHeader = request.headers.get('x-admin-password');
 
-  if (authHeader !== ADMIN_PASSWORD) {
+  if (!adminSecret || authHeader !== adminSecret) {
     return NextResponse.json(
       { error: 'Unauthorized' },
       { status: 401 }
