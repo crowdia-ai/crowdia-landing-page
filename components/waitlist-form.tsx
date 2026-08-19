@@ -14,7 +14,9 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
-import { Sparkles, Loader2 } from "lucide-react";
+import { Sparkles, Loader2, MessageCircle } from "lucide-react";
+
+const WHATSAPP_LINK = process.env.NEXT_PUBLIC_WHATSAPP_LINK;
 
 const baseFormSchema = z.object({
   email: z.string().email("Inserisci un indirizzo email valido"),
@@ -76,15 +78,31 @@ export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", sour
 
       setIsSuccess(true);
       form.reset();
-
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
     } catch (error) {
       console.error("Error submitting form:", error);
       setError('Si è verificato un errore imprevisto. Riprova.');
     } finally {
       setIsSubmitting(false);
     }
+  }
+
+  if (isSuccess) {
+    return (
+      <div className="w-full max-w-md mx-auto text-center">
+        <p className="font-inter text-white/70 mb-6">
+          🎉 Sei nella lista d&apos;attesa! Un ultimo passo per non perderti nulla:
+        </p>
+        <a
+          href={WHATSAPP_LINK}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="w-full inline-flex items-center justify-center gap-3 bg-magenta-500 hover:bg-magenta-600 text-white font-inter font-bold uppercase tracking-widest py-6 px-8 rounded-xl text-lg transition-all duration-300 shadow-lg shadow-magenta-500/25 hover:shadow-xl hover:shadow-magenta-500/40"
+        >
+          <MessageCircle className="w-6 h-6" />
+          Unisciti al canale WhatsApp
+        </a>
+      </div>
+    );
   }
 
   return (
@@ -151,17 +169,6 @@ export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", sour
           {error && (
             <div className="p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-center">
               <p className="text-red-400 font-semibold">{error}</p>
-            </div>
-          )}
-
-          {isSuccess && (
-            <div className="p-4 rounded-lg bg-primary/10 border border-primary/30 text-center">
-              <p className="text-primary font-semibold">
-                🎉 Successo! Sei nella lista d&apos;attesa!
-              </p>
-              <p className="text-sm text-gray-400 mt-1">
-                Ti avviseremo quando lanceremo.
-              </p>
             </div>
           )}
         </form>
