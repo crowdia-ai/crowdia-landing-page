@@ -537,9 +537,17 @@ export default function Home() {
             CROWDIA: Urban Intelligence Layer per lo sviluppo di Palermo e della
             sua Area Metropolitana.
           </p>
-          <p className="font-inter text-xs text-white/20">
-            &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti riservati.
-          </p>
+          <div className="flex items-center gap-4">
+            <Link
+              href="/privacy"
+              className="font-inter text-xs text-white/25 hover:text-white/50 transition-colors"
+            >
+              Privacy Policy
+            </Link>
+            <p className="font-inter text-xs text-white/20">
+              &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti riservati.
+            </p>
+          </div>
         </div>
       </footer>
     </main>

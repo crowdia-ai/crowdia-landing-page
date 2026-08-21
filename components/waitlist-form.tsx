@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/form";
 import { Input } from "@/components/ui/input";
 import { useState } from "react";
+import Link from "next/link";
 import { Sparkles, Loader2, MessageCircle } from "lucide-react";
 
 const WHATSAPP_LINK = process.env.NEXT_PUBLIC_WHATSAPP_LINK;
@@ -21,6 +22,9 @@ const WHATSAPP_LINK = process.env.NEXT_PUBLIC_WHATSAPP_LINK;
 const baseFormSchema = z.object({
   email: z.string().email("Inserisci un indirizzo email valido"),
   name: z.string(),
+  consent: z.boolean().refine((v) => v === true, {
+    message: "Devi accettare la Privacy Policy per continuare",
+  }),
 });
 
 type FormData = z.infer<typeof baseFormSchema>;
@@ -53,6 +57,7 @@ export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", sour
     defaultValues: {
       email: "",
       name: "",
+      consent: false,
     },
   });
 
@@ -66,7 +71,12 @@ export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", sour
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify({ ...values, source }),
+        body: JSON.stringify({
+          email: values.email,
+          name: values.name,
+          source,
+          metadata: { consent: values.consent },
+        }),
       });
 
       const data = await response.json();
@@ -143,6 +153,37 @@ export function WaitlistForm({ buttonText = "Unisciti alla Lista d'Attesa", sour
                     {...field}
                   />
                 </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+
+          <FormField
+            control={form.control}
+            name="consent"
+            render={({ field }) => (
+              <FormItem>
+                <label className="flex items-start gap-3 cursor-pointer">
+                  <FormControl>
+                    <input
+                      type="checkbox"
+                      checked={field.value}
+                      onChange={(e) => field.onChange(e.target.checked)}
+                      className="mt-1 h-4 w-4 accent-magenta-500"
+                    />
+                  </FormControl>
+                  <span className="font-inter text-xs text-white/60 leading-relaxed">
+                    Ho letto e accetto la{" "}
+                    <Link
+                      href="/privacy"
+                      target="_blank"
+                      className="underline hover:text-white"
+                    >
+                      Privacy Policy
+                    </Link>{" "}
+                    e acconsento al trattamento dei miei dati.
+                  </span>
+                </label>
                 <FormMessage />
               </FormItem>
             )}

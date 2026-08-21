@@ -392,6 +392,10 @@ export default function SocialPage() {
         </div>
         <p className="font-inter text-xs text-white/30">
           &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti riservati.
+          {" · "}
+          <Link href="/privacy" className="underline hover:text-white/60">
+            Privacy Policy
+          </Link>
         </p>
       </footer>
     </main>
