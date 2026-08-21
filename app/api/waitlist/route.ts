@@ -1,8 +1,28 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { Resend } from 'resend';
 import { supabase } from '@/lib/supabase';
 import { z } from 'zod';
 
 const emailSchema = z.string().email('Please enter a valid email address').optional();
+
+async function sendWhatsappWelcomeEmail(email: string) {
+  const apiKey = process.env.RESEND_API_KEY;
+  const whatsappLink = process.env.NEXT_PUBLIC_WHATSAPP_LINK;
+
+  if (!apiKey || !whatsappLink) {
+    console.warn('[waitlist] RESEND_API_KEY or NEXT_PUBLIC_WHATSAPP_LINK not set; skipping welcome email');
+    return;
+  }
+
+  const resend = new Resend(apiKey);
+  await resend.emails.send({
+    from: 'Crowdia <info@crowdia.app>',
+    to: email,
+    subject: 'Benvenuto/a in Crowdia — unisciti al canale WhatsApp',
+    text: `Ci sei! Un ultimo passo per non perderti nulla: unisciti al canale WhatsApp di Crowdia.\n\n${whatsappLink}`,
+    html: `<p>Ci sei! Un ultimo passo per non perderti nulla: unisciti al canale WhatsApp di Crowdia.</p><p><a href="${whatsappLink}">${whatsappLink}</a></p>`,
+  });
+}
 
 export async function POST(request: NextRequest) {
   try {
@@ -40,6 +60,14 @@ export async function POST(request: NextRequest) {
         { error: 'Failed to join waitlist. Please try again.' },
         { status: 500 }
       );
+    }
+
+    if (email) {
+      try {
+        await sendWhatsappWelcomeEmail(email);
+      } catch (emailErr) {
+        console.error('[waitlist] welcome email failed:', emailErr);
+      }
     }
 
     return NextResponse.json(
