@@ -299,38 +299,47 @@ export default function SocialPage() {
 
           <div className="grid md:grid-cols-3 gap-6">
             <div className="p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800">
-              <div className="font-montserrat text-4xl md:text-5xl font-bold text-magenta-500 mb-2">
-                2.417
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-3 h-3 bg-magenta-500 rounded-full animate-pulse" />
+                <span className="font-inter text-xs font-bold text-magenta-500 uppercase tracking-wide">
+                  Comunità Attiva
+                </span>
               </div>
-              <div className="font-montserrat text-sm font-bold text-charcoal-500 dark:text-white/90 mb-2 uppercase tracking-wide">
-                Primi Utenti
+              <div className="font-montserrat text-lg font-bold text-white mb-2">
+                Palermo Explorer
               </div>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Già in lista per l&apos;accesso prioritario.
+                Scopritori urbani che creano la scena culturale della città.
               </p>
             </div>
 
             <div className="p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800">
-              <div className="font-montserrat text-4xl md:text-5xl font-bold text-magenta-500 mb-2">
-                +142
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-3 h-3 bg-magenta-500 rounded-full animate-pulse" />
+                <span className="font-inter text-xs font-bold text-magenta-500 uppercase tracking-wide">
+                  Segnali Reali
+                </span>
               </div>
-              <div className="font-montserrat text-sm font-bold text-charcoal-500 dark:text-white/90 mb-2 uppercase tracking-wide">
-                Nuovi iscritti
+              <div className="font-montserrat text-lg font-bold text-white mb-2">
+                Venues Partner
               </div>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                Persone unite alla waitlist nell&apos;ultima settimana.
+                Spazi e organizzazioni che amplificano il movimento.
               </p>
             </div>
 
             <div className="p-8 rounded-2xl bg-white dark:bg-zinc-900/60 border border-slate-200 dark:border-zinc-800">
-              <div className="font-montserrat text-4xl md:text-5xl font-bold text-magenta-500 mb-2">
-                Top 5%
+              <div className="flex items-center gap-2 mb-4">
+                <div className="w-3 h-3 bg-magenta-500 rounded-full animate-pulse" />
+                <span className="font-inter text-xs font-bold text-magenta-500 uppercase tracking-wide">
+                  Copertura
+                </span>
               </div>
-              <div className="font-montserrat text-sm font-bold text-charcoal-500 dark:text-white/90 mb-2 uppercase tracking-wide">
-                La tua posizione
+              <div className="font-montserrat text-lg font-bold text-white mb-2">
+                Dal Centro alle Coste
               </div>
               <p className="font-inter text-sm text-slate-600 dark:text-slate-400 leading-relaxed">
-                La tua posizione attuale se ti iscrivi ora.
+                Mappatura urbana del territorio di Palermo.
               </p>
             </div>
           </div>

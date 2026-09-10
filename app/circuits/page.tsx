@@ -225,11 +225,11 @@ export default function Home() {
                 </div>
               </div>
               <div>
-                <div className="font-montserrat text-4xl md:text-5xl font-bold text-charcoal-500 mb-1">
-                  2.417
+                <div className="font-montserrat text-5xl font-bold text-charcoal-500 mb-1">
+                  🚀
                 </div>
                 <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
-                  Utenti in lista d&apos;attesa
+                  Comunità in crescita
                 </div>
               </div>
             </div>

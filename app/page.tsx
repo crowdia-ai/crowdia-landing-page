@@ -439,14 +439,14 @@ export default function Home() {
           </p>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {[
-              { value: "2.417", label: "Nuovi Utenti in Lista d'Attesa" },
-              { value: "16", label: "Organizzazioni Attive" },
-              { value: "23", label: "Spazi Partner" },
-              { value: "11", label: "Creator nella Rete" },
+              { icon: "🌍", label: "Territorio Palermitano" },
+              { icon: "🎭", label: "Scene Culturali" },
+              { icon: "🤝", label: "Network Attivo" },
+              { icon: "🚀", label: "Movimento Vivo" },
             ].map((stat) => (
               <div key={stat.label} className="text-center">
-                <div className="font-montserrat text-4xl md:text-5xl font-black text-white mb-2">
-                  {stat.value}
+                <div className="font-montserrat text-5xl md:text-6xl font-black text-white mb-3">
+                  {stat.icon}
                 </div>
                 <div className="font-inter text-xs text-white/40 uppercase tracking-widest leading-tight">
                   {stat.label}
