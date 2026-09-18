@@ -27,6 +27,8 @@ export default function SocialPage() {
           muted
           loop
           playsInline
+          poster="/social-hero-bg-poster.jpg"
+          preload="none"
           className="absolute inset-0 w-full h-full object-cover opacity-40"
         >
           <source src="/social-hero-bg.mp4" type="video/mp4" />

@@ -13,7 +13,7 @@ export default function VoicesPage() {
       ================================================================ */}
       <section className="relative min-h-[90vh] flex items-center overflow-hidden pt-20">
         {/* City video background */}
-        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline poster="/Voices_Page_Video_Loop-poster.jpg" preload="none" aria-hidden="true">
           <source src="/Voices_Page_Video_Loop.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay for text legibility */}

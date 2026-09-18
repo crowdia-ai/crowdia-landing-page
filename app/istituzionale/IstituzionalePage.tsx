@@ -48,7 +48,8 @@ export function IstituzionalePage() {
             muted
             loop
             playsInline
-            preload="auto"
+            poster="/vid-bckgrnd-istituzionale-poster.jpg"
+            preload="none"
             aria-hidden="true"
           >
             <source src="/vid-bckgrnd-istituzionale.mp4" type="video/mp4" />

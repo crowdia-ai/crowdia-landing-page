@@ -106,7 +106,8 @@ export default function NexusPage() {
             muted
             loop
             playsInline
-            preload="auto"
+            poster="/vid-bckgrnd-nexus-poster.jpg"
+            preload="none"
             aria-hidden="true"
           >
             <source src="/vid-bckgrnd-nexus.mp4" type="video/mp4" />

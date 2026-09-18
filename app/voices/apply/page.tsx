@@ -130,7 +130,7 @@ export default function VoicesApplyPage() {
 
       <section className="relative pt-32 pb-24 px-6 overflow-hidden">
         {/* City video background */}
-        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline preload="auto" aria-hidden="true">
+        <video className="absolute inset-0 w-full h-full object-cover" autoPlay muted loop playsInline poster="/Glowing_Night_City_Trails_Video-poster.jpg" preload="none" aria-hidden="true">
           <source src="/Glowing_Night_City_Trails_Video.mp4" type="video/mp4" />
         </video>
         {/* Dark overlay */}
