@@ -259,7 +259,7 @@ export default function VoicesPage() {
             CROWDIA
           </span>
         </div>
-        <p className="font-inter text-xs text-white/30">
+        <p className="font-inter text-xs text-white/50">
           &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti
           riservati.
         </p>
