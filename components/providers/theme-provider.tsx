@@ -21,12 +21,6 @@ export function ThemeProvider({
   defaultTheme = "system",
 }: ThemeProviderProps) {
   const [theme, setTheme] = useState<Theme>(defaultTheme);
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
   useEffect(() => {
     const root = window.document.documentElement;
 
@@ -60,11 +54,6 @@ export function ThemeProvider({
     mediaQuery.addEventListener("change", handleChange);
     return () => mediaQuery.removeEventListener("change", handleChange);
   }, [theme]);
-
-  // Prevent flash of incorrect theme
-  if (!mounted) {
-    return null;
-  }
 
   return (
     <ThemeProviderContext.Provider value={{ theme, setTheme }}>
