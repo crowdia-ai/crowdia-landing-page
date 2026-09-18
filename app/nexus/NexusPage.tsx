@@ -367,23 +367,13 @@ export default function NexusPage() {
               </p>
             </div>
 
-            <div className="grid md:grid-cols-3 gap-6">
+            <div className="grid md:grid-cols-2 gap-6">
               <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-magenta-500/40 transition-all duration-500 group">
                 <div className="text-4xl font-montserrat font-bold text-magenta-400 mb-2 group-hover:scale-105 transition-transform duration-500">
-                  73%
+                  Subito
                 </div>
                 <p className="font-inter text-white/70 leading-relaxed">
-                  dei turisti non sa cosa fare la sera prima di controllare
-                  il telefono. Quel momento &egrave; tuo da conquistare.
-                </p>
-              </div>
-
-              <div className="p-8 rounded-2xl bg-white/5 border border-white/10 hover:border-magenta-500/40 transition-all duration-500 group">
-                <div className="text-4xl font-montserrat font-bold text-magenta-400 mb-2 group-hover:scale-105 transition-transform duration-500">
-                  3 sec
-                </div>
-                <p className="font-inter text-white/70 leading-relaxed">
-                  &Egrave; il tempo che impiega <span translate="no">Lumio</span> a trovare
+                  Il tempo che impiega <span translate="no">Lumio</span> a trovare
                   l&apos;esperienza giusta per il profilo del tuo ospite,
                   in qualsiasi lingua.
                 </p>
