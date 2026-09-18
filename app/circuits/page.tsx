@@ -206,34 +206,6 @@ export default function Home() {
         ================================================================ */}
         <section className="py-20 px-6 bg-white">
           <div className="max-w-5xl mx-auto">
-            {/* Circuit stats */}
-            <div className="grid grid-cols-3 gap-6 mb-14 text-center">
-              <div>
-                <div className="font-montserrat text-4xl md:text-5xl font-bold text-charcoal-500 mb-1">
-                  23
-                </div>
-                <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
-                  Spazi Convenzionati
-                </div>
-              </div>
-              <div>
-                <div className="font-montserrat text-4xl md:text-5xl font-bold text-charcoal-500 mb-1">
-                  16
-                </div>
-                <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
-                  Organizzazioni Attive
-                </div>
-              </div>
-              <div>
-                <div className="font-montserrat text-5xl font-bold text-charcoal-500 mb-1">
-                  🚀
-                </div>
-                <div className="font-inter text-xs text-charcoal-300 uppercase tracking-widest">
-                  Comunità in crescita
-                </div>
-              </div>
-            </div>
-
             {/* Avatar-group logo stack + label */}
             <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 sm:gap-5">
               {/* Overlapping circles */}
@@ -253,20 +225,11 @@ export default function Home() {
                     />
                   </div>
                 ))}
-                {/* +17 magenta circle */}
-                <div
-                  className="relative w-14 h-14 rounded-full bg-magenta-500 border-2 border-white shadow-md flex items-center justify-center shrink-0"
-                  style={{ marginLeft: -14, zIndex: 0 }}
-                >
-                  <span className="font-montserrat text-xs font-bold text-white">
-                    +17
-                  </span>
-                </div>
               </div>
 
               {/* Label */}
               <p className="font-inter text-base font-semibold text-charcoal-500 leading-snug">
-                16+ Spazi ed Organizzazioni gi&agrave; nel Circuito.
+                Spazi e organizzazioni gi&agrave; nel Circuito.
               </p>
             </div>
           </div>
