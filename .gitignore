@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Worktree isolati creati dagli agenti a ogni run: vivono dentro il repo ma
+# non vanno tracciati, e se restano non tracciati la validazione post-run vede
+# il checkout condiviso sporco e si blocca (task #9669, #9670, #9673-#9675).
+.worktrees/
