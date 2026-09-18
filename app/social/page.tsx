@@ -372,7 +372,7 @@ export default function SocialPage() {
             />
           </div>
 
-          <p className="font-inter text-xs text-white/30 mt-6">
+          <p className="font-inter text-xs text-white/50 mt-6">
             Nessuno spam. Puoi cancellarti in qualsiasi momento.
           </p>
         </div>
@@ -399,7 +399,7 @@ export default function SocialPage() {
             CROWDIA
           </span>
         </div>
-        <p className="font-inter text-xs text-white/30">
+        <p className="font-inter text-xs text-white/50">
           &copy; {new Date().getFullYear()} Crowdia. Tutti i diritti riservati.
           {" · "}
           <Link href="/privacy" className="underline hover:text-white/60">

@@ -226,7 +226,7 @@ export default function Home() {
             <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-3">
               Scegli il tuo Punto di Accesso
             </h2>
-            <p className="font-inter text-white/40 text-sm max-w-lg mx-auto">
+            <p className="font-inter text-white/60 text-sm max-w-lg mx-auto">
               Ogni parte dell&apos;ecosistema ha il suo accesso. Seleziona il tuo percorso.
             </p>
           </div>
@@ -241,8 +241,8 @@ export default function Home() {
               <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-4">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">01</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per chi vive la città</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/50">01</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/50">Per chi vive la città</span>
                 </div>
                 <div className="w-10 h-10 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-4">
                   <Sparkles className="w-5 h-5 text-magenta-400" />
@@ -267,8 +267,8 @@ export default function Home() {
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">02</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per i creator</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/50">02</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/50">Per i creator</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Mic2 className="w-4 h-4 text-magenta-400" />
@@ -293,8 +293,8 @@ export default function Home() {
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">03</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per organizzazioni e Spazi</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/50">03</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/50">Per organizzazioni e Spazi</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Zap className="w-4 h-4 text-magenta-400" />
@@ -319,8 +319,8 @@ export default function Home() {
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">04</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per il turismo e il business</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/50">04</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/50">Per il turismo e il business</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Building2 className="w-4 h-4 text-magenta-400" />
@@ -345,8 +345,8 @@ export default function Home() {
               <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               <div className="relative z-10">
                 <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">05</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per le istituzioni</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/50">05</span>
+                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/50">Per le istituzioni</span>
                 </div>
                 <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
                   <Landmark className="w-4 h-4 text-magenta-400" />
@@ -448,7 +448,7 @@ export default function Home() {
                 <div className="font-montserrat text-5xl md:text-6xl font-black text-white mb-3">
                   {stat.icon}
                 </div>
-                <div className="font-inter text-xs text-white/40 uppercase tracking-widest leading-tight">
+                <div className="font-inter text-xs text-white/60 uppercase tracking-widest leading-tight">
                   {stat.label}
                 </div>
               </div>
@@ -495,7 +495,7 @@ export default function Home() {
               href="https://instagram.com/crowdia.ai"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/30 hover:text-white/70 transition-colors"
+              className="text-white/50 hover:text-white/70 transition-colors"
             >
               <Instagram className="w-5 h-5" />
             </a>
@@ -503,7 +503,7 @@ export default function Home() {
               href="https://linkedin.com/company/crowdia"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-white/30 hover:text-white/70 transition-colors"
+              className="text-white/50 hover:text-white/70 transition-colors"
             >
               <Linkedin className="w-5 h-5" />
             </a>
@@ -533,14 +533,14 @@ export default function Home() {
               CROWDIA
             </span>
           </div>
-          <p className="font-inter text-xs text-white/25 text-center">
+          <p className="font-inter text-xs text-white/50 text-center">
             CROWDIA: Urban Intelligence Layer per lo sviluppo di Palermo e della
             sua Area Metropolitana.
           </p>
           <div className="flex items-center gap-4">
             <Link
               href="/privacy"
-              className="font-inter text-xs text-white/25 hover:text-white/50 transition-colors"
+              className="font-inter text-xs text-white/50 hover:text-white/50 transition-colors"
             >
               Privacy Policy
             </Link>
