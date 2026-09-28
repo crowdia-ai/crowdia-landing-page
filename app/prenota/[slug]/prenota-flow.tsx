@@ -146,14 +146,14 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
         {step === "doorPolicy" && (
           <StepShell onBack={() => setStep("age")} dots={2}>
             <div className="text-[26px] font-black leading-tight tracking-tight">
-              Rispetti le regole della lista?
+              Ti identifichi in questa foto?
             </div>
-            <div className="mt-3.5 block rounded-2xl border border-white/15 bg-white/[0.06] p-6 text-center">
-              <div className="text-4xl">🚫</div>
-              <p className="mt-2 text-[13px] leading-relaxed text-white/70">
-                Non possiamo garantire l&apos;ingresso a chi non rispetta le regole del locale e della serata.
-              </p>
-            </div>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/prenota/io-non-posso-entrare.png"
+              alt="Non posso entrare"
+              className="mx-auto mt-3.5 block w-[78%] max-w-[280px] rounded-2xl border border-white/15 shadow-xl"
+            />
             <div className="mt-4 flex gap-2.5">
               <GhostButton onClick={() => setStep("stopDoorPolicy")}>Sì, sono io</GhostButton>
               <CtaButton onClick={() => setStep("name")}>No</CtaButton>
