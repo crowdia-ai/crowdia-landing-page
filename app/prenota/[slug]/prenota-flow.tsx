@@ -227,7 +227,7 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
         )}
 
         {step === "stopDoorPolicy" && (
-          <StopScreen emoji="🚫" title="Non sei ben accetto" subtitle="Per questa serata non possiamo metterti in lista." />
+          <StopScreen emoji="🚫" title="Non sei ben accetto" subtitle="Per questo evento non possiamo metterti in lista." />
         )}
       </div>
 
@@ -253,7 +253,7 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
 
       {event.listName && (
         <footer className="relative z-10 mx-auto max-w-[480px] px-[18px] pb-10 text-center text-[11.5px] leading-relaxed text-white/45">
-          I dati che inserisci servono solo per la lista di questa serata, gestita da {event.listName}, e non
+          I dati che inserisci servono solo per la lista di questo evento, gestita da {event.listName}, e non
           vengono usati per altro.
         </footer>
       )}
