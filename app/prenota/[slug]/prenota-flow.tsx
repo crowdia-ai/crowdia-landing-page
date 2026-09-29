@@ -83,12 +83,13 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
             className="fixed inset-[-60px] z-0 bg-cover bg-center"
             style={{
               backgroundImage: `url(${event.cover_image_url})`,
-              filter: "saturate(1.6) brightness(.45)",
+              filter: "blur(36px) saturate(1.4) brightness(.38)",
+              transform: "scale(1.15)",
             }}
           />
           <div
             className="fixed inset-0 z-0"
-            style={{ background: "linear-gradient(rgba(10,10,10,.1),rgba(10,10,10,.6))" }}
+            style={{ background: "linear-gradient(rgba(10,10,10,.25),rgba(10,10,10,.7))" }}
           />
         </>
       )}
