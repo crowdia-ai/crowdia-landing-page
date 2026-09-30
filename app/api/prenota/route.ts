@@ -13,6 +13,7 @@ const bodySchema = z.object({
   slug: z.string().min(1).max(200),
   firstName: z.string().trim().min(2).max(80),
   lastName: z.string().trim().min(2).max(80),
+  isAdult: z.literal(true),
 });
 
 const RATE_LIMIT_MAX = 8;

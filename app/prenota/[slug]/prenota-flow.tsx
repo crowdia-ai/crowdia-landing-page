@@ -15,7 +15,7 @@ interface PrenotaEvent {
   listName: string | null;
 }
 
-type Step = "intro" | "age" | "doorPolicy" | "name" | "done" | "stopAge" | "stopDoorPolicy";
+type Step = "intro" | "name" | "done";
 
 const CTA_COLOR = "#E30B0B";
 
@@ -46,10 +46,11 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
   const [step, setStep] = useState<Step>("intro");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
+  const [isAdult, setIsAdult] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const canSubmit = firstName.trim().length > 1 && lastName.trim().length > 1;
+  const canSubmit = firstName.trim().length > 1 && lastName.trim().length > 1 && isAdult;
 
   async function handleSubmit() {
     if (!canSubmit || submitting) return;
@@ -59,7 +60,7 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
       const res = await fetch("/api/prenota", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, firstName: firstName.trim(), lastName: lastName.trim() }),
+        body: JSON.stringify({ slug, firstName: firstName.trim(), lastName: lastName.trim(), isAdult }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -133,39 +134,8 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
           </section>
         )}
 
-        {step === "age" && (
-          <StepShell onBack={() => setStep("intro")} dots={1}>
-            <div className="text-[26px] font-black leading-tight tracking-tight">Hai 18 anni o più?</div>
-            <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">
-              L&apos;ingresso è riservato ai maggiorenni.
-            </p>
-            <div className="mt-4 flex gap-2.5">
-              <GhostButton onClick={() => setStep("stopAge")}>No</GhostButton>
-              <CtaButton onClick={() => setStep("doorPolicy")}>Sì</CtaButton>
-            </div>
-          </StepShell>
-        )}
-
-        {step === "doorPolicy" && (
-          <StepShell onBack={() => setStep("age")} dots={2}>
-            <div className="text-[26px] font-black leading-tight tracking-tight">
-              Ti identifichi in questa foto?
-            </div>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
-              src="/prenota/io-non-posso-entrare.png"
-              alt="Non posso entrare"
-              className="mx-auto mt-3.5 block w-[78%] max-w-[280px] rounded-2xl border border-white/15 shadow-xl"
-            />
-            <div className="mt-4 flex gap-2.5">
-              <GhostButton onClick={() => setStep("stopDoorPolicy")}>Sì, sono io</GhostButton>
-              <CtaButton onClick={() => setStep("name")}>No</CtaButton>
-            </div>
-          </StepShell>
-        )}
-
         {step === "name" && (
-          <StepShell onBack={() => setStep("doorPolicy")} dots={3}>
+          <StepShell onBack={() => setStep("intro")}>
             <div className="text-[26px] font-black leading-tight tracking-tight">Come ti chiami?</div>
             <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">
               Nome e cognome, come sul documento.
@@ -184,6 +154,15 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
             />
+            <label className="mt-4 flex cursor-pointer items-center gap-3 rounded-2xl border border-white/15 bg-black/35 px-4 py-3.5">
+              <input
+                type="checkbox"
+                className="h-5 w-5 shrink-0 accent-white"
+                checked={isAdult}
+                onChange={(e) => setIsAdult(e.target.checked)}
+              />
+              <span className="text-[15px] font-bold">Ho 18 anni o più</span>
+            </label>
             {submitError && <p className="mt-3 text-sm text-red-400">{submitError}</p>}
           </StepShell>
         )}
@@ -219,16 +198,17 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
                 </div>
               )}
             </div>
+            <p className="mt-5 text-left text-[13px] leading-relaxed text-white/60">
+              L&apos;inserimento in lista non garantisce l&apos;accesso al locale. La proprietà si riserva il
+              diritto di effettuare una selezione all&apos;ingresso.
+            </p>
+            <p className="mt-3 text-left text-[13px] leading-relaxed text-white/60">
+              È richiesto un abbigliamento consono e adeguato al contesto del locale. Non saranno ammessi
+              pantaloncini, canottiere, jeans strappati, barbe lunghe o borselli.
+            </p>
           </section>
         )}
 
-        {step === "stopAge" && (
-          <StopScreen emoji="🔞" title="Mi dispiace" subtitle="L'ingresso è riservato ai maggiorenni." />
-        )}
-
-        {step === "stopDoorPolicy" && (
-          <StopScreen emoji="🚫" title="Non sei ben accetto" subtitle="Per questo evento non possiamo metterti in lista." />
-        )}
       </div>
 
       {(step === "intro" || step === "name") && (
@@ -238,7 +218,7 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
             style={{ backgroundColor: CTA_COLOR }}
             disabled={step === "name" && (!canSubmit || submitting)}
             onClick={() => {
-              if (step === "intro") setStep("age");
+              if (step === "intro") setStep("name");
               else if (step === "name") handleSubmit();
             }}
           >
@@ -278,56 +258,16 @@ function InfoLine({ label, value, sub }: { label: string; value: string; sub?: s
 function StepShell({
   children,
   onBack,
-  dots,
 }: {
   children: React.ReactNode;
   onBack: () => void;
-  dots: number;
 }) {
   return (
     <section>
-      <div className="mb-1 flex justify-center gap-1.5">
-        {[1, 2, 3].map((i) => (
-          <i key={i} className={`h-1 w-[22px] rounded-full ${i <= dots ? "bg-white" : "bg-white/20"}`} />
-        ))}
-      </div>
       <button className="py-1.5 text-sm font-bold text-white/70" onClick={onBack}>
         ‹ Indietro
       </button>
       {children}
-    </section>
-  );
-}
-
-function CtaButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
-  return (
-    <button
-      className="h-[54px] flex-1 rounded-full font-extrabold text-white"
-      style={{ backgroundColor: CTA_COLOR }}
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
-
-function GhostButton({ children, onClick }: { children: React.ReactNode; onClick: () => void }) {
-  return (
-    <button
-      className="h-[54px] flex-1 rounded-full border border-white/35 bg-white/10 font-extrabold text-white"
-      onClick={onClick}
-    >
-      {children}
-    </button>
-  );
-}
-
-function StopScreen({ emoji, title, subtitle }: { emoji: string; title: string; subtitle: string }) {
-  return (
-    <section className="pt-5 text-center">
-      <div className="text-5xl">{emoji}</div>
-      <div className="mt-2 text-[26px] font-black">{title}</div>
-      <p className="mt-1 text-white/70">{subtitle}</p>
     </section>
   );
 }
