@@ -1,5 +1,6 @@
 import { supabase } from "@/lib/supabase";
 import { PrenotaFlow } from "./prenota-flow";
+import { isSoldOut } from "@/lib/soldOut";
 
 export const dynamic = "force-dynamic";
 
@@ -80,5 +81,5 @@ export default async function PrenotaPage({
     );
   }
 
-  return <PrenotaFlow event={event} slug={slug} />;
+  return <PrenotaFlow event={event} slug={slug} soldOut={isSoldOut(slug)} />;
 }

@@ -42,7 +42,7 @@ function priceLabel(event: PrenotaEvent) {
   return "In lista, si paga all'ingresso";
 }
 
-export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string }) {
+export function PrenotaFlow({ event, slug, soldOut = false }: { event: PrenotaEvent; slug: string; soldOut?: boolean }) {
   const [step, setStep] = useState<Step>("intro");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -214,15 +214,19 @@ export function PrenotaFlow({ event, slug }: { event: PrenotaEvent; slug: string
       {(step === "intro" || step === "name") && (
         <div className="fixed inset-x-[10px] bottom-[10px] z-20 mx-auto max-w-[460px] rounded-[26px] border border-white/15 bg-[rgba(15,15,20,.72)] p-3 backdrop-blur-xl">
           <button
-            className="h-[54px] w-full rounded-full font-extrabold text-white disabled:opacity-45"
-            style={{ backgroundColor: CTA_COLOR }}
-            disabled={step === "name" && (!canSubmit || submitting)}
+            className={`h-[54px] w-full rounded-full font-extrabold text-white ${soldOut ? "cursor-not-allowed tracking-wide uppercase" : "disabled:opacity-45"}`}
+            style={{ backgroundColor: soldOut ? "rgba(255,255,255,.14)" : CTA_COLOR }}
+            disabled={soldOut || (step === "name" && (!canSubmit || submitting))}
+            aria-disabled={soldOut}
             onClick={() => {
+              if (soldOut) return;
               if (step === "intro") setStep("name");
               else if (step === "name") handleSubmit();
             }}
           >
-            {step === "intro"
+            {soldOut
+              ? "Sold out"
+              : step === "intro"
               ? "Mettiti in lista"
               : submitting
                 ? "Un attimo…"
