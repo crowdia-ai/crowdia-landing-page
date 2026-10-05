@@ -1,4 +1,4 @@
-import { isSoldOut } from '@/lib/soldOut';
+import { isSoldOut, isClosedByTime } from '@/lib/soldOut';
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createHash } from 'crypto';
@@ -88,6 +88,9 @@ export async function POST(request: NextRequest) {
 
     if (isSoldOut(body.slug)) {
       return NextResponse.json({ error: 'Sold out: la lista è chiusa' }, { status: 409 });
+    }
+    if (isClosedByTime(body.slug)) {
+      return NextResponse.json({ error: 'Iscrizioni chiuse' }, { status: 409 });
     }
 
     // Dedup name+event: a double-tap or reload doesn't create a second row for the

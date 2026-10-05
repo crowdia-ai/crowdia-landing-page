@@ -42,7 +42,7 @@ function priceLabel(event: PrenotaEvent) {
   return "In lista, si paga all'ingresso";
 }
 
-export function PrenotaFlow({ event, slug, soldOut = false }: { event: PrenotaEvent; slug: string; soldOut?: boolean }) {
+export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: { cta: string; ctaText: string } }) {
   const [step, setStep] = useState<Step>("intro");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -78,6 +78,8 @@ export function PrenotaFlow({ event, slug, soldOut = false }: { event: PrenotaEv
 
   return (
     <main className="relative min-h-screen bg-[#0a090c] text-white">
+      {/* Barra di scorrimento dello stesso colore del tasto (Mattia 05/10). */}
+      <style>{`::-webkit-scrollbar-thumb{background:${theme.cta}}html{scrollbar-color:${theme.cta} transparent}`}</style>
       {event.cover_image_url && (
         <>
           <div
@@ -215,7 +217,7 @@ export function PrenotaFlow({ event, slug, soldOut = false }: { event: PrenotaEv
         <div className="fixed inset-x-[10px] bottom-[10px] z-20 mx-auto max-w-[460px] rounded-[26px] border border-white/15 bg-[rgba(15,15,20,.72)] p-3 backdrop-blur-xl">
           <button
             className={`h-[54px] w-full rounded-full font-extrabold text-white ${soldOut ? "cursor-not-allowed tracking-wide uppercase" : "disabled:opacity-45"}`}
-            style={{ backgroundColor: soldOut ? "rgba(255,255,255,.14)" : CTA_COLOR }}
+            style={{ backgroundColor: soldOut ? "rgba(255,255,255,.14)" : theme.cta, color: soldOut ? "#FFFFFF" : theme.ctaText }}
             disabled={soldOut || (step === "name" && (!canSubmit || submitting))}
             aria-disabled={soldOut}
             onClick={() => {
@@ -225,7 +227,7 @@ export function PrenotaFlow({ event, slug, soldOut = false }: { event: PrenotaEv
             }}
           >
             {soldOut
-              ? "Sold out"
+              ? closedLabel
               : step === "intro"
               ? "Mettiti in lista"
               : submitting
