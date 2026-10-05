@@ -42,7 +42,7 @@ function priceLabel(event: PrenotaEvent) {
   return "In lista, si paga all'ingresso";
 }
 
-export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: { cta: string; ctaText: string } }) {
+export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: { cta: string; ctaText: string; ingresso?: string } }) {
   const [step, setStep] = useState<Step>("intro");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -131,7 +131,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                   sub="All'ingresso basta dire il nome della lista"
                 />
               )}
-              <InfoLine label="Ingresso" value={priceLabel(event)} sub="Nessun pagamento su Crowdia." />
+              <InfoLine label="Ingresso" value={theme.ingresso ?? priceLabel(event)} sub={theme.ingresso ? undefined : "Nessun pagamento su Crowdia."} />
             </div>
           </section>
         )}
@@ -186,7 +186,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
             )}
             <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
               <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">INGRESSO</div>
-              <div className="mt-1 text-[17px] font-extrabold">{priceLabel(event)}</div>
+              <div className="mt-1 text-[17px] font-extrabold">{theme.ingresso ?? priceLabel(event)}</div>
             </div>
             <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
               <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">{event.title}</div>
