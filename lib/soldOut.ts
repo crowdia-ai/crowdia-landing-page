@@ -9,6 +9,8 @@ export const isSoldOut = (slug: string) => SOLD_OUT_SLUGS.has(slug);
 // e l'API rifiuta. Orari in UTC: 18:00Z = 20:00 ora di Roma (ora legale).
 export const CLOSES_AT: Record<string, string> = {
   "the-opening-10-10": "2026-10-10T18:00:00Z",
+  // ATTIQUE afternoon (Camillo, 11/10 17:00): chiude all'inizio dell'evento (Mattia, 10/10)
+  "attique-afternoon-11-10": "2026-10-11T15:00:00Z",
 };
 
 export const isClosedByTime = (slug: string, now = new Date()) =>
