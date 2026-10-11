@@ -9,6 +9,8 @@ const DEFAULT: PrenotaTheme = { cta: "#E30B0B", ctaText: "#FFFFFF" };
 
 const THEMES: Record<string, PrenotaTheme> = {
   "the-opening-10-10": { cta: "#FFFFFF", ctaText: "#0A090C", ingresso: "Ingresso in Lista - da 15€ con drink incluso" },
+  // ATTIQUE afternoon: il blu della locandina (#0B71EF, campionato sul titolo) — Mattia 11/10
+  "attique-afternoon-11-10": { cta: "#0B71EF", ctaText: "#FFFFFF" },
 };
 
 export const prenotaTheme = (slug: string): PrenotaTheme => THEMES[slug] ?? DEFAULT;
