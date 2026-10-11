@@ -42,7 +42,7 @@ function priceLabel(event: PrenotaEvent) {
   return "In lista, si paga all'ingresso";
 }
 
-export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: { cta: string; ctaText: string; ingresso?: string } }) {
+export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: { cta: string; ctaText: string; ingresso?: string; eta?: string; minAge?: number } }) {
   const [step, setStep] = useState<Step>("intro");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -115,6 +115,13 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               </p>
             )}
 
+            {(theme.ingresso || theme.eta) && (
+              <div className="mt-5 rounded-[22px] border-2 p-4" style={{ borderColor: theme.cta, backgroundColor: `${theme.cta}26` }}>
+                {theme.ingresso && <div className="text-[19px] font-black leading-snug">{theme.ingresso}</div>}
+                {theme.eta && <div className="mt-1 text-[15px] font-extrabold text-white/85">Età ammessa {theme.eta}</div>}
+              </div>
+            )}
+
             <div className="mt-6 border-t border-white/10">
               <InfoLine label="Quando" value={`${formatDate(event.event_start_time)} · ${formatTime(event.event_start_time)}`} />
               {event.locationName && (
@@ -132,6 +139,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                 />
               )}
               <InfoLine label="Ingresso" value={theme.ingresso ?? priceLabel(event)} sub={theme.ingresso ? undefined : "Nessun pagamento su Crowdia."} />
+              {theme.eta && <InfoLine label="Età" value={theme.eta} />}
             </div>
           </section>
         )}
@@ -163,7 +171,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                 checked={isAdult}
                 onChange={(e) => setIsAdult(e.target.checked)}
               />
-              <span className="text-[15px] font-bold">Ho 18 anni o più</span>
+              <span className="text-[15px] font-bold">Ho {theme.minAge ?? 18} anni o più</span>
             </label>
             {submitError && <p className="mt-3 text-sm text-red-400">{submitError}</p>}
           </StepShell>
