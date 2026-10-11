@@ -3,7 +3,7 @@
 // Senza voce si usa il rosso di Southern, la prima pagina.
 // `ingresso`: testo dell'ingresso scritto dall'organizzatore; se c'è, sostituisce quello calcolato dal
 // prezzo e toglie «Nessun pagamento su Crowdia» (Mattia per Nino, 05/10).
-// `eta`/`minAge`: età ammessa scritta in evidenza e soglia della spunta d'età (Mattia, ATTIQUE 11/10).
+// `eta`/`minAge`: riga «Età» nella scheda e soglia della spunta d'età (Mattia, ATTIQUE 11/10).
 export interface PrenotaTheme { cta: string; ctaText: string; ingresso?: string; eta?: string; minAge?: number }
 
 const DEFAULT: PrenotaTheme = { cta: "#E30B0B", ctaText: "#FFFFFF" };

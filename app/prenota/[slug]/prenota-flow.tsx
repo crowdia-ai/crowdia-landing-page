@@ -115,13 +115,6 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               </p>
             )}
 
-            {(theme.ingresso || theme.eta) && (
-              <div className="mt-5 rounded-[22px] border-2 p-4" style={{ borderColor: theme.cta, backgroundColor: `${theme.cta}26` }}>
-                {theme.ingresso && <div className="text-[19px] font-black leading-snug">{theme.ingresso}</div>}
-                {theme.eta && <div className="mt-1 text-[15px] font-extrabold text-white/85">Età ammessa {theme.eta}</div>}
-              </div>
-            )}
-
             <div className="mt-6 border-t border-white/10">
               <InfoLine label="Quando" value={`${formatDate(event.event_start_time)} · ${formatTime(event.event_start_time)}`} />
               {event.locationName && (
