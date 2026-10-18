@@ -4,7 +4,20 @@
 // `ingresso`: testo dell'ingresso scritto dall'organizzatore; se c'è, sostituisce quello calcolato dal
 // prezzo e toglie «Nessun pagamento su Crowdia» (Mattia per Nino, 05/10).
 // `eta`/`minAge`: riga «Età» nella scheda e soglia della spunta d'età (Mattia, ATTIQUE 11/10).
-export interface PrenotaTheme { cta: string; ctaText: string; ingresso?: string; eta?: string; minAge?: number }
+// `ctaLabel`: testo del tasto al primo passo (Nino 18/10: «Riserva il tuo ingresso»).
+// `pagamentoOrganizzatore`: l'organizzatore chiede il pagamento in privato DOPO l'iscrizione. Crowdia non
+// mostra mai IBAN, PayPal o istruzioni di pagamento (Mattia 18/10, scelta «lista-poi-lui»: i soldi non
+// passano dalla nostra pagina). `whatsapp`: numero dell'organizzatore, in formato internazionale senza +.
+export interface PrenotaTheme {
+  cta: string;
+  ctaText: string;
+  ingresso?: string;
+  eta?: string;
+  minAge?: number;
+  ctaLabel?: string;
+  pagamentoOrganizzatore?: boolean;
+  whatsapp?: string;
+}
 
 const DEFAULT: PrenotaTheme = { cta: "#E30B0B", ctaText: "#FFFFFF" };
 

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import type { PrenotaTheme } from "@/lib/prenotaTheme";
 
 interface PrenotaEvent {
   id: string;
@@ -42,7 +43,7 @@ function priceLabel(event: PrenotaEvent) {
   return "In lista, si paga all'ingresso";
 }
 
-export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: { cta: string; ctaText: string; ingresso?: string; eta?: string; minAge?: number } }) {
+export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold out", theme = { cta: CTA_COLOR, ctaText: "#FFFFFF" } }: { event: PrenotaEvent; slug: string; soldOut?: boolean; closedLabel?: string; theme?: PrenotaTheme }) {
   const [step, setStep] = useState<Step>("intro");
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -201,6 +202,30 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                 </div>
               )}
             </div>
+            {theme.pagamentoOrganizzatore && (
+              <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
+                <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">PAGAMENTO</div>
+                <div className="mt-1 text-[15px] font-bold leading-snug">
+                  {event.listName ? `${event.listName} ti contatterà` : "L'organizzatore ti contatterà"} per completare il
+                  pagamento e ricevere il tuo ingresso.
+                </div>
+                <p className="mt-2 text-[12.5px] leading-relaxed text-white/60">
+                  Il pagamento va direttamente all&apos;organizzatore: Crowdia non vende biglietti e non gestisce
+                  pagamenti o rimborsi.
+                </p>
+                {theme.whatsapp && (
+                  <a
+                    className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full font-extrabold"
+                    style={{ backgroundColor: "#25D366", color: "#0A090C" }}
+                    href={`https://wa.me/${theme.whatsapp}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Scrivi su WhatsApp
+                  </a>
+                )}
+              </div>
+            )}
             <p className="mt-5 text-left text-[13px] leading-relaxed text-white/60">
               L&apos;inserimento in lista non garantisce l&apos;accesso al locale. La proprietà si riserva il
               diritto di effettuare una selezione all&apos;ingresso.
@@ -230,7 +255,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
             {soldOut
               ? closedLabel
               : step === "intro"
-              ? "Mettiti in lista"
+              ? (theme.ctaLabel ?? "Mettiti in lista")
               : submitting
                 ? "Un attimo…"
                 : "Inseriscimi in lista"}
