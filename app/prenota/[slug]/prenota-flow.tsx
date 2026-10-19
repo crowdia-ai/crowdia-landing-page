@@ -122,7 +122,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
             )}
             <h1 className="mt-6 text-4xl font-black tracking-tight">{event.title}</h1>
             {event.description && (
-              <p className="mt-1 text-[15px] leading-relaxed text-white/80 line-clamp-3">
+              <p className={`mt-1 text-[15px] leading-relaxed text-white/80 ${theme.riserva ? "whitespace-pre-line" /* a righe, THE OTHER SIDE 19/10 */ : "line-clamp-3"}`}>
                 {event.description}
               </p>
             )}
