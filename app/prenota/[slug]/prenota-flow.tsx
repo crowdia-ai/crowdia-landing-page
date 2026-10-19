@@ -86,6 +86,35 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
     }
   }
 
+  // Riquadro dell'organizzatore. Sulle pagine «riserva» va subito sotto il ringraziamento (Mattia, 19/10).
+  const pagamentoBox = theme.pagamentoOrganizzatore && (
+  <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
+    <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">
+      {theme.telefono ? "COME ENTRARE" : "PAGAMENTO"}
+    </div>
+    <div className="mt-1 text-[15px] font-bold leading-snug">
+      {theme.telefono
+        ? "Gli organizzatori ti contatteranno su WhatsApp per darti le modalità di ingresso."
+        : `${event.listName ? `${event.listName} ti contatterà` : "L'organizzatore ti contatterà"} per completare il pagamento e ricevere il tuo ingresso.`}
+    </div>
+    <p className="mt-2 text-[12.5px] leading-relaxed text-white/60">
+      Il pagamento va direttamente all&apos;organizzatore: Crowdia non vende biglietti e non gestisce
+      pagamenti o rimborsi.
+    </p>
+    {theme.whatsapp && (
+      <a
+        className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full font-extrabold"
+        style={{ backgroundColor: "#25D366", color: "#0A090C" }}
+        href={`https://wa.me/${theme.whatsapp}`}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Scrivi su WhatsApp
+      </a>
+    )}
+  </div>
+);
+
   return (
     <main className="relative min-h-screen bg-[#0a090c] text-white">
       {/* Barra di scorrimento dello stesso colore del tasto (Mattia 05/10). */}
@@ -205,11 +234,9 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               ✓
             </div>
             <div className="text-[24px] font-black">
-              {theme.riserva ? `Ingresso riservato, ${firstName.trim()}!` : `Ci sei, ${firstName.trim()}!`}
+              {theme.riserva ? "Grazie per averci contattato!" : `Ci sei, ${firstName.trim()}!`}
             </div>
-            <p className="mt-1 text-white/80">
-              {theme.riserva ? "Abbiamo ricevuto la tua richiesta." : "Ti abbiamo inserito in lista."}
-            </p>
+            {theme.riserva ? pagamentoBox : <p className="mt-1 text-white/80">Ti abbiamo inserito in lista.</p>}
             {event.listName && !theme.telefono && (
               <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
                 <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">
@@ -234,33 +261,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                 </div>
               )}
             </div>
-            {theme.pagamentoOrganizzatore && (
-              <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
-                <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">
-                  {theme.telefono ? "COME ENTRARE" : "PAGAMENTO"}
-                </div>
-                <div className="mt-1 text-[15px] font-bold leading-snug">
-                  {theme.telefono
-                    ? "Gli organizzatori ti contatteranno su WhatsApp per darti le modalità di ingresso."
-                    : `${event.listName ? `${event.listName} ti contatterà` : "L'organizzatore ti contatterà"} per completare il pagamento e ricevere il tuo ingresso.`}
-                </div>
-                <p className="mt-2 text-[12.5px] leading-relaxed text-white/60">
-                  Il pagamento va direttamente all&apos;organizzatore: Crowdia non vende biglietti e non gestisce
-                  pagamenti o rimborsi.
-                </p>
-                {theme.whatsapp && (
-                  <a
-                    className="mt-3 flex h-[46px] w-full items-center justify-center rounded-full font-extrabold"
-                    style={{ backgroundColor: "#25D366", color: "#0A090C" }}
-                    href={`https://wa.me/${theme.whatsapp}`}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Scrivi su WhatsApp
-                  </a>
-                )}
-              </div>
-            )}
+            {!theme.riserva && pagamentoBox}
             <p className="mt-5 text-left text-[13px] leading-relaxed text-white/60">
               {theme.riserva ? "La prenotazione" : "L'inserimento in lista"} non garantisce l&apos;accesso al locale. La proprietà si riserva il
               diritto di effettuare una selezione all&apos;ingresso.
