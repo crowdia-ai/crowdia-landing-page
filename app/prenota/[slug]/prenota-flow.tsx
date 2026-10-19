@@ -138,7 +138,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               )}
               {event.listName && (
                 <InfoLine
-                  label={theme.riserva ? "Organizza" : "Lista"}
+                  label={theme.riserva ? "PR" : "Lista"}
                   value={event.listName}
                   // Contattati dagli organizzatori: non si entra dicendo il nome della lista (Mattia, 19/10).
                   sub={theme.telefono ? undefined : "All'ingresso basta dire il nome della lista"}
@@ -302,8 +302,9 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
 
       {event.listName && (
         <footer className="relative z-10 mx-auto max-w-[480px] px-[18px] pb-10 text-center text-[11.5px] leading-relaxed text-white/45">
-          I dati che inserisci servono solo per {theme.riserva ? "la prenotazione" : "la lista"} di questo evento, gestita da {event.listName}, e non
-          vengono usati per altro.
+          {theme.riserva
+            ? `I dati che inserisci servono solo per la prenotazione di questo evento: li passiamo al PR (${event.listName}) e agli organizzatori, e non vengono usati per altro.`
+            : `I dati che inserisci servono solo per la lista di questo evento, gestita da ${event.listName}, e non vengono usati per altro.`}
         </footer>
       )}
     </main>
