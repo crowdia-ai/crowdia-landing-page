@@ -8,6 +8,9 @@
 // `pagamentoOrganizzatore`: l'organizzatore chiede il pagamento in privato DOPO l'iscrizione. Crowdia non
 // mostra mai IBAN, PayPal o istruzioni di pagamento (Mattia 18/10, scelta «lista-poi-lui»: i soldi non
 // passano dalla nostra pagina). `whatsapp`: numero dell'organizzatore, in formato internazionale senza +.
+// `telefono`: al passo 2 si chiede anche il numero WhatsApp, obbligatorio; Crowdia gira la lista con i contatti
+// agli organizzatori, che scrivono loro per il pagamento (Mattia per Nino, THE OTHER SIDE 19/10).
+// `sfondo`: sfondo CSS al posto della locandina sfocata (THE OTHER SIDE: rosso scuro che sfuma al nero).
 export interface PrenotaTheme {
   cta: string;
   ctaText: string;
@@ -17,6 +20,8 @@ export interface PrenotaTheme {
   ctaLabel?: string;
   pagamentoOrganizzatore?: boolean;
   whatsapp?: string;
+  telefono?: boolean;
+  sfondo?: string;
 }
 
 const DEFAULT: PrenotaTheme = { cta: "#E30B0B", ctaText: "#FFFFFF" };
@@ -25,6 +30,18 @@ const THEMES: Record<string, PrenotaTheme> = {
   "the-opening-10-10": { cta: "#FFFFFF", ctaText: "#0A090C", ingresso: "Ingresso in Lista - da 15€ con drink incluso" },
   // ATTIQUE afternoon: il blu della locandina (#0B71EF, campionato sul titolo) — Mattia 11/10
   "attique-afternoon-11-10": { cta: "#0B71EF", ctaText: "#FFFFFF", ingresso: "Entrata in lista • 10€ con drink incluso", eta: "+24", minAge: 24 },
+  // THE OTHER SIDE, Halloween da Camillo: il rosso del neon della locandina, sfondo thriller — Mattia per Nino 19/10
+  "the-other-side-31-10": {
+    cta: "#E3201B",
+    ctaText: "#FFFFFF",
+    ingresso: "20€ con drink incluso",
+    eta: "18+",
+    minAge: 18,
+    ctaLabel: "Iscriviti in lista",
+    pagamentoOrganizzatore: true,
+    telefono: true,
+    sfondo: "radial-gradient(120% 70% at 50% 0%, #6B0A0E 0%, #3A0508 38%, #170204 70%, #050001 100%)",
+  },
 };
 
 export const prenotaTheme = (slug: string): PrenotaTheme => THEMES[slug] ?? DEFAULT;

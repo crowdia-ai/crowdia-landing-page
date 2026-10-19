@@ -1,4 +1,5 @@
 import { isSoldOut, isClosedByTime } from '@/lib/soldOut';
+import { prenotaTheme } from '@/lib/prenotaTheme';
 import { NextRequest, NextResponse } from 'next/server';
 import { createClient } from '@supabase/supabase-js';
 import { createHash } from 'crypto';
@@ -15,6 +16,8 @@ const bodySchema = z.object({
   firstName: z.string().trim().min(2).max(80),
   lastName: z.string().trim().min(2).max(80),
   isAdult: z.literal(true),
+  // WhatsApp number, only on lists whose theme asks for it (lib/prenotaTheme.ts `telefono`).
+  phone: z.string().trim().max(30).regex(/^\+?[\d\s().-]+$/).optional(),
 });
 
 const RATE_LIMIT_MAX = 8;
@@ -51,6 +54,12 @@ export async function POST(request: NextRequest) {
       );
     }
     return NextResponse.json({ error: 'Richiesta non valida' }, { status: 400 });
+  }
+
+  const wantsPhone = !!prenotaTheme(body.slug).telefono;
+  const phoneDigits = body.phone?.replace(/\D/g, '') ?? '';
+  if (wantsPhone && (phoneDigits.length < 8 || phoneDigits.length > 15)) {
+    return NextResponse.json({ error: 'Inserisci un numero WhatsApp valido' }, { status: 400 });
   }
 
   const supabaseAdmin = getSupabaseAdmin();
@@ -113,6 +122,7 @@ export async function POST(request: NextRequest) {
         first_name: body.firstName,
         last_name: body.lastName,
         ip_hash: ipHash,
+        ...(wantsPhone ? { phone: body.phone } : {}),
       });
 
       if (insertError) {

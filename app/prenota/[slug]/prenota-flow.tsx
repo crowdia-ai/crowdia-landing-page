@@ -48,10 +48,13 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [isAdult, setIsAdult] = useState(false);
+  const [phone, setPhone] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
 
-  const canSubmit = firstName.trim().length > 1 && lastName.trim().length > 1 && isAdult;
+  const phoneDigits = phone.replace(/\D/g, "");
+  const phoneOk = !theme.telefono || (phoneDigits.length >= 8 && phoneDigits.length <= 15);
+  const canSubmit = firstName.trim().length > 1 && lastName.trim().length > 1 && isAdult && phoneOk;
 
   async function handleSubmit() {
     if (!canSubmit || submitting) return;
@@ -61,7 +64,13 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
       const res = await fetch("/api/prenota", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug, firstName: firstName.trim(), lastName: lastName.trim(), isAdult }),
+        body: JSON.stringify({
+          slug,
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          isAdult,
+          ...(theme.telefono ? { phone: phone.trim() } : {}),
+        }),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -81,7 +90,9 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
     <main className="relative min-h-screen bg-[#0a090c] text-white">
       {/* Barra di scorrimento dello stesso colore del tasto (Mattia 05/10). */}
       <style>{`::-webkit-scrollbar-thumb{background:${theme.cta}}html{scrollbar-color:${theme.cta} transparent}`}</style>
-      {event.cover_image_url && (
+      {theme.sfondo ? (
+        <div className="fixed inset-0 z-0" style={{ background: theme.sfondo }} />
+      ) : event.cover_image_url && (
         <>
           <div
             className="fixed inset-[-60px] z-0 bg-cover bg-center"
@@ -167,6 +178,22 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               />
               <span className="text-[15px] font-bold">Ho {theme.minAge ?? 18} anni o più</span>
             </label>
+            {theme.telefono && (
+              <>
+                <input
+                  className="mt-4 h-[54px] w-full rounded-2xl border border-white/15 bg-black/35 px-4 text-[17px] outline-none focus:border-white/60"
+                  placeholder="Numero WhatsApp"
+                  type="tel"
+                  inputMode="tel"
+                  autoComplete="tel"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                />
+                <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">
+                  {event.listName ?? "L'organizzatore"} ti scriverà qui per il pagamento.
+                </p>
+              </>
+            )}
             {submitError && <p className="mt-3 text-sm text-red-400">{submitError}</p>}
           </StepShell>
         )}
@@ -206,8 +233,8 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
                 <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">PAGAMENTO</div>
                 <div className="mt-1 text-[15px] font-bold leading-snug">
-                  {event.listName ? `${event.listName} ti contatterà` : "L'organizzatore ti contatterà"} per completare il
-                  pagamento e ricevere il tuo ingresso.
+                  {event.listName ? `${event.listName} ti ${theme.telefono ? "scriverà su WhatsApp" : "contatterà"}` : `L'organizzatore ti ${theme.telefono ? "scriverà su WhatsApp" : "contatterà"}`}{" "}
+                  per completare il pagamento e ricevere il tuo ingresso.
                 </div>
                 <p className="mt-2 text-[12.5px] leading-relaxed text-white/60">
                   Il pagamento va direttamente all&apos;organizzatore: Crowdia non vende biglietti e non gestisce

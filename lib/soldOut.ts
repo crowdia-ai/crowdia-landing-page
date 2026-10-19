@@ -11,6 +11,8 @@ export const CLOSES_AT: Record<string, string> = {
   "the-opening-10-10": "2026-10-10T18:00:00Z",
   // ATTIQUE afternoon (Camillo, 11/10 17:00): chiude all'inizio dell'evento (Mattia, 10/10)
   "attique-afternoon-11-10": "2026-10-11T15:00:00Z",
+  // THE OTHER SIDE: chiude all'inizio dell'evento, 31/10 23:00 ora italiana
+  "the-other-side-31-10": "2026-10-31T22:00:00Z",
 };
 
 export const isClosedByTime = (slug: string, now = new Date()) =>
