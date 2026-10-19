@@ -59,7 +59,7 @@ export default function PrivacyPolicyPage() {
         <h1 className="font-montserrat text-3xl md:text-4xl font-bold mb-2">
           Privacy Policy
         </h1>
-        <p className="font-inter text-xs text-white/40 mb-10">
+        <p className="font-inter text-xs text-white/60 mb-10">
           Ultimo aggiornamento: {LAST_UPDATED}
         </p>
 
@@ -81,7 +81,7 @@ export default function PrivacyPolicyPage() {
           ))}
         </div>
 
-        <p className="font-inter text-xs text-white/30 mt-16">
+        <p className="font-inter text-xs text-white/50 mt-16">
           Vedi anche{" "}
           <Link href="/" className="underline hover:text-white/60">
             crowdia.ai
