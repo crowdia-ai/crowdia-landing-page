@@ -10,6 +10,8 @@
 // passano dalla nostra pagina). `whatsapp`: numero dell'organizzatore, in formato internazionale senza +.
 // `telefono`: al passo 2 si chiede anche il numero WhatsApp, obbligatorio; Crowdia gira la lista con i contatti
 // agli organizzatori, che scrivono loro per il pagamento (Mattia per Nino, THE OTHER SIDE 19/10).
+// `riserva`: parole «riserva» al posto di «lista», perché l'ingresso si paga prima (Mattia 19/10, scelta A:
+// «Riserva il tuo ingresso» / «Conferma» / «Ingresso riservato», riga «Organizza» invece di «Lista»).
 // `sfondo`: sfondo CSS al posto della locandina sfocata (THE OTHER SIDE: rosso scuro che sfuma al nero).
 export interface PrenotaTheme {
   cta: string;
@@ -22,6 +24,7 @@ export interface PrenotaTheme {
   whatsapp?: string;
   telefono?: boolean;
   sfondo?: string;
+  riserva?: boolean;
 }
 
 const DEFAULT: PrenotaTheme = { cta: "#E30B0B", ctaText: "#FFFFFF" };
@@ -37,7 +40,8 @@ const THEMES: Record<string, PrenotaTheme> = {
     ingresso: "20€ con drink incluso",
     eta: "18+",
     minAge: 18,
-    ctaLabel: "Iscriviti in lista",
+    ctaLabel: "Riserva il tuo ingresso",
+    riserva: true,
     pagamentoOrganizzatore: true,
     telefono: true,
     sfondo: "radial-gradient(120% 70% at 50% 0%, #6B0A0E 0%, #3A0508 38%, #170204 70%, #050001 100%)",

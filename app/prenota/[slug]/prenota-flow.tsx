@@ -138,9 +138,10 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               )}
               {event.listName && (
                 <InfoLine
-                  label="Lista"
+                  label={theme.riserva ? "Organizza" : "Lista"}
                   value={event.listName}
-                  sub="All'ingresso basta dire il nome della lista"
+                  // Contattati dagli organizzatori: non si entra dicendo il nome della lista (Mattia, 19/10).
+                  sub={theme.telefono ? undefined : "All'ingresso basta dire il nome della lista"}
                 />
               )}
               <InfoLine label="Ingresso" value={theme.ingresso ?? priceLabel(event)} sub={theme.ingresso ? undefined : "Nessun pagamento su Crowdia."} />
@@ -190,7 +191,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                   onChange={(e) => setPhone(e.target.value)}
                 />
                 <p className="mt-1.5 text-[13px] leading-relaxed text-white/60">
-                  {event.listName ?? "L'organizzatore"} ti scriverà qui per il pagamento.
+                  Gli organizzatori ti contatteranno qui per darti le modalità di ingresso.
                 </p>
               </>
             )}
@@ -203,9 +204,13 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
             <div className="mx-auto mt-2.5 mb-1.5 grid h-[74px] w-[74px] place-items-center rounded-full border border-white/40 bg-white/[0.08] text-3xl">
               ✓
             </div>
-            <div className="text-[24px] font-black">Ci sei, {firstName.trim()}!</div>
-            <p className="mt-1 text-white/80">Ti abbiamo inserito in lista.</p>
-            {event.listName && (
+            <div className="text-[24px] font-black">
+              {theme.riserva ? `Ingresso riservato, ${firstName.trim()}!` : `Ci sei, ${firstName.trim()}!`}
+            </div>
+            <p className="mt-1 text-white/80">
+              {theme.riserva ? "Abbiamo ricevuto la tua richiesta." : "Ti abbiamo inserito in lista."}
+            </p>
+            {event.listName && !theme.telefono && (
               <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
                 <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">
                   ALL&apos;INGRESSO RICORDATI DI DIRE
@@ -231,10 +236,13 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
             </div>
             {theme.pagamentoOrganizzatore && (
               <div className="mt-4 rounded-[22px] border border-white/15 bg-white/[0.06] p-4 text-left backdrop-blur-xl">
-                <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">PAGAMENTO</div>
+                <div className="text-[11.5px] font-extrabold tracking-wider text-white/60">
+                  {theme.telefono ? "COME ENTRARE" : "PAGAMENTO"}
+                </div>
                 <div className="mt-1 text-[15px] font-bold leading-snug">
-                  {event.listName ? `${event.listName} ti ${theme.telefono ? "scriverà su WhatsApp" : "contatterà"}` : `L'organizzatore ti ${theme.telefono ? "scriverà su WhatsApp" : "contatterà"}`}{" "}
-                  per completare il pagamento e ricevere il tuo ingresso.
+                  {theme.telefono
+                    ? "Gli organizzatori ti contatteranno su WhatsApp per darti le modalità di ingresso."
+                    : `${event.listName ? `${event.listName} ti contatterà` : "L'organizzatore ti contatterà"} per completare il pagamento e ricevere il tuo ingresso.`}
                 </div>
                 <p className="mt-2 text-[12.5px] leading-relaxed text-white/60">
                   Il pagamento va direttamente all&apos;organizzatore: Crowdia non vende biglietti e non gestisce
@@ -254,7 +262,7 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               </div>
             )}
             <p className="mt-5 text-left text-[13px] leading-relaxed text-white/60">
-              L&apos;inserimento in lista non garantisce l&apos;accesso al locale. La proprietà si riserva il
+              {theme.riserva ? "La prenotazione" : "L'inserimento in lista"} non garantisce l&apos;accesso al locale. La proprietà si riserva il
               diritto di effettuare una selezione all&apos;ingresso.
             </p>
             <p className="mt-3 text-left text-[13px] leading-relaxed text-white/60">
@@ -285,14 +293,16 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               ? (theme.ctaLabel ?? "Mettiti in lista")
               : submitting
                 ? "Un attimo…"
-                : "Inseriscimi in lista"}
+                : theme.riserva
+                  ? "Conferma"
+                  : "Inseriscimi in lista"}
           </button>
         </div>
       )}
 
       {event.listName && (
         <footer className="relative z-10 mx-auto max-w-[480px] px-[18px] pb-10 text-center text-[11.5px] leading-relaxed text-white/45">
-          I dati che inserisci servono solo per la lista di questo evento, gestita da {event.listName}, e non
+          I dati che inserisci servono solo per {theme.riserva ? "la prenotazione" : "la lista"} di questo evento, gestita da {event.listName}, e non
           vengono usati per altro.
         </footer>
       )}
