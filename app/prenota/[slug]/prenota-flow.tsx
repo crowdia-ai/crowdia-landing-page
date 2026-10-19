@@ -298,6 +298,17 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
                   ? "Conferma"
                   : "Inseriscimi in lista"}
           </button>
+          {/* Chi ha l'app la apre sullo stesso evento (Mattia, 19/10). Il link e' di app.crowdia.ai:
+              da un altro dominio iPhone e Android lo passano all'app se c'e' (applinks / assetlinks),
+              altrimenti si apre l'evento nella web app. */}
+          {step === "intro" && (
+            <a
+              href={`https://app.crowdia.ai/event/${event.id}`}
+              className="mt-2 flex h-[44px] w-full items-center justify-center rounded-full border border-white/25 bg-[#141418] text-[15px] font-bold text-white"
+            >
+              Apri nell&apos;app
+            </a>
+          )}
         </div>
       )}
 
