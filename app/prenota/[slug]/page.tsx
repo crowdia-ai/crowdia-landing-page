@@ -48,5 +48,24 @@ export default async function PrenotaPage({
     );
   }
 
+  // Slug automatico senza lista (Mattia, 19/10): niente modulo, si va all'evento nell'app (o nella web
+  // app). Il rimando e' nella pagina e non un redirect del server, cosi' WhatsApp legge ancora titolo e
+  // locandina dai meta tag qui sopra e l'anteprima resta quella dell'evento.
+  if (!event.prenotaAttiva) {
+    const target = `https://app.crowdia.ai/event/${event.id}`;
+    return (
+      <main className="flex min-h-screen items-center justify-center bg-[#0a090c] px-6 text-center text-white">
+        <meta httpEquiv="refresh" content={`0;url=${target}`} />
+        <div>
+          <h1 className="text-2xl font-extrabold">{event.title}</h1>
+          <p className="mt-2 text-white/60">Ti portiamo all&apos;evento su Crowdia…</p>
+          <a href={target} className="mt-6 inline-block rounded-full bg-white px-6 py-3 font-bold text-black">
+            Apri l&apos;evento
+          </a>
+        </div>
+      </main>
+    );
+  }
+
   return <PrenotaFlow event={event} slug={slug} soldOut={isSoldOut(slug) || isClosedByTime(slug)} closedLabel={isSoldOut(slug) ? "Sold out" : "Iscrizioni chiuse"} theme={prenotaTheme(slug)} />;
 }
