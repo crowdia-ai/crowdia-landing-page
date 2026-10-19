@@ -83,7 +83,7 @@ export async function POST(request: NextRequest) {
 
     const { data: event, error: eventError } = await supabaseAdmin
       .from('events')
-      .select('id')
+      .select('id, prenota_attiva')
       .eq('prenota_slug', body.slug)
       .maybeSingle();
 
@@ -91,7 +91,8 @@ export async function POST(request: NextRequest) {
       console.error('[prenota] event lookup failed:', eventError);
       return NextResponse.json({ error: 'Si è verificato un errore' }, { status: 500 });
     }
-    if (!event) {
+    // Solo le pagine prenota accese (Mattia, 19/10): gli slug automatici non hanno una lista.
+    if (!event || !event.prenota_attiva) {
       return NextResponse.json({ error: 'Lista non trovata' }, { status: 404 });
     }
 

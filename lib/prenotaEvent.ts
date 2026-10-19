@@ -13,6 +13,8 @@ export interface PrenotaEvent {
   locationName: string | null;
   locationAddress: string | null;
   listName: string | null;
+  /** false = slug automatico, nessuna lista: il sito porta all'evento nell'app (Mattia, 19/10). */
+  prenotaAttiva: boolean;
 }
 
 interface RawEventRow {
@@ -23,6 +25,7 @@ interface RawEventRow {
   event_start_time: string;
   price_free: boolean | null;
   price_from: number | null;
+  prenota_attiva: boolean | null;
   locations: { name: string | null; address: string | null } | { name: string | null; address: string | null }[] | null;
   organizers: { organization_name: string | null } | { organization_name: string | null }[] | null;
 }
@@ -31,7 +34,7 @@ export async function getEventBySlug(slug: string): Promise<PrenotaEvent | null>
   const { data, error } = await supabase
     .from("events")
     .select(
-      "id, title, description, cover_image_url, event_start_time, price_free, price_from, " +
+      "id, title, description, cover_image_url, event_start_time, price_free, price_from, prenota_attiva, " +
         "locations(name, address), organizers!events_organizer_id_fkey(organization_name)"
     )
     .eq("prenota_slug", slug)
@@ -54,6 +57,7 @@ export async function getEventBySlug(slug: string): Promise<PrenotaEvent | null>
     locationName: location?.name ?? null,
     locationAddress: location?.address ?? null,
     listName: organizer?.organization_name ?? null,
+    prenotaAttiva: !!data.prenota_attiva,
   };
 }
 
