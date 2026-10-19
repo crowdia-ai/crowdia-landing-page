@@ -19,7 +19,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://crowdia.app'),
+  metadataBase: new URL('https://www.crowdia.ai'),
   title: "CROWDIA - Scopri la Scena Sociale della Tua Città",
   description:
     "Trasforma il modo in cui scopri e vivi gli eventi nella tua città. CROWDIA è il tuo concierge sociale per la vita notturna, l'intrattenimento e il networking. Unisciti alla lista d'attesa ora.",
@@ -39,29 +39,29 @@ export const metadata: Metadata = {
   authors: [{ name: "CROWDIA" }],
   creator: "CROWDIA",
   publisher: "CROWDIA",
+  // Anteprima dei link generica (Mattia, 19/10): card scura 1200×630 al posto del logo quadrato
+  // che WhatsApp allargava a tutta la bolla. Le pagine /prenota/<slug> hanno la loro.
   openGraph: {
     type: "website",
     locale: "it_IT",
-    url: "https://crowdia.app",
-    title: "CROWDIA - Scopri la Scena Sociale della Tua Città",
-    description:
-      "Il tuo concierge sociale per la vita notturna, l'intrattenimento e il networking. In arrivo presto a Palermo.",
-    siteName: "CROWDIA",
+    url: "/",
+    title: "Crowdia — gli eventi di Palermo",
+    description: "Scopri cosa succede stasera, entra in lista, prenota il tavolo.",
+    siteName: "Crowdia",
     images: [
       {
-        url: "/crowdia-logo-icon-transparent.png",
+        url: "/og-crowdia.png",
         width: 1200,
         height: 630,
-        alt: "CROWDIA Logo",
+        alt: "Crowdia — gli eventi di Palermo, in un posto solo",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "CROWDIA - Scopri la Scena Sociale della Tua Città",
-    description:
-      "Il tuo concierge sociale per la vita notturna, l'intrattenimento e il networking. In arrivo presto.",
-    images: ["/crowdia-logo-icon-transparent.png"],
+    title: "Crowdia — gli eventi di Palermo",
+    description: "Scopri cosa succede stasera, entra in lista, prenota il tavolo.",
+    images: ["/og-crowdia.png"],
   },
   robots: {
     index: true,

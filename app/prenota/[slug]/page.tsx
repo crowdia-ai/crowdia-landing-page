@@ -1,62 +1,28 @@
-import { supabase } from "@/lib/supabase";
+import type { Metadata } from "next";
 import { PrenotaFlow } from "./prenota-flow";
 import { isSoldOut, isClosedByTime } from "@/lib/soldOut";
 import { prenotaTheme } from "@/lib/prenotaTheme";
+import { getEventBySlug, prenotaWhen, prenotaWhere } from "@/lib/prenotaEvent";
 
 export const dynamic = "force-dynamic";
 
-interface PrenotaEvent {
-  id: string;
-  title: string;
-  description: string | null;
-  cover_image_url: string | null;
-  event_start_time: string;
-  price_free: boolean | null;
-  price_from: number | null;
-  locationName: string | null;
-  locationAddress: string | null;
-  listName: string | null;
-}
-
-interface RawEventRow {
-  id: string;
-  title: string;
-  description: string | null;
-  cover_image_url: string | null;
-  event_start_time: string;
-  price_free: boolean | null;
-  price_from: number | null;
-  locations: { name: string | null; address: string | null } | { name: string | null; address: string | null }[] | null;
-  organizers: { organization_name: string | null } | { organization_name: string | null }[] | null;
-}
-
-async function getEventBySlug(slug: string): Promise<PrenotaEvent | null> {
-  const { data, error } = await supabase
-    .from("events")
-    .select(
-      "id, title, description, cover_image_url, event_start_time, price_free, price_from, " +
-        "locations(name, address), organizers!events_organizer_id_fkey(organization_name)"
-    )
-    .eq("prenota_slug", slug)
-    .maybeSingle()
-    .returns<RawEventRow>();
-
-  if (error || !data) return null;
-
-  const location = Array.isArray(data.locations) ? data.locations[0] : data.locations;
-  const organizer = Array.isArray(data.organizers) ? data.organizers[0] : data.organizers;
-
+// Anteprima del link (WhatsApp, Telegram, iMessage): titolo, data e luogo dell'evento al posto
+// della card generica del sito (Mattia, 19/10). L'immagine e' opengraph-image.tsx qui accanto.
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const event = await getEventBySlug(slug);
+  if (!event) return { title: "Lista non trovata · Crowdia" };
+  const title = `${event.title} · ${prenotaWhen(event.event_start_time)}`;
+  const description = [prenotaWhere(event), "Riserva il tuo ingresso su Crowdia"].filter(Boolean).join(" · ");
   return {
-    id: data.id,
-    title: data.title,
-    description: data.description,
-    cover_image_url: data.cover_image_url,
-    event_start_time: data.event_start_time,
-    price_free: data.price_free,
-    price_from: data.price_from,
-    locationName: location?.name ?? null,
-    locationAddress: location?.address ?? null,
-    listName: organizer?.organization_name ?? null,
+    title,
+    description,
+    openGraph: { type: "website", locale: "it_IT", siteName: "Crowdia", url: `/prenota/${slug}`, title, description },
+    twitter: { card: "summary_large_image", title, description },
   };
 }
 
