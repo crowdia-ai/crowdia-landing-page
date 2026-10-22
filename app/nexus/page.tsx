@@ -23,6 +23,7 @@ export const metadata: Metadata = {
       "Intelligenza artificiale al servizio dell'accoglienza. Per Hotel, Taxi e Tour Operator: trasforma ogni ospite in un esploratore locale.",
     type: "website",
   },
+  robots: { index: false, follow: false },
 };
 
 export default function Page() {
