@@ -24,6 +24,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "it_IT",
   },
+  robots: { index: false, follow: false },
 };
 
 export default function Page() {

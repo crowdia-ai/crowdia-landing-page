@@ -102,24 +102,6 @@ export default function Home() {
             >
               Circuito
             </Link>
-            <Link
-              href="/voices"
-              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
-            >
-              Voices
-            </Link>
-            <Link
-              href="/nexus"
-              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
-            >
-              Nexus
-            </Link>
-            <Link
-              href="/istituzionale"
-              className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
-            >
-              Istituzionale
-            </Link>
             <button
               onClick={() => scrollTo("vision")}
               className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50 hover:text-white transition-colors duration-200"
@@ -148,9 +130,6 @@ export default function Home() {
           <div className="lg:hidden bg-zinc-950/95 border-t border-white/5 px-6 py-6 flex flex-col gap-5">
             <Link href="/social" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Esplora</Link>
             <Link href="/circuits" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Circuito</Link>
-            <Link href="/voices" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Voices</Link>
-            <Link href="/nexus" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Nexus</Link>
-            <Link href="/istituzionale" className="text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Istituzionale</Link>
             <button onClick={() => scrollTo("vision")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-white/50">Visione</button>
             <button onClick={() => scrollTo("contact")} className="text-left text-xs font-inter font-semibold tracking-widest uppercase text-magenta-500/80">Contatti</button>
           </div>
