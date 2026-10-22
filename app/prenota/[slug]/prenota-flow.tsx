@@ -234,7 +234,11 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
               ✓
             </div>
             <div className="text-[24px] font-black">
-              {theme.riserva ? "Grazie per averci contattato!" : `Ci sei, ${firstName.trim()}!`}
+              {theme.listaNominativa
+                ? `${firstName.trim()}, sei stato inserito in lista nominativa`
+                : theme.riserva
+                  ? "Grazie per averci contattato!"
+                  : `Ci sei, ${firstName.trim()}!`}
             </div>
             {theme.riserva ? pagamentoBox : <p className="mt-1 text-white/80">Ti abbiamo inserito in lista.</p>}
             {event.listName && !theme.telefono && (
@@ -263,8 +267,12 @@ export function PrenotaFlow({ event, slug, soldOut = false, closedLabel = "Sold 
             </div>
             {!theme.riserva && pagamentoBox}
             <p className="mt-5 text-left text-[13px] leading-relaxed text-white/60">
-              {theme.riserva ? "La prenotazione" : "L'inserimento in lista"} non garantisce l&apos;accesso al locale. La proprietà si riserva il
-              diritto di effettuare una selezione all&apos;ingresso.
+              {theme.disclaimer ?? (
+                <>
+                  {theme.riserva ? "La prenotazione" : "L'inserimento in lista"} non garantisce l&apos;accesso al locale. La proprietà si riserva il
+                  diritto di effettuare una selezione all&apos;ingresso.
+                </>
+              )}
             </p>
             <p className="mt-3 text-left text-[13px] leading-relaxed text-white/60">
               È richiesto un abbigliamento consono e adeguato al contesto del locale. Non saranno ammessi

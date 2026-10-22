@@ -13,6 +13,8 @@
 // `riserva`: parole «riserva» al posto di «lista», perché l'ingresso si paga prima (Mattia 19/10, scelta A:
 // «Riserva il tuo ingresso» / «Conferma» / «Ingresso riservato», riga «PR» invece di «Lista»).
 // `sfondo`: sfondo CSS al posto della locandina sfocata (THE OTHER SIDE: rosso scuro che sfuma al nero).
+// `listaNominativa`: titolo della conferma «<nome>, sei stato inserito in lista nominativa» (Nino 22/10).
+// `disclaimer`: testo che sostituisce il primo paragrafo sotto la conferma (Nino 22/10); il resto resta com'è.
 export interface PrenotaTheme {
   cta: string;
   ctaText: string;
@@ -25,6 +27,8 @@ export interface PrenotaTheme {
   telefono?: boolean;
   sfondo?: string;
   riserva?: boolean;
+  listaNominativa?: boolean;
+  disclaimer?: string;
 }
 
 const DEFAULT: PrenotaTheme = { cta: "#E30B0B", ctaText: "#FFFFFF" };
@@ -40,10 +44,15 @@ const THEMES: Record<string, PrenotaTheme> = {
     ingresso: "20€ con drink incluso",
     eta: "18+",
     minAge: 18,
-    ctaLabel: "Riserva il tuo ingresso",
+    // Nino 22/10: le modalità «riserva + numero WhatsApp + pagamento in privato» non hanno funzionato:
+    // da oggi è una lista semplice, senza numero (Mattia per Nino).
+    ctaLabel: "Inserisciti in lista",
+    // resta «riserva» solo per l'aspetto già approvato (riga PR, tasto Conferma, testo a righe):
+    // niente telefono e niente pagamento, quindi nessuna richiesta di numero né riquadro pagamento.
     riserva: true,
-    pagamentoOrganizzatore: true,
-    telefono: true,
+    listaNominativa: true,
+    disclaimer:
+      "L'inserimento in lista non garantisce l'ingresso, la proprietà si riserva il diritto di selezione all'ingresso. L'ingresso non è consentito ai minori di 18 anni, verrà controllato il documento fisico all'ingresso.",
     sfondo: "radial-gradient(120% 70% at 50% 0%, #6B0A0E 0%, #3A0508 38%, #170204 70%, #050001 100%)",
   },
 };
