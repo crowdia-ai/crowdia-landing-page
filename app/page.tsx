@@ -4,13 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import {
-  Sparkles,
-  Zap,
-  Mic2,
-  Building2,
-  Landmark,
-  ChevronRight,
-  ArrowDown,
+  ArrowRight,
   Instagram,
   Linkedin,
   Menu,
@@ -183,166 +177,18 @@ export default function Home() {
             governance per evolvere Palermo in una Città Social-Smart.
           </p>
 
-          <button
-            onClick={() => scrollTo("gateway")}
+          <a
+            href="https://app.crowdia.ai"
             className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-magenta-500 hover:bg-magenta-400 text-white font-inter font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:shadow-[0_0_30px_rgba(255,0,255,0.3)]"
           >
-            ENTRA NELL&apos;ECOSISTEMA
-            <ArrowDown className="w-4 h-4" />
-          </button>
+            SCOPRI GLI EVENTI
+            <ArrowRight className="w-4 h-4" />
+          </a>
         </div>
       </section>
 
-      {/* ================================================================
-          MODULE C — SELECTION GATEWAY (Bento Ecosystem)
-      ================================================================ */}
-      <section id="gateway" className="py-24 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="text-center mb-16">
-            <p className="text-xs font-inter font-semibold tracking-[0.3em] uppercase text-magenta-500 mb-4">
-              Gateway di Selezione
-            </p>
-            <h2 className="font-montserrat text-3xl md:text-4xl font-bold mb-3">
-              Scegli il tuo Punto di Accesso
-            </h2>
-            <p className="font-inter text-white/40 text-sm max-w-lg mx-auto">
-              Ogni parte dell&apos;ecosistema ha il suo accesso. Seleziona il tuo percorso.
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-            {/* 01 EXPLORE — spans 2 cols */}
-            <Link
-              href="/social"
-              className="group relative lg:col-span-2 min-h-[220px] p-8 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
-              <div className="absolute top-0 left-8 right-8 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-4">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">01</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per chi vive la città</span>
-                </div>
-                <div className="w-10 h-10 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-4">
-                  <Sparkles className="w-5 h-5 text-magenta-400" />
-                </div>
-                <h3 className="font-montserrat text-3xl font-black mb-2">ESPLORA</h3>
-                <p className="font-inter text-sm text-white/50 leading-relaxed max-w-md">
-                  Scopri il battito del territorio. Naviga eventi e luoghi in tempo reale.
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center gap-2 text-magenta-400 text-sm font-inter font-semibold">
-                Entra in città
-                <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </div>
-            </Link>
-
-            {/* 02 VOICES */}
-            <Link
-              href="/voices"
-              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">02</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per i creator</span>
-                </div>
-                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
-                  <Mic2 className="w-4 h-4 text-magenta-400" />
-                </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5">VOICES</h3>
-                <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Diventa il volto dello storytelling urbano. Amplifica la tua influenza nel circuito.
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Amplifica la tua voce
-                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </Link>
-
-            {/* 03 CIRCUITS */}
-            <Link
-              href="/circuits"
-              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">03</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per organizzazioni e Spazi</span>
-                </div>
-                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
-                  <Zap className="w-4 h-4 text-magenta-400" />
-                </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5">CIRCUITO</h3>
-                <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Attiva il tuo nodo. L&apos;infrastruttura per gestire location e pianificare esperienze.
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Entra nel circuito
-                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </Link>
-
-            {/* 04 NEXUS */}
-            <Link
-              href="/nexus"
-              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">04</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per il turismo e il business</span>
-                </div>
-                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
-                  <Building2 className="w-4 h-4 text-magenta-400" />
-                </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5">NEXUS</h3>
-                <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Connetti l&apos;ospitalità. Soluzioni integrate per l&apos;economia locale.
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Connetti i tuoi ospiti
-                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </Link>
-
-            {/* 05 INSTITUTIONAL */}
-            <Link
-              href="/istituzionale"
-              className="group relative min-h-[220px] p-7 rounded-2xl bg-white/[0.03] border border-white/[0.08] hover:border-magenta-500/50 hover:bg-white/[0.06] transition-all duration-300 flex flex-col justify-between overflow-hidden text-left"
-            >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-gradient-to-br from-magenta-500/5 via-transparent to-transparent" />
-              <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-magenta-500/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              <div className="relative z-10">
-                <div className="flex items-start justify-between mb-3">
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.3em] uppercase text-white/25">05</span>
-                  <span className="text-[10px] font-inter font-semibold tracking-[0.2em] uppercase text-white/25">Per le istituzioni</span>
-                </div>
-                <div className="w-9 h-9 rounded-xl bg-magenta-500/10 flex items-center justify-center mb-3">
-                  <Landmark className="w-4 h-4 text-magenta-400" />
-                </div>
-                <h3 className="font-montserrat text-2xl font-black mb-1.5">ISTITUZIONALE</h3>
-                <p className="font-inter text-xs text-white/50 leading-relaxed">
-                  Governa l&apos;innovazione. Dati e strumenti per lo sviluppo della Smart City.
-                </p>
-              </div>
-              <div className="relative z-10 flex items-center gap-1.5 text-magenta-400 text-xs font-inter font-semibold">
-                Vai alla pagina
-                <ChevronRight className="w-3.5 h-3.5 group-hover:translate-x-0.5 transition-transform" />
-              </div>
-            </Link>
-          </div>
-        </div>
-      </section>
+      {/* MODULE C (la griglia «Gateway di Selezione» con Esplora, Voices, Circuito, Nexus, Istituzionale)
+          TOLTA il 26/10 (Mattia: portava a pagine gia' tolte dalla barra). */}
 
       {/* ================================================================
           MODULE D — THE VISION (Social-Smart Manifesto)
@@ -461,12 +307,12 @@ export default function Home() {
             >
               info@crowdia.ai
             </a>
-            <button
-              onClick={() => scrollTo("gateway")}
+            <a
+              href="https://app.crowdia.ai"
               className="inline-flex items-center gap-2 px-8 py-3 rounded-full bg-magenta-500 hover:bg-magenta-400 text-white font-inter font-bold text-sm tracking-widest uppercase transition-all duration-200 hover:shadow-[0_0_20px_rgba(255,0,255,0.25)]"
             >
-              ENTRA NELL&apos;ECOSISTEMA
-            </button>
+              SCOPRI GLI EVENTI
+            </a>
           </div>
 
           <div className="flex items-center justify-center gap-6">
