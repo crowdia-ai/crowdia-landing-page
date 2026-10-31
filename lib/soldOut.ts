@@ -3,7 +3,15 @@
 // Southern 02/10: sold-out chiesto da Mattia per Nino (Palermo's Calling), 02/10 sera.
 export const SOLD_OUT_SLUGS = new Set<string>(["southern-02-10"]);
 
-export const isSoldOut = (slug: string) => SOLD_OUT_SLUGS.has(slug);
+// Sold out a orario (Mattia per Nino, 31/10): da questo istante la pagina dice «Sold out» (non «Iscrizioni chiuse»)
+// e l'API rifiuta. Orari in UTC: 17:00Z = 18:00 ora di Roma (ora solare dal 25/10).
+export const SOLD_OUT_AT: Record<string, string> = {
+  // THE OTHER SIDE (Camillo, 31/10): sold out alle 18:00, chiesto da Nino (Palermo's Calling)
+  "the-other-side-31-10": "2026-10-31T17:00:00Z",
+};
+
+export const isSoldOut = (slug: string, now = new Date()) =>
+  SOLD_OUT_SLUGS.has(slug) || (!!SOLD_OUT_AT[slug] && now >= new Date(SOLD_OUT_AT[slug]));
 
 // Chiusura a orario (Mattia per Nino, 05/10): dopo questo istante la pagina mostra «Iscrizioni chiuse»
 // e l'API rifiuta. Orari in UTC: 18:00Z = 20:00 ora di Roma (ora legale).
