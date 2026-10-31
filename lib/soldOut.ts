@@ -6,8 +6,8 @@ export const SOLD_OUT_SLUGS = new Set<string>(["southern-02-10"]);
 // Sold out a orario (Mattia per Nino, 31/10): da questo istante la pagina dice «Sold out» (non «Iscrizioni chiuse»)
 // e l'API rifiuta. Orari in UTC: 17:00Z = 18:00 ora di Roma (ora solare dal 25/10).
 export const SOLD_OUT_AT: Record<string, string> = {
-  // THE OTHER SIDE (Camillo, 31/10): sold out alle 18:00, chiesto da Nino (Palermo's Calling)
-  "the-other-side-31-10": "2026-10-31T17:00:00Z",
+  // THE OTHER SIDE (Camillo, 31/10): sold out chiesto da Nino (Palermo's Calling)
+  "the-other-side-31-10": "2026-10-31T21:00:00Z", // riaperta alle ~18:50, sold out di nuovo alle 22:00 (Mattia per Nino)
 };
 
 export const isSoldOut = (slug: string, now = new Date()) =>
